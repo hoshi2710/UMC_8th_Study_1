@@ -1,0 +1,46 @@
+import { pool } from "../db.config.js";
+export const addReview = async (data) => {
+  const conn = await pool.getConnection();
+
+  try {
+    const [confirm] = await pool.query(
+      `SELECT EXISTS(SELECT 1 FROM store WHERE id = ?) as isExistStore;`,
+      data.storeId
+    );
+    if (confirm[0].isExistStore == 0) {
+      return null;
+    }
+    const [review] = await pool.query(
+      `INSERT INTO review (user_id,store_id,uploaded_at,star,contents) VALUES (?, ?, ?, ?, ?);`,
+      [data.userId, data.storeId, data.uploadedAt, data.star, data.contents]
+    );
+    const [storeStatus] = await pool.query(
+      `update store_status set reviews_count = reviews_count + 1, star_total = star_total + ? where id = ?`,
+      [data.star, data.storeId]
+    );
+    return review.insertId;
+  } catch (err) {
+    throw new Error(
+      `오류가 발생했어요. 요청 파라미터를 확인해주세요. (${err})`
+    );
+  } finally {
+    conn.release();
+  }
+};
+
+export const getReview = async (reviewId) => {
+  const conn = await pool.getConnection();
+  try {
+    const [review] = await pool.query(
+      `select name,star,contents,uploaded_at from UMC1.store join UMC1.review on review.store_id = store.id where review.id = ?`,
+      reviewId
+    );
+    return review;
+  } catch (err) {
+    throw new Error(
+      `오류가 발생했어요. 요청 파라미터를 확인해주세요. (${err})`
+    );
+  } finally {
+    conn.release();
+  }
+};
