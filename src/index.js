@@ -2,7 +2,10 @@ import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import { handleUserSignUp } from "./controllers/user.controller.js";
-import { handleUploadReview } from "./controllers/review.controller.js";
+import {
+  handleListStoreReviews,
+  handleUploadReview,
+} from "./controllers/review.controller.js";
 import {
   handleCreateMission,
   handleMissionAction,
@@ -27,6 +30,7 @@ app.post("/stores/:storeId/review", handleUploadReview);
 app.post("/stores/:storeId/mission", handleCreateMission);
 app.post("/missions/:missionId/action", handleMissionAction);
 app.post("/stores", handleCreateStore);
+app.get("/stores/:storeId/review", handleListStoreReviews);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

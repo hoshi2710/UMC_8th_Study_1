@@ -1,0 +1,84 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Gender {
+  M
+  F
+}
+
+model Members {
+  id               Int               @id @default(autoincrement())
+  email            String            @unique(map: "email") @db.VarChar(30)
+  name             String            @db.VarChar(10)
+  gender           Gender
+  birth            DateTime          @map("birthday") @db.Date
+  address          String            @db.VarChar(30)
+  phoneNumber      String            @map("phone_no") @db.VarChar(10)
+  membersFoodTypes MembersFoodType[]
+  review           Review[]
+
+  @@map("members")
+}
+
+model MembersFoodType {
+  id         Int @id @default(autoincrement())
+  userId     Int @map("user_id")
+  foodTypeId Int @map("food_type_id")
+
+  members  Members  @relation(fields: [userId], references: [id])
+  foodType FoodType @relation(fields: [foodTypeId], references: [id])
+
+  @@index([userId], map: "user_id")
+  @@index([foodTypeId], map: "food_type_id")
+  @@map("members_food_type")
+}
+
+model FoodType {
+  id               Int               @id @default(autoincrement())
+  name             String            @db.VarChar(10)
+  storeTypeName    String            @map("store_type_name") @db.VarChar(10)
+  membersFoodTypes MembersFoodType[]
+
+  @@map("food_type")
+}
+
+model Review {
+  id         Int      @id @default(autoincrement())
+  userId     Int      @map("user_id")
+  storeId    Int      @map("store_id")
+  uploadedAt DateTime @map("uploaded_at")
+  star       Float
+  contents   String   @db.Text
+
+  members Members @relation(fields: [userId], references: [id])
+  store   Store   @relation(fields: [storeId], references: [id])
+
+  @@map("review")
+}
+
+model Store {
+  id         Int    @id @default(autoincrement())
+  name       String @db.VarChar(30)
+  foodTypeId Int    @map("food_type_id")
+  address    String @db.VarChar(30)
+  openTime   String @map("open_time")
+  closeTime  String @map("close_time")
+  locationId Int    @map("location_id")
+
+  review Review[]
+
+  @@map("store")
+}

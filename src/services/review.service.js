@@ -1,5 +1,12 @@
-import { responseFromReview } from "../dtos/review.dto.js";
-import { addReview, getReview } from "../repositories/review.repository.js";
+import {
+  responseFromReview,
+  responseFromReviewList,
+} from "../dtos/review.dto.js";
+import {
+  addReview,
+  getAllReviews,
+  getReview,
+} from "../repositories/review.repository.js";
 
 export const uploadReview = async (data) => {
   // console.log(data.storeId);
@@ -13,8 +20,11 @@ export const uploadReview = async (data) => {
   if (addedReviewId == null) {
     throw new Error("존재하지 않은 매장 ID 입니다.");
   }
-  console.log(addedReviewId);
   const review = await getReview(addedReviewId);
-  console.log(review);
   return responseFromReview({ review });
+};
+export const getStoreReviews = async (data) => {
+  const review = await getAllReviews(data);
+  // console.log(review);
+  return responseFromReviewList({ review });
 };

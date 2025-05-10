@@ -1,10 +1,12 @@
+import { Gender } from "../generated/prisma/client.js";
+
 export const bodyToUser = (body) => {
   const birth = new Date(body.birth);
-
+  const genderEnum = ["M", "F"];
   return {
     email: body.email,
     name: body.name,
-    gender: body.gender,
+    gender: Gender[genderEnum[body.gender]],
     birth,
     address: body.address || "",
     phoneNumber: body.phoneNumber,
@@ -15,11 +17,11 @@ export const bodyToUser = (body) => {
 export const responseFromUser = (body) => {
   const preferCategory = [];
   for (const preference of body.preferences) {
-    preferCategory.push(preference.name);
+    preferCategory.push(preference.foodType.name);
   }
   return {
-    email: body.user[0].email,
-    name: body.user[0].name,
+    email: body.email,
+    name: body.name,
     preferCategory,
   };
 };
