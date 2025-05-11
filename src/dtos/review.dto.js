@@ -3,7 +3,7 @@ export const bodyToReview = (body, params) => {
 
   return {
     userId: body.userId,
-    storeId: params.storeId,
+    storeId: parseInt(params.storeId),
     star: body.star,
     contents: body.contents,
     uploadedAt,
@@ -12,10 +12,10 @@ export const bodyToReview = (body, params) => {
 
 export const responseFromReview = (body) => {
   return {
-    storeName: body.review[0].name,
-    star: body.review[0].star,
-    contents: body.review[0].contents,
-    uploadedAt: body.review[0].uploaded_at,
+    storeName: body.review.store.name,
+    star: body.review.star,
+    contents: body.review.contents,
+    uploadedAt: body.review.uploadedAt,
   };
 };
 
@@ -55,5 +55,11 @@ export const responseFromReviewList = (body) => {
     pagination: {
       cursor: data.length ? data[data.length - 1].id : null,
     },
+  };
+};
+export const bodyToMyReviewList = (body, query) => {
+  return {
+    userId: body.userId,
+    cursor: typeof query.cursor === "string" ? parseInt(query.cursor) : 0,
   };
 };

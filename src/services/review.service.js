@@ -6,6 +6,7 @@ import {
   addReview,
   getAllReviews,
   getReview,
+  getAllMyReviews,
 } from "../repositories/review.repository.js";
 
 export const uploadReview = async (data) => {
@@ -26,5 +27,9 @@ export const uploadReview = async (data) => {
 export const getStoreReviews = async (data) => {
   const review = await getAllReviews(data);
   // console.log(review);
+  return responseFromReviewList({ review });
+};
+export const getMyReviews = async (data) => {
+  const review = await getAllMyReviews(data);
   return responseFromReviewList({ review });
 };

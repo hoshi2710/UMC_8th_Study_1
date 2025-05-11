@@ -161,6 +161,42 @@ exports.Prisma.StoreScalarFieldEnum = {
   locationId: 'locationId'
 };
 
+exports.Prisma.LocationsScalarFieldEnum = {
+  id: 'id',
+  name: 'name'
+};
+
+exports.Prisma.StoreStatusScalarFieldEnum = {
+  id: 'id',
+  storeId: 'storeId',
+  reviewsCount: 'reviewsCount',
+  starTotal: 'starTotal'
+};
+
+exports.Prisma.MissionsScalarFieldEnum = {
+  id: 'id',
+  storeId: 'storeId',
+  goal: 'goal',
+  rewards: 'rewards',
+  expireDate: 'expireDate',
+  locationId: 'locationId'
+};
+
+exports.Prisma.AcceptedMissionsScalarFieldEnum = {
+  id: 'id',
+  missionId: 'missionId',
+  userId: 'userId',
+  verificationCode: 'verificationCode',
+  completedAt: 'completedAt'
+};
+
+exports.Prisma.CompletedMissionsScalarFieldEnum = {
+  id: 'id',
+  missionId: 'missionId',
+  userId: 'userId',
+  completedAt: 'completedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -188,6 +224,19 @@ exports.Prisma.StoreOrderByRelevanceFieldEnum = {
   openTime: 'openTime',
   closeTime: 'closeTime'
 };
+
+exports.Prisma.LocationsOrderByRelevanceFieldEnum = {
+  name: 'name'
+};
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
+exports.Prisma.AcceptedMissionsOrderByRelevanceFieldEnum = {
+  verificationCode: 'verificationCode'
+};
 exports.Gender = exports.$Enums.Gender = {
   M: 'M',
   F: 'F'
@@ -198,7 +247,12 @@ exports.Prisma.ModelName = {
   MembersFoodType: 'MembersFoodType',
   FoodType: 'FoodType',
   Review: 'Review',
-  Store: 'Store'
+  Store: 'Store',
+  Locations: 'Locations',
+  StoreStatus: 'StoreStatus',
+  Missions: 'Missions',
+  AcceptedMissions: 'AcceptedMissions',
+  CompletedMissions: 'CompletedMissions'
 };
 
 /**

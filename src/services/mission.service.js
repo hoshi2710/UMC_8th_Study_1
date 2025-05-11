@@ -1,11 +1,17 @@
 import {
   responseFromMission,
   responseFromMissionRequest,
+  responseFromOngoingMissionsRequest,
+  responseFromStoreMissionsRequest,
 } from "../dtos/mission.dto.js";
 import {
   addMission,
+  completeMission,
+  getCompletedMission,
   getMission,
+  getMissionsByStoreId,
   getOnGoingMission,
+  getOngoingMissionsByUserId,
   startMission,
 } from "../repositories/mission.repository.js";
 
@@ -24,7 +30,7 @@ export const createMission = async (data) => {
 };
 
 export const doMissionAction = async (data) => {
-  console.log(data);
+  // console.log(data);
   if (data.action == "start") {
     const verificationCode = [];
     for (let i = 0; i < 9; i += 1) {
@@ -34,6 +40,7 @@ export const doMissionAction = async (data) => {
       missionId: data.missionId,
       userId: data.userId,
       verificationCode: verificationCode.join(""),
+      completedAt: null,
     });
     if (startedMissionId == null) {
       throw new Error("존재하지 않는 미션 입니다.");
@@ -42,5 +49,34 @@ export const doMissionAction = async (data) => {
     console.log(mission);
     return responseFromMissionRequest({ mission });
   }
-  // 미션 완료 등 미션에 대한 추가 작업을 이부분에 추가
+  if (data.action == "complete") {
+    const completedId = await completeMission(data);
+    if (completedId == -1) {
+      throw new Error("존재하지 않는 미션이나 사용자 입니다.");
+    }
+    if (completedId == -2) {
+      throw new Error("잘못된 인증 번호 입니다.");
+    }
+    if (completedId == -3) {
+      throw new Error("이미 완료처리된 미션 입니다.");
+    }
+    const mission = await getCompletedMission(completedId);
+    return responseFromMissionRequest({ mission });
+  }
+};
+
+export const getMissionsOfStore = async (data) => {
+  const missions = await getMissionsByStoreId(data);
+  if (missions == null) {
+    throw new Error("존재하지 않는 스토어 입니다.");
+  }
+  return responseFromStoreMissionsRequest({ missions });
+};
+
+export const getOngoingMissionsOfUser = async (data) => {
+  const missions = await getOngoingMissionsByUserId(data);
+  if (missions == null) {
+    throw new Error("존재하지 않는 사용자 입니다.");
+  }
+  return responseFromOngoingMissionsRequest({ missions });
 };

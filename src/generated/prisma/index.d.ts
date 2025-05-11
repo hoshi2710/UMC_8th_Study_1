@@ -38,6 +38,31 @@ export type Review = $Result.DefaultSelection<Prisma.$ReviewPayload>
  * 
  */
 export type Store = $Result.DefaultSelection<Prisma.$StorePayload>
+/**
+ * Model Locations
+ * 
+ */
+export type Locations = $Result.DefaultSelection<Prisma.$LocationsPayload>
+/**
+ * Model StoreStatus
+ * 
+ */
+export type StoreStatus = $Result.DefaultSelection<Prisma.$StoreStatusPayload>
+/**
+ * Model Missions
+ * 
+ */
+export type Missions = $Result.DefaultSelection<Prisma.$MissionsPayload>
+/**
+ * Model AcceptedMissions
+ * 
+ */
+export type AcceptedMissions = $Result.DefaultSelection<Prisma.$AcceptedMissionsPayload>
+/**
+ * Model CompletedMissions
+ * 
+ */
+export type CompletedMissions = $Result.DefaultSelection<Prisma.$CompletedMissionsPayload>
 
 /**
  * Enums
@@ -230,6 +255,56 @@ export class PrismaClient<
     * ```
     */
   get store(): Prisma.StoreDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.locations`: Exposes CRUD operations for the **Locations** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Locations
+    * const locations = await prisma.locations.findMany()
+    * ```
+    */
+  get locations(): Prisma.LocationsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.storeStatus`: Exposes CRUD operations for the **StoreStatus** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more StoreStatuses
+    * const storeStatuses = await prisma.storeStatus.findMany()
+    * ```
+    */
+  get storeStatus(): Prisma.StoreStatusDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.missions`: Exposes CRUD operations for the **Missions** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Missions
+    * const missions = await prisma.missions.findMany()
+    * ```
+    */
+  get missions(): Prisma.MissionsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.acceptedMissions`: Exposes CRUD operations for the **AcceptedMissions** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AcceptedMissions
+    * const acceptedMissions = await prisma.acceptedMissions.findMany()
+    * ```
+    */
+  get acceptedMissions(): Prisma.AcceptedMissionsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.completedMissions`: Exposes CRUD operations for the **CompletedMissions** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CompletedMissions
+    * const completedMissions = await prisma.completedMissions.findMany()
+    * ```
+    */
+  get completedMissions(): Prisma.CompletedMissionsDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -674,7 +749,12 @@ export namespace Prisma {
     MembersFoodType: 'MembersFoodType',
     FoodType: 'FoodType',
     Review: 'Review',
-    Store: 'Store'
+    Store: 'Store',
+    Locations: 'Locations',
+    StoreStatus: 'StoreStatus',
+    Missions: 'Missions',
+    AcceptedMissions: 'AcceptedMissions',
+    CompletedMissions: 'CompletedMissions'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -693,7 +773,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "members" | "membersFoodType" | "foodType" | "review" | "store"
+      modelProps: "members" | "membersFoodType" | "foodType" | "review" | "store" | "locations" | "storeStatus" | "missions" | "acceptedMissions" | "completedMissions"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1027,6 +1107,336 @@ export namespace Prisma {
           }
         }
       }
+      Locations: {
+        payload: Prisma.$LocationsPayload<ExtArgs>
+        fields: Prisma.LocationsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LocationsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocationsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LocationsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocationsPayload>
+          }
+          findFirst: {
+            args: Prisma.LocationsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocationsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LocationsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocationsPayload>
+          }
+          findMany: {
+            args: Prisma.LocationsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocationsPayload>[]
+          }
+          create: {
+            args: Prisma.LocationsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocationsPayload>
+          }
+          createMany: {
+            args: Prisma.LocationsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.LocationsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocationsPayload>
+          }
+          update: {
+            args: Prisma.LocationsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocationsPayload>
+          }
+          deleteMany: {
+            args: Prisma.LocationsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LocationsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.LocationsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocationsPayload>
+          }
+          aggregate: {
+            args: Prisma.LocationsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLocations>
+          }
+          groupBy: {
+            args: Prisma.LocationsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LocationsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LocationsCountArgs<ExtArgs>
+            result: $Utils.Optional<LocationsCountAggregateOutputType> | number
+          }
+        }
+      }
+      StoreStatus: {
+        payload: Prisma.$StoreStatusPayload<ExtArgs>
+        fields: Prisma.StoreStatusFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.StoreStatusFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StoreStatusPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.StoreStatusFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StoreStatusPayload>
+          }
+          findFirst: {
+            args: Prisma.StoreStatusFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StoreStatusPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.StoreStatusFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StoreStatusPayload>
+          }
+          findMany: {
+            args: Prisma.StoreStatusFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StoreStatusPayload>[]
+          }
+          create: {
+            args: Prisma.StoreStatusCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StoreStatusPayload>
+          }
+          createMany: {
+            args: Prisma.StoreStatusCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.StoreStatusDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StoreStatusPayload>
+          }
+          update: {
+            args: Prisma.StoreStatusUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StoreStatusPayload>
+          }
+          deleteMany: {
+            args: Prisma.StoreStatusDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.StoreStatusUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.StoreStatusUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StoreStatusPayload>
+          }
+          aggregate: {
+            args: Prisma.StoreStatusAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateStoreStatus>
+          }
+          groupBy: {
+            args: Prisma.StoreStatusGroupByArgs<ExtArgs>
+            result: $Utils.Optional<StoreStatusGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.StoreStatusCountArgs<ExtArgs>
+            result: $Utils.Optional<StoreStatusCountAggregateOutputType> | number
+          }
+        }
+      }
+      Missions: {
+        payload: Prisma.$MissionsPayload<ExtArgs>
+        fields: Prisma.MissionsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MissionsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MissionsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MissionsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MissionsPayload>
+          }
+          findFirst: {
+            args: Prisma.MissionsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MissionsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MissionsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MissionsPayload>
+          }
+          findMany: {
+            args: Prisma.MissionsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MissionsPayload>[]
+          }
+          create: {
+            args: Prisma.MissionsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MissionsPayload>
+          }
+          createMany: {
+            args: Prisma.MissionsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.MissionsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MissionsPayload>
+          }
+          update: {
+            args: Prisma.MissionsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MissionsPayload>
+          }
+          deleteMany: {
+            args: Prisma.MissionsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MissionsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.MissionsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MissionsPayload>
+          }
+          aggregate: {
+            args: Prisma.MissionsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMissions>
+          }
+          groupBy: {
+            args: Prisma.MissionsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MissionsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MissionsCountArgs<ExtArgs>
+            result: $Utils.Optional<MissionsCountAggregateOutputType> | number
+          }
+        }
+      }
+      AcceptedMissions: {
+        payload: Prisma.$AcceptedMissionsPayload<ExtArgs>
+        fields: Prisma.AcceptedMissionsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AcceptedMissionsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcceptedMissionsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AcceptedMissionsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcceptedMissionsPayload>
+          }
+          findFirst: {
+            args: Prisma.AcceptedMissionsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcceptedMissionsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AcceptedMissionsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcceptedMissionsPayload>
+          }
+          findMany: {
+            args: Prisma.AcceptedMissionsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcceptedMissionsPayload>[]
+          }
+          create: {
+            args: Prisma.AcceptedMissionsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcceptedMissionsPayload>
+          }
+          createMany: {
+            args: Prisma.AcceptedMissionsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.AcceptedMissionsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcceptedMissionsPayload>
+          }
+          update: {
+            args: Prisma.AcceptedMissionsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcceptedMissionsPayload>
+          }
+          deleteMany: {
+            args: Prisma.AcceptedMissionsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AcceptedMissionsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.AcceptedMissionsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcceptedMissionsPayload>
+          }
+          aggregate: {
+            args: Prisma.AcceptedMissionsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAcceptedMissions>
+          }
+          groupBy: {
+            args: Prisma.AcceptedMissionsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AcceptedMissionsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AcceptedMissionsCountArgs<ExtArgs>
+            result: $Utils.Optional<AcceptedMissionsCountAggregateOutputType> | number
+          }
+        }
+      }
+      CompletedMissions: {
+        payload: Prisma.$CompletedMissionsPayload<ExtArgs>
+        fields: Prisma.CompletedMissionsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CompletedMissionsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CompletedMissionsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CompletedMissionsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CompletedMissionsPayload>
+          }
+          findFirst: {
+            args: Prisma.CompletedMissionsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CompletedMissionsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CompletedMissionsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CompletedMissionsPayload>
+          }
+          findMany: {
+            args: Prisma.CompletedMissionsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CompletedMissionsPayload>[]
+          }
+          create: {
+            args: Prisma.CompletedMissionsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CompletedMissionsPayload>
+          }
+          createMany: {
+            args: Prisma.CompletedMissionsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.CompletedMissionsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CompletedMissionsPayload>
+          }
+          update: {
+            args: Prisma.CompletedMissionsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CompletedMissionsPayload>
+          }
+          deleteMany: {
+            args: Prisma.CompletedMissionsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CompletedMissionsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.CompletedMissionsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CompletedMissionsPayload>
+          }
+          aggregate: {
+            args: Prisma.CompletedMissionsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCompletedMissions>
+          }
+          groupBy: {
+            args: Prisma.CompletedMissionsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CompletedMissionsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CompletedMissionsCountArgs<ExtArgs>
+            result: $Utils.Optional<CompletedMissionsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1116,6 +1526,11 @@ export namespace Prisma {
     foodType?: FoodTypeOmit
     review?: ReviewOmit
     store?: StoreOmit
+    locations?: LocationsOmit
+    storeStatus?: StoreStatusOmit
+    missions?: MissionsOmit
+    acceptedMissions?: AcceptedMissionsOmit
+    completedMissions?: CompletedMissionsOmit
   }
 
   /* Types for Logging */
@@ -1211,11 +1626,15 @@ export namespace Prisma {
 
   export type MembersCountOutputType = {
     membersFoodTypes: number
+    acceptedMissions: number
+    completedMissions: number
     review: number
   }
 
   export type MembersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     membersFoodTypes?: boolean | MembersCountOutputTypeCountMembersFoodTypesArgs
+    acceptedMissions?: boolean | MembersCountOutputTypeCountAcceptedMissionsArgs
+    completedMissions?: boolean | MembersCountOutputTypeCountCompletedMissionsArgs
     review?: boolean | MembersCountOutputTypeCountReviewArgs
   }
 
@@ -1240,6 +1659,20 @@ export namespace Prisma {
   /**
    * MembersCountOutputType without action
    */
+  export type MembersCountOutputTypeCountAcceptedMissionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AcceptedMissionsWhereInput
+  }
+
+  /**
+   * MembersCountOutputType without action
+   */
+  export type MembersCountOutputTypeCountCompletedMissionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CompletedMissionsWhereInput
+  }
+
+  /**
+   * MembersCountOutputType without action
+   */
   export type MembersCountOutputTypeCountReviewArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ReviewWhereInput
   }
@@ -1251,10 +1684,12 @@ export namespace Prisma {
 
   export type FoodTypeCountOutputType = {
     membersFoodTypes: number
+    store: number
   }
 
   export type FoodTypeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     membersFoodTypes?: boolean | FoodTypeCountOutputTypeCountMembersFoodTypesArgs
+    store?: boolean | FoodTypeCountOutputTypeCountStoreArgs
   }
 
   // Custom InputTypes
@@ -1275,6 +1710,13 @@ export namespace Prisma {
     where?: MembersFoodTypeWhereInput
   }
 
+  /**
+   * FoodTypeCountOutputType without action
+   */
+  export type FoodTypeCountOutputTypeCountStoreArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: StoreWhereInput
+  }
+
 
   /**
    * Count Type StoreCountOutputType
@@ -1282,10 +1724,14 @@ export namespace Prisma {
 
   export type StoreCountOutputType = {
     review: number
+    storeStatus: number
+    missions: number
   }
 
   export type StoreCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     review?: boolean | StoreCountOutputTypeCountReviewArgs
+    storeStatus?: boolean | StoreCountOutputTypeCountStoreStatusArgs
+    missions?: boolean | StoreCountOutputTypeCountMissionsArgs
   }
 
   // Custom InputTypes
@@ -1304,6 +1750,100 @@ export namespace Prisma {
    */
   export type StoreCountOutputTypeCountReviewArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ReviewWhereInput
+  }
+
+  /**
+   * StoreCountOutputType without action
+   */
+  export type StoreCountOutputTypeCountStoreStatusArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: StoreStatusWhereInput
+  }
+
+  /**
+   * StoreCountOutputType without action
+   */
+  export type StoreCountOutputTypeCountMissionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MissionsWhereInput
+  }
+
+
+  /**
+   * Count Type LocationsCountOutputType
+   */
+
+  export type LocationsCountOutputType = {
+    store: number
+    missions: number
+  }
+
+  export type LocationsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    store?: boolean | LocationsCountOutputTypeCountStoreArgs
+    missions?: boolean | LocationsCountOutputTypeCountMissionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * LocationsCountOutputType without action
+   */
+  export type LocationsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LocationsCountOutputType
+     */
+    select?: LocationsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * LocationsCountOutputType without action
+   */
+  export type LocationsCountOutputTypeCountStoreArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: StoreWhereInput
+  }
+
+  /**
+   * LocationsCountOutputType without action
+   */
+  export type LocationsCountOutputTypeCountMissionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MissionsWhereInput
+  }
+
+
+  /**
+   * Count Type MissionsCountOutputType
+   */
+
+  export type MissionsCountOutputType = {
+    acceptedMissions: number
+    completedMissions: number
+  }
+
+  export type MissionsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    acceptedMissions?: boolean | MissionsCountOutputTypeCountAcceptedMissionsArgs
+    completedMissions?: boolean | MissionsCountOutputTypeCountCompletedMissionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * MissionsCountOutputType without action
+   */
+  export type MissionsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MissionsCountOutputType
+     */
+    select?: MissionsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * MissionsCountOutputType without action
+   */
+  export type MissionsCountOutputTypeCountAcceptedMissionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AcceptedMissionsWhereInput
+  }
+
+  /**
+   * MissionsCountOutputType without action
+   */
+  export type MissionsCountOutputTypeCountCompletedMissionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CompletedMissionsWhereInput
   }
 
 
@@ -1526,6 +2066,8 @@ export namespace Prisma {
     address?: boolean
     phoneNumber?: boolean
     membersFoodTypes?: boolean | Members$membersFoodTypesArgs<ExtArgs>
+    acceptedMissions?: boolean | Members$acceptedMissionsArgs<ExtArgs>
+    completedMissions?: boolean | Members$completedMissionsArgs<ExtArgs>
     review?: boolean | Members$reviewArgs<ExtArgs>
     _count?: boolean | MembersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["members"]>
@@ -1545,6 +2087,8 @@ export namespace Prisma {
   export type MembersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name" | "gender" | "birth" | "address" | "phoneNumber", ExtArgs["result"]["members"]>
   export type MembersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     membersFoodTypes?: boolean | Members$membersFoodTypesArgs<ExtArgs>
+    acceptedMissions?: boolean | Members$acceptedMissionsArgs<ExtArgs>
+    completedMissions?: boolean | Members$completedMissionsArgs<ExtArgs>
     review?: boolean | Members$reviewArgs<ExtArgs>
     _count?: boolean | MembersCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -1553,6 +2097,8 @@ export namespace Prisma {
     name: "Members"
     objects: {
       membersFoodTypes: Prisma.$MembersFoodTypePayload<ExtArgs>[]
+      acceptedMissions: Prisma.$AcceptedMissionsPayload<ExtArgs>[]
+      completedMissions: Prisma.$CompletedMissionsPayload<ExtArgs>[]
       review: Prisma.$ReviewPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -1904,6 +2450,8 @@ export namespace Prisma {
   export interface Prisma__MembersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     membersFoodTypes<T extends Members$membersFoodTypesArgs<ExtArgs> = {}>(args?: Subset<T, Members$membersFoodTypesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MembersFoodTypePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    acceptedMissions<T extends Members$acceptedMissionsArgs<ExtArgs> = {}>(args?: Subset<T, Members$acceptedMissionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AcceptedMissionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    completedMissions<T extends Members$completedMissionsArgs<ExtArgs> = {}>(args?: Subset<T, Members$completedMissionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CompletedMissionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     review<T extends Members$reviewArgs<ExtArgs> = {}>(args?: Subset<T, Members$reviewArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2305,6 +2853,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: MembersFoodTypeScalarFieldEnum | MembersFoodTypeScalarFieldEnum[]
+  }
+
+  /**
+   * Members.acceptedMissions
+   */
+  export type Members$acceptedMissionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AcceptedMissions
+     */
+    select?: AcceptedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AcceptedMissions
+     */
+    omit?: AcceptedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AcceptedMissionsInclude<ExtArgs> | null
+    where?: AcceptedMissionsWhereInput
+    orderBy?: AcceptedMissionsOrderByWithRelationInput | AcceptedMissionsOrderByWithRelationInput[]
+    cursor?: AcceptedMissionsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AcceptedMissionsScalarFieldEnum | AcceptedMissionsScalarFieldEnum[]
+  }
+
+  /**
+   * Members.completedMissions
+   */
+  export type Members$completedMissionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CompletedMissions
+     */
+    select?: CompletedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CompletedMissions
+     */
+    omit?: CompletedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CompletedMissionsInclude<ExtArgs> | null
+    where?: CompletedMissionsWhereInput
+    orderBy?: CompletedMissionsOrderByWithRelationInput | CompletedMissionsOrderByWithRelationInput[]
+    cursor?: CompletedMissionsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CompletedMissionsScalarFieldEnum | CompletedMissionsScalarFieldEnum[]
   }
 
   /**
@@ -3486,6 +4082,7 @@ export namespace Prisma {
     name?: boolean
     storeTypeName?: boolean
     membersFoodTypes?: boolean | FoodType$membersFoodTypesArgs<ExtArgs>
+    store?: boolean | FoodType$storeArgs<ExtArgs>
     _count?: boolean | FoodTypeCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["foodType"]>
 
@@ -3500,6 +4097,7 @@ export namespace Prisma {
   export type FoodTypeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "storeTypeName", ExtArgs["result"]["foodType"]>
   export type FoodTypeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     membersFoodTypes?: boolean | FoodType$membersFoodTypesArgs<ExtArgs>
+    store?: boolean | FoodType$storeArgs<ExtArgs>
     _count?: boolean | FoodTypeCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -3507,6 +4105,7 @@ export namespace Prisma {
     name: "FoodType"
     objects: {
       membersFoodTypes: Prisma.$MembersFoodTypePayload<ExtArgs>[]
+      store: Prisma.$StorePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -3853,6 +4452,7 @@ export namespace Prisma {
   export interface Prisma__FoodTypeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     membersFoodTypes<T extends FoodType$membersFoodTypesArgs<ExtArgs> = {}>(args?: Subset<T, FoodType$membersFoodTypesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MembersFoodTypePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    store<T extends FoodType$storeArgs<ExtArgs> = {}>(args?: Subset<T, FoodType$storeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StorePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4249,6 +4849,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: MembersFoodTypeScalarFieldEnum | MembersFoodTypeScalarFieldEnum[]
+  }
+
+  /**
+   * FoodType.store
+   */
+  export type FoodType$storeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Store
+     */
+    select?: StoreSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Store
+     */
+    omit?: StoreOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StoreInclude<ExtArgs> | null
+    where?: StoreWhereInput
+    orderBy?: StoreOrderByWithRelationInput | StoreOrderByWithRelationInput[]
+    cursor?: StoreWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: StoreScalarFieldEnum | StoreScalarFieldEnum[]
   }
 
   /**
@@ -5483,6 +6107,10 @@ export namespace Prisma {
     closeTime?: boolean
     locationId?: boolean
     review?: boolean | Store$reviewArgs<ExtArgs>
+    storeStatus?: boolean | Store$storeStatusArgs<ExtArgs>
+    missions?: boolean | Store$missionsArgs<ExtArgs>
+    foodType?: boolean | FoodTypeDefaultArgs<ExtArgs>
+    locations?: boolean | LocationsDefaultArgs<ExtArgs>
     _count?: boolean | StoreCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["store"]>
 
@@ -5501,6 +6129,10 @@ export namespace Prisma {
   export type StoreOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "foodTypeId" | "address" | "openTime" | "closeTime" | "locationId", ExtArgs["result"]["store"]>
   export type StoreInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     review?: boolean | Store$reviewArgs<ExtArgs>
+    storeStatus?: boolean | Store$storeStatusArgs<ExtArgs>
+    missions?: boolean | Store$missionsArgs<ExtArgs>
+    foodType?: boolean | FoodTypeDefaultArgs<ExtArgs>
+    locations?: boolean | LocationsDefaultArgs<ExtArgs>
     _count?: boolean | StoreCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -5508,6 +6140,10 @@ export namespace Prisma {
     name: "Store"
     objects: {
       review: Prisma.$ReviewPayload<ExtArgs>[]
+      storeStatus: Prisma.$StoreStatusPayload<ExtArgs>[]
+      missions: Prisma.$MissionsPayload<ExtArgs>[]
+      foodType: Prisma.$FoodTypePayload<ExtArgs>
+      locations: Prisma.$LocationsPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -5858,6 +6494,10 @@ export namespace Prisma {
   export interface Prisma__StoreClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     review<T extends Store$reviewArgs<ExtArgs> = {}>(args?: Subset<T, Store$reviewArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    storeStatus<T extends Store$storeStatusArgs<ExtArgs> = {}>(args?: Subset<T, Store$storeStatusArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StoreStatusPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    missions<T extends Store$missionsArgs<ExtArgs> = {}>(args?: Subset<T, Store$missionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MissionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    foodType<T extends FoodTypeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FoodTypeDefaultArgs<ExtArgs>>): Prisma__FoodTypeClient<$Result.GetResult<Prisma.$FoodTypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    locations<T extends LocationsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocationsDefaultArgs<ExtArgs>>): Prisma__LocationsClient<$Result.GetResult<Prisma.$LocationsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6261,6 +6901,54 @@ export namespace Prisma {
   }
 
   /**
+   * Store.storeStatus
+   */
+  export type Store$storeStatusArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StoreStatus
+     */
+    select?: StoreStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StoreStatus
+     */
+    omit?: StoreStatusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StoreStatusInclude<ExtArgs> | null
+    where?: StoreStatusWhereInput
+    orderBy?: StoreStatusOrderByWithRelationInput | StoreStatusOrderByWithRelationInput[]
+    cursor?: StoreStatusWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: StoreStatusScalarFieldEnum | StoreStatusScalarFieldEnum[]
+  }
+
+  /**
+   * Store.missions
+   */
+  export type Store$missionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Missions
+     */
+    select?: MissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Missions
+     */
+    omit?: MissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MissionsInclude<ExtArgs> | null
+    where?: MissionsWhereInput
+    orderBy?: MissionsOrderByWithRelationInput | MissionsOrderByWithRelationInput[]
+    cursor?: MissionsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MissionsScalarFieldEnum | MissionsScalarFieldEnum[]
+  }
+
+  /**
    * Store without action
    */
   export type StoreDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6276,6 +6964,4945 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: StoreInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Locations
+   */
+
+  export type AggregateLocations = {
+    _count: LocationsCountAggregateOutputType | null
+    _avg: LocationsAvgAggregateOutputType | null
+    _sum: LocationsSumAggregateOutputType | null
+    _min: LocationsMinAggregateOutputType | null
+    _max: LocationsMaxAggregateOutputType | null
+  }
+
+  export type LocationsAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type LocationsSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type LocationsMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+  }
+
+  export type LocationsMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+  }
+
+  export type LocationsCountAggregateOutputType = {
+    id: number
+    name: number
+    _all: number
+  }
+
+
+  export type LocationsAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type LocationsSumAggregateInputType = {
+    id?: true
+  }
+
+  export type LocationsMinAggregateInputType = {
+    id?: true
+    name?: true
+  }
+
+  export type LocationsMaxAggregateInputType = {
+    id?: true
+    name?: true
+  }
+
+  export type LocationsCountAggregateInputType = {
+    id?: true
+    name?: true
+    _all?: true
+  }
+
+  export type LocationsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Locations to aggregate.
+     */
+    where?: LocationsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Locations to fetch.
+     */
+    orderBy?: LocationsOrderByWithRelationInput | LocationsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LocationsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Locations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Locations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Locations
+    **/
+    _count?: true | LocationsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LocationsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LocationsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LocationsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LocationsMaxAggregateInputType
+  }
+
+  export type GetLocationsAggregateType<T extends LocationsAggregateArgs> = {
+        [P in keyof T & keyof AggregateLocations]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLocations[P]>
+      : GetScalarType<T[P], AggregateLocations[P]>
+  }
+
+
+
+
+  export type LocationsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LocationsWhereInput
+    orderBy?: LocationsOrderByWithAggregationInput | LocationsOrderByWithAggregationInput[]
+    by: LocationsScalarFieldEnum[] | LocationsScalarFieldEnum
+    having?: LocationsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LocationsCountAggregateInputType | true
+    _avg?: LocationsAvgAggregateInputType
+    _sum?: LocationsSumAggregateInputType
+    _min?: LocationsMinAggregateInputType
+    _max?: LocationsMaxAggregateInputType
+  }
+
+  export type LocationsGroupByOutputType = {
+    id: number
+    name: string
+    _count: LocationsCountAggregateOutputType | null
+    _avg: LocationsAvgAggregateOutputType | null
+    _sum: LocationsSumAggregateOutputType | null
+    _min: LocationsMinAggregateOutputType | null
+    _max: LocationsMaxAggregateOutputType | null
+  }
+
+  type GetLocationsGroupByPayload<T extends LocationsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LocationsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LocationsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LocationsGroupByOutputType[P]>
+            : GetScalarType<T[P], LocationsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LocationsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    store?: boolean | Locations$storeArgs<ExtArgs>
+    missions?: boolean | Locations$missionsArgs<ExtArgs>
+    _count?: boolean | LocationsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["locations"]>
+
+
+
+  export type LocationsSelectScalar = {
+    id?: boolean
+    name?: boolean
+  }
+
+  export type LocationsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name", ExtArgs["result"]["locations"]>
+  export type LocationsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    store?: boolean | Locations$storeArgs<ExtArgs>
+    missions?: boolean | Locations$missionsArgs<ExtArgs>
+    _count?: boolean | LocationsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $LocationsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Locations"
+    objects: {
+      store: Prisma.$StorePayload<ExtArgs>[]
+      missions: Prisma.$MissionsPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+    }, ExtArgs["result"]["locations"]>
+    composites: {}
+  }
+
+  type LocationsGetPayload<S extends boolean | null | undefined | LocationsDefaultArgs> = $Result.GetResult<Prisma.$LocationsPayload, S>
+
+  type LocationsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LocationsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LocationsCountAggregateInputType | true
+    }
+
+  export interface LocationsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Locations'], meta: { name: 'Locations' } }
+    /**
+     * Find zero or one Locations that matches the filter.
+     * @param {LocationsFindUniqueArgs} args - Arguments to find a Locations
+     * @example
+     * // Get one Locations
+     * const locations = await prisma.locations.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LocationsFindUniqueArgs>(args: SelectSubset<T, LocationsFindUniqueArgs<ExtArgs>>): Prisma__LocationsClient<$Result.GetResult<Prisma.$LocationsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Locations that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LocationsFindUniqueOrThrowArgs} args - Arguments to find a Locations
+     * @example
+     * // Get one Locations
+     * const locations = await prisma.locations.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LocationsFindUniqueOrThrowArgs>(args: SelectSubset<T, LocationsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LocationsClient<$Result.GetResult<Prisma.$LocationsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Locations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LocationsFindFirstArgs} args - Arguments to find a Locations
+     * @example
+     * // Get one Locations
+     * const locations = await prisma.locations.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LocationsFindFirstArgs>(args?: SelectSubset<T, LocationsFindFirstArgs<ExtArgs>>): Prisma__LocationsClient<$Result.GetResult<Prisma.$LocationsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Locations that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LocationsFindFirstOrThrowArgs} args - Arguments to find a Locations
+     * @example
+     * // Get one Locations
+     * const locations = await prisma.locations.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LocationsFindFirstOrThrowArgs>(args?: SelectSubset<T, LocationsFindFirstOrThrowArgs<ExtArgs>>): Prisma__LocationsClient<$Result.GetResult<Prisma.$LocationsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Locations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LocationsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Locations
+     * const locations = await prisma.locations.findMany()
+     * 
+     * // Get first 10 Locations
+     * const locations = await prisma.locations.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const locationsWithIdOnly = await prisma.locations.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LocationsFindManyArgs>(args?: SelectSubset<T, LocationsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LocationsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Locations.
+     * @param {LocationsCreateArgs} args - Arguments to create a Locations.
+     * @example
+     * // Create one Locations
+     * const Locations = await prisma.locations.create({
+     *   data: {
+     *     // ... data to create a Locations
+     *   }
+     * })
+     * 
+     */
+    create<T extends LocationsCreateArgs>(args: SelectSubset<T, LocationsCreateArgs<ExtArgs>>): Prisma__LocationsClient<$Result.GetResult<Prisma.$LocationsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Locations.
+     * @param {LocationsCreateManyArgs} args - Arguments to create many Locations.
+     * @example
+     * // Create many Locations
+     * const locations = await prisma.locations.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LocationsCreateManyArgs>(args?: SelectSubset<T, LocationsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Locations.
+     * @param {LocationsDeleteArgs} args - Arguments to delete one Locations.
+     * @example
+     * // Delete one Locations
+     * const Locations = await prisma.locations.delete({
+     *   where: {
+     *     // ... filter to delete one Locations
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LocationsDeleteArgs>(args: SelectSubset<T, LocationsDeleteArgs<ExtArgs>>): Prisma__LocationsClient<$Result.GetResult<Prisma.$LocationsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Locations.
+     * @param {LocationsUpdateArgs} args - Arguments to update one Locations.
+     * @example
+     * // Update one Locations
+     * const locations = await prisma.locations.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LocationsUpdateArgs>(args: SelectSubset<T, LocationsUpdateArgs<ExtArgs>>): Prisma__LocationsClient<$Result.GetResult<Prisma.$LocationsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Locations.
+     * @param {LocationsDeleteManyArgs} args - Arguments to filter Locations to delete.
+     * @example
+     * // Delete a few Locations
+     * const { count } = await prisma.locations.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LocationsDeleteManyArgs>(args?: SelectSubset<T, LocationsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Locations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LocationsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Locations
+     * const locations = await prisma.locations.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LocationsUpdateManyArgs>(args: SelectSubset<T, LocationsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Locations.
+     * @param {LocationsUpsertArgs} args - Arguments to update or create a Locations.
+     * @example
+     * // Update or create a Locations
+     * const locations = await prisma.locations.upsert({
+     *   create: {
+     *     // ... data to create a Locations
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Locations we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LocationsUpsertArgs>(args: SelectSubset<T, LocationsUpsertArgs<ExtArgs>>): Prisma__LocationsClient<$Result.GetResult<Prisma.$LocationsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Locations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LocationsCountArgs} args - Arguments to filter Locations to count.
+     * @example
+     * // Count the number of Locations
+     * const count = await prisma.locations.count({
+     *   where: {
+     *     // ... the filter for the Locations we want to count
+     *   }
+     * })
+    **/
+    count<T extends LocationsCountArgs>(
+      args?: Subset<T, LocationsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LocationsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Locations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LocationsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LocationsAggregateArgs>(args: Subset<T, LocationsAggregateArgs>): Prisma.PrismaPromise<GetLocationsAggregateType<T>>
+
+    /**
+     * Group by Locations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LocationsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LocationsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LocationsGroupByArgs['orderBy'] }
+        : { orderBy?: LocationsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LocationsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLocationsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Locations model
+   */
+  readonly fields: LocationsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Locations.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LocationsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    store<T extends Locations$storeArgs<ExtArgs> = {}>(args?: Subset<T, Locations$storeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StorePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    missions<T extends Locations$missionsArgs<ExtArgs> = {}>(args?: Subset<T, Locations$missionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MissionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Locations model
+   */
+  interface LocationsFieldRefs {
+    readonly id: FieldRef<"Locations", 'Int'>
+    readonly name: FieldRef<"Locations", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Locations findUnique
+   */
+  export type LocationsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Locations
+     */
+    select?: LocationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Locations
+     */
+    omit?: LocationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LocationsInclude<ExtArgs> | null
+    /**
+     * Filter, which Locations to fetch.
+     */
+    where: LocationsWhereUniqueInput
+  }
+
+  /**
+   * Locations findUniqueOrThrow
+   */
+  export type LocationsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Locations
+     */
+    select?: LocationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Locations
+     */
+    omit?: LocationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LocationsInclude<ExtArgs> | null
+    /**
+     * Filter, which Locations to fetch.
+     */
+    where: LocationsWhereUniqueInput
+  }
+
+  /**
+   * Locations findFirst
+   */
+  export type LocationsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Locations
+     */
+    select?: LocationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Locations
+     */
+    omit?: LocationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LocationsInclude<ExtArgs> | null
+    /**
+     * Filter, which Locations to fetch.
+     */
+    where?: LocationsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Locations to fetch.
+     */
+    orderBy?: LocationsOrderByWithRelationInput | LocationsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Locations.
+     */
+    cursor?: LocationsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Locations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Locations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Locations.
+     */
+    distinct?: LocationsScalarFieldEnum | LocationsScalarFieldEnum[]
+  }
+
+  /**
+   * Locations findFirstOrThrow
+   */
+  export type LocationsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Locations
+     */
+    select?: LocationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Locations
+     */
+    omit?: LocationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LocationsInclude<ExtArgs> | null
+    /**
+     * Filter, which Locations to fetch.
+     */
+    where?: LocationsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Locations to fetch.
+     */
+    orderBy?: LocationsOrderByWithRelationInput | LocationsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Locations.
+     */
+    cursor?: LocationsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Locations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Locations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Locations.
+     */
+    distinct?: LocationsScalarFieldEnum | LocationsScalarFieldEnum[]
+  }
+
+  /**
+   * Locations findMany
+   */
+  export type LocationsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Locations
+     */
+    select?: LocationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Locations
+     */
+    omit?: LocationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LocationsInclude<ExtArgs> | null
+    /**
+     * Filter, which Locations to fetch.
+     */
+    where?: LocationsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Locations to fetch.
+     */
+    orderBy?: LocationsOrderByWithRelationInput | LocationsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Locations.
+     */
+    cursor?: LocationsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Locations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Locations.
+     */
+    skip?: number
+    distinct?: LocationsScalarFieldEnum | LocationsScalarFieldEnum[]
+  }
+
+  /**
+   * Locations create
+   */
+  export type LocationsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Locations
+     */
+    select?: LocationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Locations
+     */
+    omit?: LocationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LocationsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Locations.
+     */
+    data: XOR<LocationsCreateInput, LocationsUncheckedCreateInput>
+  }
+
+  /**
+   * Locations createMany
+   */
+  export type LocationsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Locations.
+     */
+    data: LocationsCreateManyInput | LocationsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Locations update
+   */
+  export type LocationsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Locations
+     */
+    select?: LocationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Locations
+     */
+    omit?: LocationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LocationsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Locations.
+     */
+    data: XOR<LocationsUpdateInput, LocationsUncheckedUpdateInput>
+    /**
+     * Choose, which Locations to update.
+     */
+    where: LocationsWhereUniqueInput
+  }
+
+  /**
+   * Locations updateMany
+   */
+  export type LocationsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Locations.
+     */
+    data: XOR<LocationsUpdateManyMutationInput, LocationsUncheckedUpdateManyInput>
+    /**
+     * Filter which Locations to update
+     */
+    where?: LocationsWhereInput
+    /**
+     * Limit how many Locations to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Locations upsert
+   */
+  export type LocationsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Locations
+     */
+    select?: LocationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Locations
+     */
+    omit?: LocationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LocationsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Locations to update in case it exists.
+     */
+    where: LocationsWhereUniqueInput
+    /**
+     * In case the Locations found by the `where` argument doesn't exist, create a new Locations with this data.
+     */
+    create: XOR<LocationsCreateInput, LocationsUncheckedCreateInput>
+    /**
+     * In case the Locations was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LocationsUpdateInput, LocationsUncheckedUpdateInput>
+  }
+
+  /**
+   * Locations delete
+   */
+  export type LocationsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Locations
+     */
+    select?: LocationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Locations
+     */
+    omit?: LocationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LocationsInclude<ExtArgs> | null
+    /**
+     * Filter which Locations to delete.
+     */
+    where: LocationsWhereUniqueInput
+  }
+
+  /**
+   * Locations deleteMany
+   */
+  export type LocationsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Locations to delete
+     */
+    where?: LocationsWhereInput
+    /**
+     * Limit how many Locations to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Locations.store
+   */
+  export type Locations$storeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Store
+     */
+    select?: StoreSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Store
+     */
+    omit?: StoreOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StoreInclude<ExtArgs> | null
+    where?: StoreWhereInput
+    orderBy?: StoreOrderByWithRelationInput | StoreOrderByWithRelationInput[]
+    cursor?: StoreWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: StoreScalarFieldEnum | StoreScalarFieldEnum[]
+  }
+
+  /**
+   * Locations.missions
+   */
+  export type Locations$missionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Missions
+     */
+    select?: MissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Missions
+     */
+    omit?: MissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MissionsInclude<ExtArgs> | null
+    where?: MissionsWhereInput
+    orderBy?: MissionsOrderByWithRelationInput | MissionsOrderByWithRelationInput[]
+    cursor?: MissionsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MissionsScalarFieldEnum | MissionsScalarFieldEnum[]
+  }
+
+  /**
+   * Locations without action
+   */
+  export type LocationsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Locations
+     */
+    select?: LocationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Locations
+     */
+    omit?: LocationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LocationsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model StoreStatus
+   */
+
+  export type AggregateStoreStatus = {
+    _count: StoreStatusCountAggregateOutputType | null
+    _avg: StoreStatusAvgAggregateOutputType | null
+    _sum: StoreStatusSumAggregateOutputType | null
+    _min: StoreStatusMinAggregateOutputType | null
+    _max: StoreStatusMaxAggregateOutputType | null
+  }
+
+  export type StoreStatusAvgAggregateOutputType = {
+    id: number | null
+    storeId: number | null
+    reviewsCount: number | null
+    starTotal: number | null
+  }
+
+  export type StoreStatusSumAggregateOutputType = {
+    id: number | null
+    storeId: number | null
+    reviewsCount: number | null
+    starTotal: number | null
+  }
+
+  export type StoreStatusMinAggregateOutputType = {
+    id: number | null
+    storeId: number | null
+    reviewsCount: number | null
+    starTotal: number | null
+  }
+
+  export type StoreStatusMaxAggregateOutputType = {
+    id: number | null
+    storeId: number | null
+    reviewsCount: number | null
+    starTotal: number | null
+  }
+
+  export type StoreStatusCountAggregateOutputType = {
+    id: number
+    storeId: number
+    reviewsCount: number
+    starTotal: number
+    _all: number
+  }
+
+
+  export type StoreStatusAvgAggregateInputType = {
+    id?: true
+    storeId?: true
+    reviewsCount?: true
+    starTotal?: true
+  }
+
+  export type StoreStatusSumAggregateInputType = {
+    id?: true
+    storeId?: true
+    reviewsCount?: true
+    starTotal?: true
+  }
+
+  export type StoreStatusMinAggregateInputType = {
+    id?: true
+    storeId?: true
+    reviewsCount?: true
+    starTotal?: true
+  }
+
+  export type StoreStatusMaxAggregateInputType = {
+    id?: true
+    storeId?: true
+    reviewsCount?: true
+    starTotal?: true
+  }
+
+  export type StoreStatusCountAggregateInputType = {
+    id?: true
+    storeId?: true
+    reviewsCount?: true
+    starTotal?: true
+    _all?: true
+  }
+
+  export type StoreStatusAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which StoreStatus to aggregate.
+     */
+    where?: StoreStatusWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of StoreStatuses to fetch.
+     */
+    orderBy?: StoreStatusOrderByWithRelationInput | StoreStatusOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: StoreStatusWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` StoreStatuses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` StoreStatuses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned StoreStatuses
+    **/
+    _count?: true | StoreStatusCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: StoreStatusAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: StoreStatusSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: StoreStatusMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: StoreStatusMaxAggregateInputType
+  }
+
+  export type GetStoreStatusAggregateType<T extends StoreStatusAggregateArgs> = {
+        [P in keyof T & keyof AggregateStoreStatus]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateStoreStatus[P]>
+      : GetScalarType<T[P], AggregateStoreStatus[P]>
+  }
+
+
+
+
+  export type StoreStatusGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: StoreStatusWhereInput
+    orderBy?: StoreStatusOrderByWithAggregationInput | StoreStatusOrderByWithAggregationInput[]
+    by: StoreStatusScalarFieldEnum[] | StoreStatusScalarFieldEnum
+    having?: StoreStatusScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: StoreStatusCountAggregateInputType | true
+    _avg?: StoreStatusAvgAggregateInputType
+    _sum?: StoreStatusSumAggregateInputType
+    _min?: StoreStatusMinAggregateInputType
+    _max?: StoreStatusMaxAggregateInputType
+  }
+
+  export type StoreStatusGroupByOutputType = {
+    id: number
+    storeId: number
+    reviewsCount: number
+    starTotal: number
+    _count: StoreStatusCountAggregateOutputType | null
+    _avg: StoreStatusAvgAggregateOutputType | null
+    _sum: StoreStatusSumAggregateOutputType | null
+    _min: StoreStatusMinAggregateOutputType | null
+    _max: StoreStatusMaxAggregateOutputType | null
+  }
+
+  type GetStoreStatusGroupByPayload<T extends StoreStatusGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<StoreStatusGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof StoreStatusGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], StoreStatusGroupByOutputType[P]>
+            : GetScalarType<T[P], StoreStatusGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type StoreStatusSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    storeId?: boolean
+    reviewsCount?: boolean
+    starTotal?: boolean
+    store?: boolean | StoreDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["storeStatus"]>
+
+
+
+  export type StoreStatusSelectScalar = {
+    id?: boolean
+    storeId?: boolean
+    reviewsCount?: boolean
+    starTotal?: boolean
+  }
+
+  export type StoreStatusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "storeId" | "reviewsCount" | "starTotal", ExtArgs["result"]["storeStatus"]>
+  export type StoreStatusInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    store?: boolean | StoreDefaultArgs<ExtArgs>
+  }
+
+  export type $StoreStatusPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "StoreStatus"
+    objects: {
+      store: Prisma.$StorePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      storeId: number
+      reviewsCount: number
+      starTotal: number
+    }, ExtArgs["result"]["storeStatus"]>
+    composites: {}
+  }
+
+  type StoreStatusGetPayload<S extends boolean | null | undefined | StoreStatusDefaultArgs> = $Result.GetResult<Prisma.$StoreStatusPayload, S>
+
+  type StoreStatusCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<StoreStatusFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: StoreStatusCountAggregateInputType | true
+    }
+
+  export interface StoreStatusDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['StoreStatus'], meta: { name: 'StoreStatus' } }
+    /**
+     * Find zero or one StoreStatus that matches the filter.
+     * @param {StoreStatusFindUniqueArgs} args - Arguments to find a StoreStatus
+     * @example
+     * // Get one StoreStatus
+     * const storeStatus = await prisma.storeStatus.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends StoreStatusFindUniqueArgs>(args: SelectSubset<T, StoreStatusFindUniqueArgs<ExtArgs>>): Prisma__StoreStatusClient<$Result.GetResult<Prisma.$StoreStatusPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one StoreStatus that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {StoreStatusFindUniqueOrThrowArgs} args - Arguments to find a StoreStatus
+     * @example
+     * // Get one StoreStatus
+     * const storeStatus = await prisma.storeStatus.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends StoreStatusFindUniqueOrThrowArgs>(args: SelectSubset<T, StoreStatusFindUniqueOrThrowArgs<ExtArgs>>): Prisma__StoreStatusClient<$Result.GetResult<Prisma.$StoreStatusPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first StoreStatus that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StoreStatusFindFirstArgs} args - Arguments to find a StoreStatus
+     * @example
+     * // Get one StoreStatus
+     * const storeStatus = await prisma.storeStatus.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends StoreStatusFindFirstArgs>(args?: SelectSubset<T, StoreStatusFindFirstArgs<ExtArgs>>): Prisma__StoreStatusClient<$Result.GetResult<Prisma.$StoreStatusPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first StoreStatus that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StoreStatusFindFirstOrThrowArgs} args - Arguments to find a StoreStatus
+     * @example
+     * // Get one StoreStatus
+     * const storeStatus = await prisma.storeStatus.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends StoreStatusFindFirstOrThrowArgs>(args?: SelectSubset<T, StoreStatusFindFirstOrThrowArgs<ExtArgs>>): Prisma__StoreStatusClient<$Result.GetResult<Prisma.$StoreStatusPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more StoreStatuses that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StoreStatusFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all StoreStatuses
+     * const storeStatuses = await prisma.storeStatus.findMany()
+     * 
+     * // Get first 10 StoreStatuses
+     * const storeStatuses = await prisma.storeStatus.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const storeStatusWithIdOnly = await prisma.storeStatus.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends StoreStatusFindManyArgs>(args?: SelectSubset<T, StoreStatusFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StoreStatusPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a StoreStatus.
+     * @param {StoreStatusCreateArgs} args - Arguments to create a StoreStatus.
+     * @example
+     * // Create one StoreStatus
+     * const StoreStatus = await prisma.storeStatus.create({
+     *   data: {
+     *     // ... data to create a StoreStatus
+     *   }
+     * })
+     * 
+     */
+    create<T extends StoreStatusCreateArgs>(args: SelectSubset<T, StoreStatusCreateArgs<ExtArgs>>): Prisma__StoreStatusClient<$Result.GetResult<Prisma.$StoreStatusPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many StoreStatuses.
+     * @param {StoreStatusCreateManyArgs} args - Arguments to create many StoreStatuses.
+     * @example
+     * // Create many StoreStatuses
+     * const storeStatus = await prisma.storeStatus.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends StoreStatusCreateManyArgs>(args?: SelectSubset<T, StoreStatusCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a StoreStatus.
+     * @param {StoreStatusDeleteArgs} args - Arguments to delete one StoreStatus.
+     * @example
+     * // Delete one StoreStatus
+     * const StoreStatus = await prisma.storeStatus.delete({
+     *   where: {
+     *     // ... filter to delete one StoreStatus
+     *   }
+     * })
+     * 
+     */
+    delete<T extends StoreStatusDeleteArgs>(args: SelectSubset<T, StoreStatusDeleteArgs<ExtArgs>>): Prisma__StoreStatusClient<$Result.GetResult<Prisma.$StoreStatusPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one StoreStatus.
+     * @param {StoreStatusUpdateArgs} args - Arguments to update one StoreStatus.
+     * @example
+     * // Update one StoreStatus
+     * const storeStatus = await prisma.storeStatus.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends StoreStatusUpdateArgs>(args: SelectSubset<T, StoreStatusUpdateArgs<ExtArgs>>): Prisma__StoreStatusClient<$Result.GetResult<Prisma.$StoreStatusPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more StoreStatuses.
+     * @param {StoreStatusDeleteManyArgs} args - Arguments to filter StoreStatuses to delete.
+     * @example
+     * // Delete a few StoreStatuses
+     * const { count } = await prisma.storeStatus.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends StoreStatusDeleteManyArgs>(args?: SelectSubset<T, StoreStatusDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more StoreStatuses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StoreStatusUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many StoreStatuses
+     * const storeStatus = await prisma.storeStatus.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends StoreStatusUpdateManyArgs>(args: SelectSubset<T, StoreStatusUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one StoreStatus.
+     * @param {StoreStatusUpsertArgs} args - Arguments to update or create a StoreStatus.
+     * @example
+     * // Update or create a StoreStatus
+     * const storeStatus = await prisma.storeStatus.upsert({
+     *   create: {
+     *     // ... data to create a StoreStatus
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the StoreStatus we want to update
+     *   }
+     * })
+     */
+    upsert<T extends StoreStatusUpsertArgs>(args: SelectSubset<T, StoreStatusUpsertArgs<ExtArgs>>): Prisma__StoreStatusClient<$Result.GetResult<Prisma.$StoreStatusPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of StoreStatuses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StoreStatusCountArgs} args - Arguments to filter StoreStatuses to count.
+     * @example
+     * // Count the number of StoreStatuses
+     * const count = await prisma.storeStatus.count({
+     *   where: {
+     *     // ... the filter for the StoreStatuses we want to count
+     *   }
+     * })
+    **/
+    count<T extends StoreStatusCountArgs>(
+      args?: Subset<T, StoreStatusCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], StoreStatusCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a StoreStatus.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StoreStatusAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends StoreStatusAggregateArgs>(args: Subset<T, StoreStatusAggregateArgs>): Prisma.PrismaPromise<GetStoreStatusAggregateType<T>>
+
+    /**
+     * Group by StoreStatus.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StoreStatusGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends StoreStatusGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: StoreStatusGroupByArgs['orderBy'] }
+        : { orderBy?: StoreStatusGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, StoreStatusGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetStoreStatusGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the StoreStatus model
+   */
+  readonly fields: StoreStatusFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for StoreStatus.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__StoreStatusClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    store<T extends StoreDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StoreDefaultArgs<ExtArgs>>): Prisma__StoreClient<$Result.GetResult<Prisma.$StorePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the StoreStatus model
+   */
+  interface StoreStatusFieldRefs {
+    readonly id: FieldRef<"StoreStatus", 'Int'>
+    readonly storeId: FieldRef<"StoreStatus", 'Int'>
+    readonly reviewsCount: FieldRef<"StoreStatus", 'Int'>
+    readonly starTotal: FieldRef<"StoreStatus", 'Float'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * StoreStatus findUnique
+   */
+  export type StoreStatusFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StoreStatus
+     */
+    select?: StoreStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StoreStatus
+     */
+    omit?: StoreStatusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StoreStatusInclude<ExtArgs> | null
+    /**
+     * Filter, which StoreStatus to fetch.
+     */
+    where: StoreStatusWhereUniqueInput
+  }
+
+  /**
+   * StoreStatus findUniqueOrThrow
+   */
+  export type StoreStatusFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StoreStatus
+     */
+    select?: StoreStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StoreStatus
+     */
+    omit?: StoreStatusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StoreStatusInclude<ExtArgs> | null
+    /**
+     * Filter, which StoreStatus to fetch.
+     */
+    where: StoreStatusWhereUniqueInput
+  }
+
+  /**
+   * StoreStatus findFirst
+   */
+  export type StoreStatusFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StoreStatus
+     */
+    select?: StoreStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StoreStatus
+     */
+    omit?: StoreStatusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StoreStatusInclude<ExtArgs> | null
+    /**
+     * Filter, which StoreStatus to fetch.
+     */
+    where?: StoreStatusWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of StoreStatuses to fetch.
+     */
+    orderBy?: StoreStatusOrderByWithRelationInput | StoreStatusOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for StoreStatuses.
+     */
+    cursor?: StoreStatusWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` StoreStatuses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` StoreStatuses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of StoreStatuses.
+     */
+    distinct?: StoreStatusScalarFieldEnum | StoreStatusScalarFieldEnum[]
+  }
+
+  /**
+   * StoreStatus findFirstOrThrow
+   */
+  export type StoreStatusFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StoreStatus
+     */
+    select?: StoreStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StoreStatus
+     */
+    omit?: StoreStatusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StoreStatusInclude<ExtArgs> | null
+    /**
+     * Filter, which StoreStatus to fetch.
+     */
+    where?: StoreStatusWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of StoreStatuses to fetch.
+     */
+    orderBy?: StoreStatusOrderByWithRelationInput | StoreStatusOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for StoreStatuses.
+     */
+    cursor?: StoreStatusWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` StoreStatuses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` StoreStatuses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of StoreStatuses.
+     */
+    distinct?: StoreStatusScalarFieldEnum | StoreStatusScalarFieldEnum[]
+  }
+
+  /**
+   * StoreStatus findMany
+   */
+  export type StoreStatusFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StoreStatus
+     */
+    select?: StoreStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StoreStatus
+     */
+    omit?: StoreStatusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StoreStatusInclude<ExtArgs> | null
+    /**
+     * Filter, which StoreStatuses to fetch.
+     */
+    where?: StoreStatusWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of StoreStatuses to fetch.
+     */
+    orderBy?: StoreStatusOrderByWithRelationInput | StoreStatusOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing StoreStatuses.
+     */
+    cursor?: StoreStatusWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` StoreStatuses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` StoreStatuses.
+     */
+    skip?: number
+    distinct?: StoreStatusScalarFieldEnum | StoreStatusScalarFieldEnum[]
+  }
+
+  /**
+   * StoreStatus create
+   */
+  export type StoreStatusCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StoreStatus
+     */
+    select?: StoreStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StoreStatus
+     */
+    omit?: StoreStatusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StoreStatusInclude<ExtArgs> | null
+    /**
+     * The data needed to create a StoreStatus.
+     */
+    data: XOR<StoreStatusCreateInput, StoreStatusUncheckedCreateInput>
+  }
+
+  /**
+   * StoreStatus createMany
+   */
+  export type StoreStatusCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many StoreStatuses.
+     */
+    data: StoreStatusCreateManyInput | StoreStatusCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * StoreStatus update
+   */
+  export type StoreStatusUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StoreStatus
+     */
+    select?: StoreStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StoreStatus
+     */
+    omit?: StoreStatusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StoreStatusInclude<ExtArgs> | null
+    /**
+     * The data needed to update a StoreStatus.
+     */
+    data: XOR<StoreStatusUpdateInput, StoreStatusUncheckedUpdateInput>
+    /**
+     * Choose, which StoreStatus to update.
+     */
+    where: StoreStatusWhereUniqueInput
+  }
+
+  /**
+   * StoreStatus updateMany
+   */
+  export type StoreStatusUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update StoreStatuses.
+     */
+    data: XOR<StoreStatusUpdateManyMutationInput, StoreStatusUncheckedUpdateManyInput>
+    /**
+     * Filter which StoreStatuses to update
+     */
+    where?: StoreStatusWhereInput
+    /**
+     * Limit how many StoreStatuses to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * StoreStatus upsert
+   */
+  export type StoreStatusUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StoreStatus
+     */
+    select?: StoreStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StoreStatus
+     */
+    omit?: StoreStatusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StoreStatusInclude<ExtArgs> | null
+    /**
+     * The filter to search for the StoreStatus to update in case it exists.
+     */
+    where: StoreStatusWhereUniqueInput
+    /**
+     * In case the StoreStatus found by the `where` argument doesn't exist, create a new StoreStatus with this data.
+     */
+    create: XOR<StoreStatusCreateInput, StoreStatusUncheckedCreateInput>
+    /**
+     * In case the StoreStatus was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<StoreStatusUpdateInput, StoreStatusUncheckedUpdateInput>
+  }
+
+  /**
+   * StoreStatus delete
+   */
+  export type StoreStatusDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StoreStatus
+     */
+    select?: StoreStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StoreStatus
+     */
+    omit?: StoreStatusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StoreStatusInclude<ExtArgs> | null
+    /**
+     * Filter which StoreStatus to delete.
+     */
+    where: StoreStatusWhereUniqueInput
+  }
+
+  /**
+   * StoreStatus deleteMany
+   */
+  export type StoreStatusDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which StoreStatuses to delete
+     */
+    where?: StoreStatusWhereInput
+    /**
+     * Limit how many StoreStatuses to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * StoreStatus without action
+   */
+  export type StoreStatusDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StoreStatus
+     */
+    select?: StoreStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StoreStatus
+     */
+    omit?: StoreStatusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StoreStatusInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Missions
+   */
+
+  export type AggregateMissions = {
+    _count: MissionsCountAggregateOutputType | null
+    _avg: MissionsAvgAggregateOutputType | null
+    _sum: MissionsSumAggregateOutputType | null
+    _min: MissionsMinAggregateOutputType | null
+    _max: MissionsMaxAggregateOutputType | null
+  }
+
+  export type MissionsAvgAggregateOutputType = {
+    id: number | null
+    storeId: number | null
+    goal: number | null
+    rewards: number | null
+    locationId: number | null
+  }
+
+  export type MissionsSumAggregateOutputType = {
+    id: number | null
+    storeId: number | null
+    goal: number | null
+    rewards: number | null
+    locationId: number | null
+  }
+
+  export type MissionsMinAggregateOutputType = {
+    id: number | null
+    storeId: number | null
+    goal: number | null
+    rewards: number | null
+    expireDate: Date | null
+    locationId: number | null
+  }
+
+  export type MissionsMaxAggregateOutputType = {
+    id: number | null
+    storeId: number | null
+    goal: number | null
+    rewards: number | null
+    expireDate: Date | null
+    locationId: number | null
+  }
+
+  export type MissionsCountAggregateOutputType = {
+    id: number
+    storeId: number
+    goal: number
+    rewards: number
+    expireDate: number
+    locationId: number
+    _all: number
+  }
+
+
+  export type MissionsAvgAggregateInputType = {
+    id?: true
+    storeId?: true
+    goal?: true
+    rewards?: true
+    locationId?: true
+  }
+
+  export type MissionsSumAggregateInputType = {
+    id?: true
+    storeId?: true
+    goal?: true
+    rewards?: true
+    locationId?: true
+  }
+
+  export type MissionsMinAggregateInputType = {
+    id?: true
+    storeId?: true
+    goal?: true
+    rewards?: true
+    expireDate?: true
+    locationId?: true
+  }
+
+  export type MissionsMaxAggregateInputType = {
+    id?: true
+    storeId?: true
+    goal?: true
+    rewards?: true
+    expireDate?: true
+    locationId?: true
+  }
+
+  export type MissionsCountAggregateInputType = {
+    id?: true
+    storeId?: true
+    goal?: true
+    rewards?: true
+    expireDate?: true
+    locationId?: true
+    _all?: true
+  }
+
+  export type MissionsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Missions to aggregate.
+     */
+    where?: MissionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Missions to fetch.
+     */
+    orderBy?: MissionsOrderByWithRelationInput | MissionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MissionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Missions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Missions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Missions
+    **/
+    _count?: true | MissionsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: MissionsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: MissionsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MissionsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MissionsMaxAggregateInputType
+  }
+
+  export type GetMissionsAggregateType<T extends MissionsAggregateArgs> = {
+        [P in keyof T & keyof AggregateMissions]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMissions[P]>
+      : GetScalarType<T[P], AggregateMissions[P]>
+  }
+
+
+
+
+  export type MissionsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MissionsWhereInput
+    orderBy?: MissionsOrderByWithAggregationInput | MissionsOrderByWithAggregationInput[]
+    by: MissionsScalarFieldEnum[] | MissionsScalarFieldEnum
+    having?: MissionsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MissionsCountAggregateInputType | true
+    _avg?: MissionsAvgAggregateInputType
+    _sum?: MissionsSumAggregateInputType
+    _min?: MissionsMinAggregateInputType
+    _max?: MissionsMaxAggregateInputType
+  }
+
+  export type MissionsGroupByOutputType = {
+    id: number
+    storeId: number
+    goal: number
+    rewards: number
+    expireDate: Date
+    locationId: number
+    _count: MissionsCountAggregateOutputType | null
+    _avg: MissionsAvgAggregateOutputType | null
+    _sum: MissionsSumAggregateOutputType | null
+    _min: MissionsMinAggregateOutputType | null
+    _max: MissionsMaxAggregateOutputType | null
+  }
+
+  type GetMissionsGroupByPayload<T extends MissionsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MissionsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MissionsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MissionsGroupByOutputType[P]>
+            : GetScalarType<T[P], MissionsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MissionsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    storeId?: boolean
+    goal?: boolean
+    rewards?: boolean
+    expireDate?: boolean
+    locationId?: boolean
+    store?: boolean | StoreDefaultArgs<ExtArgs>
+    locations?: boolean | LocationsDefaultArgs<ExtArgs>
+    acceptedMissions?: boolean | Missions$acceptedMissionsArgs<ExtArgs>
+    completedMissions?: boolean | Missions$completedMissionsArgs<ExtArgs>
+    _count?: boolean | MissionsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["missions"]>
+
+
+
+  export type MissionsSelectScalar = {
+    id?: boolean
+    storeId?: boolean
+    goal?: boolean
+    rewards?: boolean
+    expireDate?: boolean
+    locationId?: boolean
+  }
+
+  export type MissionsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "storeId" | "goal" | "rewards" | "expireDate" | "locationId", ExtArgs["result"]["missions"]>
+  export type MissionsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    store?: boolean | StoreDefaultArgs<ExtArgs>
+    locations?: boolean | LocationsDefaultArgs<ExtArgs>
+    acceptedMissions?: boolean | Missions$acceptedMissionsArgs<ExtArgs>
+    completedMissions?: boolean | Missions$completedMissionsArgs<ExtArgs>
+    _count?: boolean | MissionsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $MissionsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Missions"
+    objects: {
+      store: Prisma.$StorePayload<ExtArgs>
+      locations: Prisma.$LocationsPayload<ExtArgs>
+      acceptedMissions: Prisma.$AcceptedMissionsPayload<ExtArgs>[]
+      completedMissions: Prisma.$CompletedMissionsPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      storeId: number
+      goal: number
+      rewards: number
+      expireDate: Date
+      locationId: number
+    }, ExtArgs["result"]["missions"]>
+    composites: {}
+  }
+
+  type MissionsGetPayload<S extends boolean | null | undefined | MissionsDefaultArgs> = $Result.GetResult<Prisma.$MissionsPayload, S>
+
+  type MissionsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MissionsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MissionsCountAggregateInputType | true
+    }
+
+  export interface MissionsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Missions'], meta: { name: 'Missions' } }
+    /**
+     * Find zero or one Missions that matches the filter.
+     * @param {MissionsFindUniqueArgs} args - Arguments to find a Missions
+     * @example
+     * // Get one Missions
+     * const missions = await prisma.missions.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MissionsFindUniqueArgs>(args: SelectSubset<T, MissionsFindUniqueArgs<ExtArgs>>): Prisma__MissionsClient<$Result.GetResult<Prisma.$MissionsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Missions that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MissionsFindUniqueOrThrowArgs} args - Arguments to find a Missions
+     * @example
+     * // Get one Missions
+     * const missions = await prisma.missions.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MissionsFindUniqueOrThrowArgs>(args: SelectSubset<T, MissionsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MissionsClient<$Result.GetResult<Prisma.$MissionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Missions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MissionsFindFirstArgs} args - Arguments to find a Missions
+     * @example
+     * // Get one Missions
+     * const missions = await prisma.missions.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MissionsFindFirstArgs>(args?: SelectSubset<T, MissionsFindFirstArgs<ExtArgs>>): Prisma__MissionsClient<$Result.GetResult<Prisma.$MissionsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Missions that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MissionsFindFirstOrThrowArgs} args - Arguments to find a Missions
+     * @example
+     * // Get one Missions
+     * const missions = await prisma.missions.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MissionsFindFirstOrThrowArgs>(args?: SelectSubset<T, MissionsFindFirstOrThrowArgs<ExtArgs>>): Prisma__MissionsClient<$Result.GetResult<Prisma.$MissionsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Missions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MissionsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Missions
+     * const missions = await prisma.missions.findMany()
+     * 
+     * // Get first 10 Missions
+     * const missions = await prisma.missions.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const missionsWithIdOnly = await prisma.missions.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MissionsFindManyArgs>(args?: SelectSubset<T, MissionsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MissionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Missions.
+     * @param {MissionsCreateArgs} args - Arguments to create a Missions.
+     * @example
+     * // Create one Missions
+     * const Missions = await prisma.missions.create({
+     *   data: {
+     *     // ... data to create a Missions
+     *   }
+     * })
+     * 
+     */
+    create<T extends MissionsCreateArgs>(args: SelectSubset<T, MissionsCreateArgs<ExtArgs>>): Prisma__MissionsClient<$Result.GetResult<Prisma.$MissionsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Missions.
+     * @param {MissionsCreateManyArgs} args - Arguments to create many Missions.
+     * @example
+     * // Create many Missions
+     * const missions = await prisma.missions.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MissionsCreateManyArgs>(args?: SelectSubset<T, MissionsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Missions.
+     * @param {MissionsDeleteArgs} args - Arguments to delete one Missions.
+     * @example
+     * // Delete one Missions
+     * const Missions = await prisma.missions.delete({
+     *   where: {
+     *     // ... filter to delete one Missions
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MissionsDeleteArgs>(args: SelectSubset<T, MissionsDeleteArgs<ExtArgs>>): Prisma__MissionsClient<$Result.GetResult<Prisma.$MissionsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Missions.
+     * @param {MissionsUpdateArgs} args - Arguments to update one Missions.
+     * @example
+     * // Update one Missions
+     * const missions = await prisma.missions.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MissionsUpdateArgs>(args: SelectSubset<T, MissionsUpdateArgs<ExtArgs>>): Prisma__MissionsClient<$Result.GetResult<Prisma.$MissionsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Missions.
+     * @param {MissionsDeleteManyArgs} args - Arguments to filter Missions to delete.
+     * @example
+     * // Delete a few Missions
+     * const { count } = await prisma.missions.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MissionsDeleteManyArgs>(args?: SelectSubset<T, MissionsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Missions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MissionsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Missions
+     * const missions = await prisma.missions.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MissionsUpdateManyArgs>(args: SelectSubset<T, MissionsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Missions.
+     * @param {MissionsUpsertArgs} args - Arguments to update or create a Missions.
+     * @example
+     * // Update or create a Missions
+     * const missions = await prisma.missions.upsert({
+     *   create: {
+     *     // ... data to create a Missions
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Missions we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MissionsUpsertArgs>(args: SelectSubset<T, MissionsUpsertArgs<ExtArgs>>): Prisma__MissionsClient<$Result.GetResult<Prisma.$MissionsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Missions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MissionsCountArgs} args - Arguments to filter Missions to count.
+     * @example
+     * // Count the number of Missions
+     * const count = await prisma.missions.count({
+     *   where: {
+     *     // ... the filter for the Missions we want to count
+     *   }
+     * })
+    **/
+    count<T extends MissionsCountArgs>(
+      args?: Subset<T, MissionsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MissionsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Missions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MissionsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MissionsAggregateArgs>(args: Subset<T, MissionsAggregateArgs>): Prisma.PrismaPromise<GetMissionsAggregateType<T>>
+
+    /**
+     * Group by Missions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MissionsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MissionsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MissionsGroupByArgs['orderBy'] }
+        : { orderBy?: MissionsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MissionsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMissionsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Missions model
+   */
+  readonly fields: MissionsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Missions.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MissionsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    store<T extends StoreDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StoreDefaultArgs<ExtArgs>>): Prisma__StoreClient<$Result.GetResult<Prisma.$StorePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    locations<T extends LocationsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocationsDefaultArgs<ExtArgs>>): Prisma__LocationsClient<$Result.GetResult<Prisma.$LocationsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    acceptedMissions<T extends Missions$acceptedMissionsArgs<ExtArgs> = {}>(args?: Subset<T, Missions$acceptedMissionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AcceptedMissionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    completedMissions<T extends Missions$completedMissionsArgs<ExtArgs> = {}>(args?: Subset<T, Missions$completedMissionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CompletedMissionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Missions model
+   */
+  interface MissionsFieldRefs {
+    readonly id: FieldRef<"Missions", 'Int'>
+    readonly storeId: FieldRef<"Missions", 'Int'>
+    readonly goal: FieldRef<"Missions", 'Int'>
+    readonly rewards: FieldRef<"Missions", 'Int'>
+    readonly expireDate: FieldRef<"Missions", 'DateTime'>
+    readonly locationId: FieldRef<"Missions", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Missions findUnique
+   */
+  export type MissionsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Missions
+     */
+    select?: MissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Missions
+     */
+    omit?: MissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MissionsInclude<ExtArgs> | null
+    /**
+     * Filter, which Missions to fetch.
+     */
+    where: MissionsWhereUniqueInput
+  }
+
+  /**
+   * Missions findUniqueOrThrow
+   */
+  export type MissionsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Missions
+     */
+    select?: MissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Missions
+     */
+    omit?: MissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MissionsInclude<ExtArgs> | null
+    /**
+     * Filter, which Missions to fetch.
+     */
+    where: MissionsWhereUniqueInput
+  }
+
+  /**
+   * Missions findFirst
+   */
+  export type MissionsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Missions
+     */
+    select?: MissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Missions
+     */
+    omit?: MissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MissionsInclude<ExtArgs> | null
+    /**
+     * Filter, which Missions to fetch.
+     */
+    where?: MissionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Missions to fetch.
+     */
+    orderBy?: MissionsOrderByWithRelationInput | MissionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Missions.
+     */
+    cursor?: MissionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Missions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Missions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Missions.
+     */
+    distinct?: MissionsScalarFieldEnum | MissionsScalarFieldEnum[]
+  }
+
+  /**
+   * Missions findFirstOrThrow
+   */
+  export type MissionsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Missions
+     */
+    select?: MissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Missions
+     */
+    omit?: MissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MissionsInclude<ExtArgs> | null
+    /**
+     * Filter, which Missions to fetch.
+     */
+    where?: MissionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Missions to fetch.
+     */
+    orderBy?: MissionsOrderByWithRelationInput | MissionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Missions.
+     */
+    cursor?: MissionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Missions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Missions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Missions.
+     */
+    distinct?: MissionsScalarFieldEnum | MissionsScalarFieldEnum[]
+  }
+
+  /**
+   * Missions findMany
+   */
+  export type MissionsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Missions
+     */
+    select?: MissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Missions
+     */
+    omit?: MissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MissionsInclude<ExtArgs> | null
+    /**
+     * Filter, which Missions to fetch.
+     */
+    where?: MissionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Missions to fetch.
+     */
+    orderBy?: MissionsOrderByWithRelationInput | MissionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Missions.
+     */
+    cursor?: MissionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Missions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Missions.
+     */
+    skip?: number
+    distinct?: MissionsScalarFieldEnum | MissionsScalarFieldEnum[]
+  }
+
+  /**
+   * Missions create
+   */
+  export type MissionsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Missions
+     */
+    select?: MissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Missions
+     */
+    omit?: MissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MissionsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Missions.
+     */
+    data: XOR<MissionsCreateInput, MissionsUncheckedCreateInput>
+  }
+
+  /**
+   * Missions createMany
+   */
+  export type MissionsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Missions.
+     */
+    data: MissionsCreateManyInput | MissionsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Missions update
+   */
+  export type MissionsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Missions
+     */
+    select?: MissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Missions
+     */
+    omit?: MissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MissionsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Missions.
+     */
+    data: XOR<MissionsUpdateInput, MissionsUncheckedUpdateInput>
+    /**
+     * Choose, which Missions to update.
+     */
+    where: MissionsWhereUniqueInput
+  }
+
+  /**
+   * Missions updateMany
+   */
+  export type MissionsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Missions.
+     */
+    data: XOR<MissionsUpdateManyMutationInput, MissionsUncheckedUpdateManyInput>
+    /**
+     * Filter which Missions to update
+     */
+    where?: MissionsWhereInput
+    /**
+     * Limit how many Missions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Missions upsert
+   */
+  export type MissionsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Missions
+     */
+    select?: MissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Missions
+     */
+    omit?: MissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MissionsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Missions to update in case it exists.
+     */
+    where: MissionsWhereUniqueInput
+    /**
+     * In case the Missions found by the `where` argument doesn't exist, create a new Missions with this data.
+     */
+    create: XOR<MissionsCreateInput, MissionsUncheckedCreateInput>
+    /**
+     * In case the Missions was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MissionsUpdateInput, MissionsUncheckedUpdateInput>
+  }
+
+  /**
+   * Missions delete
+   */
+  export type MissionsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Missions
+     */
+    select?: MissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Missions
+     */
+    omit?: MissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MissionsInclude<ExtArgs> | null
+    /**
+     * Filter which Missions to delete.
+     */
+    where: MissionsWhereUniqueInput
+  }
+
+  /**
+   * Missions deleteMany
+   */
+  export type MissionsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Missions to delete
+     */
+    where?: MissionsWhereInput
+    /**
+     * Limit how many Missions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Missions.acceptedMissions
+   */
+  export type Missions$acceptedMissionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AcceptedMissions
+     */
+    select?: AcceptedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AcceptedMissions
+     */
+    omit?: AcceptedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AcceptedMissionsInclude<ExtArgs> | null
+    where?: AcceptedMissionsWhereInput
+    orderBy?: AcceptedMissionsOrderByWithRelationInput | AcceptedMissionsOrderByWithRelationInput[]
+    cursor?: AcceptedMissionsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AcceptedMissionsScalarFieldEnum | AcceptedMissionsScalarFieldEnum[]
+  }
+
+  /**
+   * Missions.completedMissions
+   */
+  export type Missions$completedMissionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CompletedMissions
+     */
+    select?: CompletedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CompletedMissions
+     */
+    omit?: CompletedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CompletedMissionsInclude<ExtArgs> | null
+    where?: CompletedMissionsWhereInput
+    orderBy?: CompletedMissionsOrderByWithRelationInput | CompletedMissionsOrderByWithRelationInput[]
+    cursor?: CompletedMissionsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CompletedMissionsScalarFieldEnum | CompletedMissionsScalarFieldEnum[]
+  }
+
+  /**
+   * Missions without action
+   */
+  export type MissionsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Missions
+     */
+    select?: MissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Missions
+     */
+    omit?: MissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MissionsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AcceptedMissions
+   */
+
+  export type AggregateAcceptedMissions = {
+    _count: AcceptedMissionsCountAggregateOutputType | null
+    _avg: AcceptedMissionsAvgAggregateOutputType | null
+    _sum: AcceptedMissionsSumAggregateOutputType | null
+    _min: AcceptedMissionsMinAggregateOutputType | null
+    _max: AcceptedMissionsMaxAggregateOutputType | null
+  }
+
+  export type AcceptedMissionsAvgAggregateOutputType = {
+    id: number | null
+    missionId: number | null
+    userId: number | null
+  }
+
+  export type AcceptedMissionsSumAggregateOutputType = {
+    id: number | null
+    missionId: number | null
+    userId: number | null
+  }
+
+  export type AcceptedMissionsMinAggregateOutputType = {
+    id: number | null
+    missionId: number | null
+    userId: number | null
+    verificationCode: string | null
+    completedAt: Date | null
+  }
+
+  export type AcceptedMissionsMaxAggregateOutputType = {
+    id: number | null
+    missionId: number | null
+    userId: number | null
+    verificationCode: string | null
+    completedAt: Date | null
+  }
+
+  export type AcceptedMissionsCountAggregateOutputType = {
+    id: number
+    missionId: number
+    userId: number
+    verificationCode: number
+    completedAt: number
+    _all: number
+  }
+
+
+  export type AcceptedMissionsAvgAggregateInputType = {
+    id?: true
+    missionId?: true
+    userId?: true
+  }
+
+  export type AcceptedMissionsSumAggregateInputType = {
+    id?: true
+    missionId?: true
+    userId?: true
+  }
+
+  export type AcceptedMissionsMinAggregateInputType = {
+    id?: true
+    missionId?: true
+    userId?: true
+    verificationCode?: true
+    completedAt?: true
+  }
+
+  export type AcceptedMissionsMaxAggregateInputType = {
+    id?: true
+    missionId?: true
+    userId?: true
+    verificationCode?: true
+    completedAt?: true
+  }
+
+  export type AcceptedMissionsCountAggregateInputType = {
+    id?: true
+    missionId?: true
+    userId?: true
+    verificationCode?: true
+    completedAt?: true
+    _all?: true
+  }
+
+  export type AcceptedMissionsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AcceptedMissions to aggregate.
+     */
+    where?: AcceptedMissionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AcceptedMissions to fetch.
+     */
+    orderBy?: AcceptedMissionsOrderByWithRelationInput | AcceptedMissionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AcceptedMissionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AcceptedMissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AcceptedMissions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AcceptedMissions
+    **/
+    _count?: true | AcceptedMissionsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AcceptedMissionsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AcceptedMissionsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AcceptedMissionsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AcceptedMissionsMaxAggregateInputType
+  }
+
+  export type GetAcceptedMissionsAggregateType<T extends AcceptedMissionsAggregateArgs> = {
+        [P in keyof T & keyof AggregateAcceptedMissions]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAcceptedMissions[P]>
+      : GetScalarType<T[P], AggregateAcceptedMissions[P]>
+  }
+
+
+
+
+  export type AcceptedMissionsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AcceptedMissionsWhereInput
+    orderBy?: AcceptedMissionsOrderByWithAggregationInput | AcceptedMissionsOrderByWithAggregationInput[]
+    by: AcceptedMissionsScalarFieldEnum[] | AcceptedMissionsScalarFieldEnum
+    having?: AcceptedMissionsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AcceptedMissionsCountAggregateInputType | true
+    _avg?: AcceptedMissionsAvgAggregateInputType
+    _sum?: AcceptedMissionsSumAggregateInputType
+    _min?: AcceptedMissionsMinAggregateInputType
+    _max?: AcceptedMissionsMaxAggregateInputType
+  }
+
+  export type AcceptedMissionsGroupByOutputType = {
+    id: number
+    missionId: number
+    userId: number
+    verificationCode: string
+    completedAt: Date | null
+    _count: AcceptedMissionsCountAggregateOutputType | null
+    _avg: AcceptedMissionsAvgAggregateOutputType | null
+    _sum: AcceptedMissionsSumAggregateOutputType | null
+    _min: AcceptedMissionsMinAggregateOutputType | null
+    _max: AcceptedMissionsMaxAggregateOutputType | null
+  }
+
+  type GetAcceptedMissionsGroupByPayload<T extends AcceptedMissionsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AcceptedMissionsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AcceptedMissionsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AcceptedMissionsGroupByOutputType[P]>
+            : GetScalarType<T[P], AcceptedMissionsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AcceptedMissionsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    missionId?: boolean
+    userId?: boolean
+    verificationCode?: boolean
+    completedAt?: boolean
+    missions?: boolean | MissionsDefaultArgs<ExtArgs>
+    members?: boolean | MembersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["acceptedMissions"]>
+
+
+
+  export type AcceptedMissionsSelectScalar = {
+    id?: boolean
+    missionId?: boolean
+    userId?: boolean
+    verificationCode?: boolean
+    completedAt?: boolean
+  }
+
+  export type AcceptedMissionsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "missionId" | "userId" | "verificationCode" | "completedAt", ExtArgs["result"]["acceptedMissions"]>
+  export type AcceptedMissionsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    missions?: boolean | MissionsDefaultArgs<ExtArgs>
+    members?: boolean | MembersDefaultArgs<ExtArgs>
+  }
+
+  export type $AcceptedMissionsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AcceptedMissions"
+    objects: {
+      missions: Prisma.$MissionsPayload<ExtArgs>
+      members: Prisma.$MembersPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      missionId: number
+      userId: number
+      verificationCode: string
+      completedAt: Date | null
+    }, ExtArgs["result"]["acceptedMissions"]>
+    composites: {}
+  }
+
+  type AcceptedMissionsGetPayload<S extends boolean | null | undefined | AcceptedMissionsDefaultArgs> = $Result.GetResult<Prisma.$AcceptedMissionsPayload, S>
+
+  type AcceptedMissionsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AcceptedMissionsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AcceptedMissionsCountAggregateInputType | true
+    }
+
+  export interface AcceptedMissionsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AcceptedMissions'], meta: { name: 'AcceptedMissions' } }
+    /**
+     * Find zero or one AcceptedMissions that matches the filter.
+     * @param {AcceptedMissionsFindUniqueArgs} args - Arguments to find a AcceptedMissions
+     * @example
+     * // Get one AcceptedMissions
+     * const acceptedMissions = await prisma.acceptedMissions.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AcceptedMissionsFindUniqueArgs>(args: SelectSubset<T, AcceptedMissionsFindUniqueArgs<ExtArgs>>): Prisma__AcceptedMissionsClient<$Result.GetResult<Prisma.$AcceptedMissionsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AcceptedMissions that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AcceptedMissionsFindUniqueOrThrowArgs} args - Arguments to find a AcceptedMissions
+     * @example
+     * // Get one AcceptedMissions
+     * const acceptedMissions = await prisma.acceptedMissions.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AcceptedMissionsFindUniqueOrThrowArgs>(args: SelectSubset<T, AcceptedMissionsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AcceptedMissionsClient<$Result.GetResult<Prisma.$AcceptedMissionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AcceptedMissions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AcceptedMissionsFindFirstArgs} args - Arguments to find a AcceptedMissions
+     * @example
+     * // Get one AcceptedMissions
+     * const acceptedMissions = await prisma.acceptedMissions.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AcceptedMissionsFindFirstArgs>(args?: SelectSubset<T, AcceptedMissionsFindFirstArgs<ExtArgs>>): Prisma__AcceptedMissionsClient<$Result.GetResult<Prisma.$AcceptedMissionsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AcceptedMissions that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AcceptedMissionsFindFirstOrThrowArgs} args - Arguments to find a AcceptedMissions
+     * @example
+     * // Get one AcceptedMissions
+     * const acceptedMissions = await prisma.acceptedMissions.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AcceptedMissionsFindFirstOrThrowArgs>(args?: SelectSubset<T, AcceptedMissionsFindFirstOrThrowArgs<ExtArgs>>): Prisma__AcceptedMissionsClient<$Result.GetResult<Prisma.$AcceptedMissionsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AcceptedMissions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AcceptedMissionsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AcceptedMissions
+     * const acceptedMissions = await prisma.acceptedMissions.findMany()
+     * 
+     * // Get first 10 AcceptedMissions
+     * const acceptedMissions = await prisma.acceptedMissions.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const acceptedMissionsWithIdOnly = await prisma.acceptedMissions.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AcceptedMissionsFindManyArgs>(args?: SelectSubset<T, AcceptedMissionsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AcceptedMissionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AcceptedMissions.
+     * @param {AcceptedMissionsCreateArgs} args - Arguments to create a AcceptedMissions.
+     * @example
+     * // Create one AcceptedMissions
+     * const AcceptedMissions = await prisma.acceptedMissions.create({
+     *   data: {
+     *     // ... data to create a AcceptedMissions
+     *   }
+     * })
+     * 
+     */
+    create<T extends AcceptedMissionsCreateArgs>(args: SelectSubset<T, AcceptedMissionsCreateArgs<ExtArgs>>): Prisma__AcceptedMissionsClient<$Result.GetResult<Prisma.$AcceptedMissionsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AcceptedMissions.
+     * @param {AcceptedMissionsCreateManyArgs} args - Arguments to create many AcceptedMissions.
+     * @example
+     * // Create many AcceptedMissions
+     * const acceptedMissions = await prisma.acceptedMissions.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AcceptedMissionsCreateManyArgs>(args?: SelectSubset<T, AcceptedMissionsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a AcceptedMissions.
+     * @param {AcceptedMissionsDeleteArgs} args - Arguments to delete one AcceptedMissions.
+     * @example
+     * // Delete one AcceptedMissions
+     * const AcceptedMissions = await prisma.acceptedMissions.delete({
+     *   where: {
+     *     // ... filter to delete one AcceptedMissions
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AcceptedMissionsDeleteArgs>(args: SelectSubset<T, AcceptedMissionsDeleteArgs<ExtArgs>>): Prisma__AcceptedMissionsClient<$Result.GetResult<Prisma.$AcceptedMissionsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AcceptedMissions.
+     * @param {AcceptedMissionsUpdateArgs} args - Arguments to update one AcceptedMissions.
+     * @example
+     * // Update one AcceptedMissions
+     * const acceptedMissions = await prisma.acceptedMissions.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AcceptedMissionsUpdateArgs>(args: SelectSubset<T, AcceptedMissionsUpdateArgs<ExtArgs>>): Prisma__AcceptedMissionsClient<$Result.GetResult<Prisma.$AcceptedMissionsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AcceptedMissions.
+     * @param {AcceptedMissionsDeleteManyArgs} args - Arguments to filter AcceptedMissions to delete.
+     * @example
+     * // Delete a few AcceptedMissions
+     * const { count } = await prisma.acceptedMissions.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AcceptedMissionsDeleteManyArgs>(args?: SelectSubset<T, AcceptedMissionsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AcceptedMissions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AcceptedMissionsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AcceptedMissions
+     * const acceptedMissions = await prisma.acceptedMissions.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AcceptedMissionsUpdateManyArgs>(args: SelectSubset<T, AcceptedMissionsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one AcceptedMissions.
+     * @param {AcceptedMissionsUpsertArgs} args - Arguments to update or create a AcceptedMissions.
+     * @example
+     * // Update or create a AcceptedMissions
+     * const acceptedMissions = await prisma.acceptedMissions.upsert({
+     *   create: {
+     *     // ... data to create a AcceptedMissions
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AcceptedMissions we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AcceptedMissionsUpsertArgs>(args: SelectSubset<T, AcceptedMissionsUpsertArgs<ExtArgs>>): Prisma__AcceptedMissionsClient<$Result.GetResult<Prisma.$AcceptedMissionsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AcceptedMissions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AcceptedMissionsCountArgs} args - Arguments to filter AcceptedMissions to count.
+     * @example
+     * // Count the number of AcceptedMissions
+     * const count = await prisma.acceptedMissions.count({
+     *   where: {
+     *     // ... the filter for the AcceptedMissions we want to count
+     *   }
+     * })
+    **/
+    count<T extends AcceptedMissionsCountArgs>(
+      args?: Subset<T, AcceptedMissionsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AcceptedMissionsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AcceptedMissions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AcceptedMissionsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AcceptedMissionsAggregateArgs>(args: Subset<T, AcceptedMissionsAggregateArgs>): Prisma.PrismaPromise<GetAcceptedMissionsAggregateType<T>>
+
+    /**
+     * Group by AcceptedMissions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AcceptedMissionsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AcceptedMissionsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AcceptedMissionsGroupByArgs['orderBy'] }
+        : { orderBy?: AcceptedMissionsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AcceptedMissionsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAcceptedMissionsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AcceptedMissions model
+   */
+  readonly fields: AcceptedMissionsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AcceptedMissions.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AcceptedMissionsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    missions<T extends MissionsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MissionsDefaultArgs<ExtArgs>>): Prisma__MissionsClient<$Result.GetResult<Prisma.$MissionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    members<T extends MembersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MembersDefaultArgs<ExtArgs>>): Prisma__MembersClient<$Result.GetResult<Prisma.$MembersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AcceptedMissions model
+   */
+  interface AcceptedMissionsFieldRefs {
+    readonly id: FieldRef<"AcceptedMissions", 'Int'>
+    readonly missionId: FieldRef<"AcceptedMissions", 'Int'>
+    readonly userId: FieldRef<"AcceptedMissions", 'Int'>
+    readonly verificationCode: FieldRef<"AcceptedMissions", 'String'>
+    readonly completedAt: FieldRef<"AcceptedMissions", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AcceptedMissions findUnique
+   */
+  export type AcceptedMissionsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AcceptedMissions
+     */
+    select?: AcceptedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AcceptedMissions
+     */
+    omit?: AcceptedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AcceptedMissionsInclude<ExtArgs> | null
+    /**
+     * Filter, which AcceptedMissions to fetch.
+     */
+    where: AcceptedMissionsWhereUniqueInput
+  }
+
+  /**
+   * AcceptedMissions findUniqueOrThrow
+   */
+  export type AcceptedMissionsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AcceptedMissions
+     */
+    select?: AcceptedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AcceptedMissions
+     */
+    omit?: AcceptedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AcceptedMissionsInclude<ExtArgs> | null
+    /**
+     * Filter, which AcceptedMissions to fetch.
+     */
+    where: AcceptedMissionsWhereUniqueInput
+  }
+
+  /**
+   * AcceptedMissions findFirst
+   */
+  export type AcceptedMissionsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AcceptedMissions
+     */
+    select?: AcceptedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AcceptedMissions
+     */
+    omit?: AcceptedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AcceptedMissionsInclude<ExtArgs> | null
+    /**
+     * Filter, which AcceptedMissions to fetch.
+     */
+    where?: AcceptedMissionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AcceptedMissions to fetch.
+     */
+    orderBy?: AcceptedMissionsOrderByWithRelationInput | AcceptedMissionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AcceptedMissions.
+     */
+    cursor?: AcceptedMissionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AcceptedMissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AcceptedMissions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AcceptedMissions.
+     */
+    distinct?: AcceptedMissionsScalarFieldEnum | AcceptedMissionsScalarFieldEnum[]
+  }
+
+  /**
+   * AcceptedMissions findFirstOrThrow
+   */
+  export type AcceptedMissionsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AcceptedMissions
+     */
+    select?: AcceptedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AcceptedMissions
+     */
+    omit?: AcceptedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AcceptedMissionsInclude<ExtArgs> | null
+    /**
+     * Filter, which AcceptedMissions to fetch.
+     */
+    where?: AcceptedMissionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AcceptedMissions to fetch.
+     */
+    orderBy?: AcceptedMissionsOrderByWithRelationInput | AcceptedMissionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AcceptedMissions.
+     */
+    cursor?: AcceptedMissionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AcceptedMissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AcceptedMissions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AcceptedMissions.
+     */
+    distinct?: AcceptedMissionsScalarFieldEnum | AcceptedMissionsScalarFieldEnum[]
+  }
+
+  /**
+   * AcceptedMissions findMany
+   */
+  export type AcceptedMissionsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AcceptedMissions
+     */
+    select?: AcceptedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AcceptedMissions
+     */
+    omit?: AcceptedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AcceptedMissionsInclude<ExtArgs> | null
+    /**
+     * Filter, which AcceptedMissions to fetch.
+     */
+    where?: AcceptedMissionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AcceptedMissions to fetch.
+     */
+    orderBy?: AcceptedMissionsOrderByWithRelationInput | AcceptedMissionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AcceptedMissions.
+     */
+    cursor?: AcceptedMissionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AcceptedMissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AcceptedMissions.
+     */
+    skip?: number
+    distinct?: AcceptedMissionsScalarFieldEnum | AcceptedMissionsScalarFieldEnum[]
+  }
+
+  /**
+   * AcceptedMissions create
+   */
+  export type AcceptedMissionsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AcceptedMissions
+     */
+    select?: AcceptedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AcceptedMissions
+     */
+    omit?: AcceptedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AcceptedMissionsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AcceptedMissions.
+     */
+    data: XOR<AcceptedMissionsCreateInput, AcceptedMissionsUncheckedCreateInput>
+  }
+
+  /**
+   * AcceptedMissions createMany
+   */
+  export type AcceptedMissionsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AcceptedMissions.
+     */
+    data: AcceptedMissionsCreateManyInput | AcceptedMissionsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * AcceptedMissions update
+   */
+  export type AcceptedMissionsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AcceptedMissions
+     */
+    select?: AcceptedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AcceptedMissions
+     */
+    omit?: AcceptedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AcceptedMissionsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AcceptedMissions.
+     */
+    data: XOR<AcceptedMissionsUpdateInput, AcceptedMissionsUncheckedUpdateInput>
+    /**
+     * Choose, which AcceptedMissions to update.
+     */
+    where: AcceptedMissionsWhereUniqueInput
+  }
+
+  /**
+   * AcceptedMissions updateMany
+   */
+  export type AcceptedMissionsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AcceptedMissions.
+     */
+    data: XOR<AcceptedMissionsUpdateManyMutationInput, AcceptedMissionsUncheckedUpdateManyInput>
+    /**
+     * Filter which AcceptedMissions to update
+     */
+    where?: AcceptedMissionsWhereInput
+    /**
+     * Limit how many AcceptedMissions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AcceptedMissions upsert
+   */
+  export type AcceptedMissionsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AcceptedMissions
+     */
+    select?: AcceptedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AcceptedMissions
+     */
+    omit?: AcceptedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AcceptedMissionsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AcceptedMissions to update in case it exists.
+     */
+    where: AcceptedMissionsWhereUniqueInput
+    /**
+     * In case the AcceptedMissions found by the `where` argument doesn't exist, create a new AcceptedMissions with this data.
+     */
+    create: XOR<AcceptedMissionsCreateInput, AcceptedMissionsUncheckedCreateInput>
+    /**
+     * In case the AcceptedMissions was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AcceptedMissionsUpdateInput, AcceptedMissionsUncheckedUpdateInput>
+  }
+
+  /**
+   * AcceptedMissions delete
+   */
+  export type AcceptedMissionsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AcceptedMissions
+     */
+    select?: AcceptedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AcceptedMissions
+     */
+    omit?: AcceptedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AcceptedMissionsInclude<ExtArgs> | null
+    /**
+     * Filter which AcceptedMissions to delete.
+     */
+    where: AcceptedMissionsWhereUniqueInput
+  }
+
+  /**
+   * AcceptedMissions deleteMany
+   */
+  export type AcceptedMissionsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AcceptedMissions to delete
+     */
+    where?: AcceptedMissionsWhereInput
+    /**
+     * Limit how many AcceptedMissions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AcceptedMissions without action
+   */
+  export type AcceptedMissionsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AcceptedMissions
+     */
+    select?: AcceptedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AcceptedMissions
+     */
+    omit?: AcceptedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AcceptedMissionsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CompletedMissions
+   */
+
+  export type AggregateCompletedMissions = {
+    _count: CompletedMissionsCountAggregateOutputType | null
+    _avg: CompletedMissionsAvgAggregateOutputType | null
+    _sum: CompletedMissionsSumAggregateOutputType | null
+    _min: CompletedMissionsMinAggregateOutputType | null
+    _max: CompletedMissionsMaxAggregateOutputType | null
+  }
+
+  export type CompletedMissionsAvgAggregateOutputType = {
+    id: number | null
+    missionId: number | null
+    userId: number | null
+  }
+
+  export type CompletedMissionsSumAggregateOutputType = {
+    id: number | null
+    missionId: number | null
+    userId: number | null
+  }
+
+  export type CompletedMissionsMinAggregateOutputType = {
+    id: number | null
+    missionId: number | null
+    userId: number | null
+    completedAt: Date | null
+  }
+
+  export type CompletedMissionsMaxAggregateOutputType = {
+    id: number | null
+    missionId: number | null
+    userId: number | null
+    completedAt: Date | null
+  }
+
+  export type CompletedMissionsCountAggregateOutputType = {
+    id: number
+    missionId: number
+    userId: number
+    completedAt: number
+    _all: number
+  }
+
+
+  export type CompletedMissionsAvgAggregateInputType = {
+    id?: true
+    missionId?: true
+    userId?: true
+  }
+
+  export type CompletedMissionsSumAggregateInputType = {
+    id?: true
+    missionId?: true
+    userId?: true
+  }
+
+  export type CompletedMissionsMinAggregateInputType = {
+    id?: true
+    missionId?: true
+    userId?: true
+    completedAt?: true
+  }
+
+  export type CompletedMissionsMaxAggregateInputType = {
+    id?: true
+    missionId?: true
+    userId?: true
+    completedAt?: true
+  }
+
+  export type CompletedMissionsCountAggregateInputType = {
+    id?: true
+    missionId?: true
+    userId?: true
+    completedAt?: true
+    _all?: true
+  }
+
+  export type CompletedMissionsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CompletedMissions to aggregate.
+     */
+    where?: CompletedMissionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CompletedMissions to fetch.
+     */
+    orderBy?: CompletedMissionsOrderByWithRelationInput | CompletedMissionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CompletedMissionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CompletedMissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CompletedMissions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CompletedMissions
+    **/
+    _count?: true | CompletedMissionsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CompletedMissionsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CompletedMissionsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CompletedMissionsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CompletedMissionsMaxAggregateInputType
+  }
+
+  export type GetCompletedMissionsAggregateType<T extends CompletedMissionsAggregateArgs> = {
+        [P in keyof T & keyof AggregateCompletedMissions]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCompletedMissions[P]>
+      : GetScalarType<T[P], AggregateCompletedMissions[P]>
+  }
+
+
+
+
+  export type CompletedMissionsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CompletedMissionsWhereInput
+    orderBy?: CompletedMissionsOrderByWithAggregationInput | CompletedMissionsOrderByWithAggregationInput[]
+    by: CompletedMissionsScalarFieldEnum[] | CompletedMissionsScalarFieldEnum
+    having?: CompletedMissionsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CompletedMissionsCountAggregateInputType | true
+    _avg?: CompletedMissionsAvgAggregateInputType
+    _sum?: CompletedMissionsSumAggregateInputType
+    _min?: CompletedMissionsMinAggregateInputType
+    _max?: CompletedMissionsMaxAggregateInputType
+  }
+
+  export type CompletedMissionsGroupByOutputType = {
+    id: number
+    missionId: number
+    userId: number
+    completedAt: Date
+    _count: CompletedMissionsCountAggregateOutputType | null
+    _avg: CompletedMissionsAvgAggregateOutputType | null
+    _sum: CompletedMissionsSumAggregateOutputType | null
+    _min: CompletedMissionsMinAggregateOutputType | null
+    _max: CompletedMissionsMaxAggregateOutputType | null
+  }
+
+  type GetCompletedMissionsGroupByPayload<T extends CompletedMissionsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CompletedMissionsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CompletedMissionsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CompletedMissionsGroupByOutputType[P]>
+            : GetScalarType<T[P], CompletedMissionsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CompletedMissionsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    missionId?: boolean
+    userId?: boolean
+    completedAt?: boolean
+    missions?: boolean | MissionsDefaultArgs<ExtArgs>
+    members?: boolean | MembersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["completedMissions"]>
+
+
+
+  export type CompletedMissionsSelectScalar = {
+    id?: boolean
+    missionId?: boolean
+    userId?: boolean
+    completedAt?: boolean
+  }
+
+  export type CompletedMissionsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "missionId" | "userId" | "completedAt", ExtArgs["result"]["completedMissions"]>
+  export type CompletedMissionsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    missions?: boolean | MissionsDefaultArgs<ExtArgs>
+    members?: boolean | MembersDefaultArgs<ExtArgs>
+  }
+
+  export type $CompletedMissionsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CompletedMissions"
+    objects: {
+      missions: Prisma.$MissionsPayload<ExtArgs>
+      members: Prisma.$MembersPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      missionId: number
+      userId: number
+      completedAt: Date
+    }, ExtArgs["result"]["completedMissions"]>
+    composites: {}
+  }
+
+  type CompletedMissionsGetPayload<S extends boolean | null | undefined | CompletedMissionsDefaultArgs> = $Result.GetResult<Prisma.$CompletedMissionsPayload, S>
+
+  type CompletedMissionsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CompletedMissionsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CompletedMissionsCountAggregateInputType | true
+    }
+
+  export interface CompletedMissionsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CompletedMissions'], meta: { name: 'CompletedMissions' } }
+    /**
+     * Find zero or one CompletedMissions that matches the filter.
+     * @param {CompletedMissionsFindUniqueArgs} args - Arguments to find a CompletedMissions
+     * @example
+     * // Get one CompletedMissions
+     * const completedMissions = await prisma.completedMissions.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CompletedMissionsFindUniqueArgs>(args: SelectSubset<T, CompletedMissionsFindUniqueArgs<ExtArgs>>): Prisma__CompletedMissionsClient<$Result.GetResult<Prisma.$CompletedMissionsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CompletedMissions that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CompletedMissionsFindUniqueOrThrowArgs} args - Arguments to find a CompletedMissions
+     * @example
+     * // Get one CompletedMissions
+     * const completedMissions = await prisma.completedMissions.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CompletedMissionsFindUniqueOrThrowArgs>(args: SelectSubset<T, CompletedMissionsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CompletedMissionsClient<$Result.GetResult<Prisma.$CompletedMissionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CompletedMissions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CompletedMissionsFindFirstArgs} args - Arguments to find a CompletedMissions
+     * @example
+     * // Get one CompletedMissions
+     * const completedMissions = await prisma.completedMissions.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CompletedMissionsFindFirstArgs>(args?: SelectSubset<T, CompletedMissionsFindFirstArgs<ExtArgs>>): Prisma__CompletedMissionsClient<$Result.GetResult<Prisma.$CompletedMissionsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CompletedMissions that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CompletedMissionsFindFirstOrThrowArgs} args - Arguments to find a CompletedMissions
+     * @example
+     * // Get one CompletedMissions
+     * const completedMissions = await prisma.completedMissions.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CompletedMissionsFindFirstOrThrowArgs>(args?: SelectSubset<T, CompletedMissionsFindFirstOrThrowArgs<ExtArgs>>): Prisma__CompletedMissionsClient<$Result.GetResult<Prisma.$CompletedMissionsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CompletedMissions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CompletedMissionsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CompletedMissions
+     * const completedMissions = await prisma.completedMissions.findMany()
+     * 
+     * // Get first 10 CompletedMissions
+     * const completedMissions = await prisma.completedMissions.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const completedMissionsWithIdOnly = await prisma.completedMissions.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CompletedMissionsFindManyArgs>(args?: SelectSubset<T, CompletedMissionsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CompletedMissionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CompletedMissions.
+     * @param {CompletedMissionsCreateArgs} args - Arguments to create a CompletedMissions.
+     * @example
+     * // Create one CompletedMissions
+     * const CompletedMissions = await prisma.completedMissions.create({
+     *   data: {
+     *     // ... data to create a CompletedMissions
+     *   }
+     * })
+     * 
+     */
+    create<T extends CompletedMissionsCreateArgs>(args: SelectSubset<T, CompletedMissionsCreateArgs<ExtArgs>>): Prisma__CompletedMissionsClient<$Result.GetResult<Prisma.$CompletedMissionsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CompletedMissions.
+     * @param {CompletedMissionsCreateManyArgs} args - Arguments to create many CompletedMissions.
+     * @example
+     * // Create many CompletedMissions
+     * const completedMissions = await prisma.completedMissions.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CompletedMissionsCreateManyArgs>(args?: SelectSubset<T, CompletedMissionsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a CompletedMissions.
+     * @param {CompletedMissionsDeleteArgs} args - Arguments to delete one CompletedMissions.
+     * @example
+     * // Delete one CompletedMissions
+     * const CompletedMissions = await prisma.completedMissions.delete({
+     *   where: {
+     *     // ... filter to delete one CompletedMissions
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CompletedMissionsDeleteArgs>(args: SelectSubset<T, CompletedMissionsDeleteArgs<ExtArgs>>): Prisma__CompletedMissionsClient<$Result.GetResult<Prisma.$CompletedMissionsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CompletedMissions.
+     * @param {CompletedMissionsUpdateArgs} args - Arguments to update one CompletedMissions.
+     * @example
+     * // Update one CompletedMissions
+     * const completedMissions = await prisma.completedMissions.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CompletedMissionsUpdateArgs>(args: SelectSubset<T, CompletedMissionsUpdateArgs<ExtArgs>>): Prisma__CompletedMissionsClient<$Result.GetResult<Prisma.$CompletedMissionsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CompletedMissions.
+     * @param {CompletedMissionsDeleteManyArgs} args - Arguments to filter CompletedMissions to delete.
+     * @example
+     * // Delete a few CompletedMissions
+     * const { count } = await prisma.completedMissions.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CompletedMissionsDeleteManyArgs>(args?: SelectSubset<T, CompletedMissionsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CompletedMissions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CompletedMissionsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CompletedMissions
+     * const completedMissions = await prisma.completedMissions.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CompletedMissionsUpdateManyArgs>(args: SelectSubset<T, CompletedMissionsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one CompletedMissions.
+     * @param {CompletedMissionsUpsertArgs} args - Arguments to update or create a CompletedMissions.
+     * @example
+     * // Update or create a CompletedMissions
+     * const completedMissions = await prisma.completedMissions.upsert({
+     *   create: {
+     *     // ... data to create a CompletedMissions
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CompletedMissions we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CompletedMissionsUpsertArgs>(args: SelectSubset<T, CompletedMissionsUpsertArgs<ExtArgs>>): Prisma__CompletedMissionsClient<$Result.GetResult<Prisma.$CompletedMissionsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CompletedMissions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CompletedMissionsCountArgs} args - Arguments to filter CompletedMissions to count.
+     * @example
+     * // Count the number of CompletedMissions
+     * const count = await prisma.completedMissions.count({
+     *   where: {
+     *     // ... the filter for the CompletedMissions we want to count
+     *   }
+     * })
+    **/
+    count<T extends CompletedMissionsCountArgs>(
+      args?: Subset<T, CompletedMissionsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CompletedMissionsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CompletedMissions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CompletedMissionsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CompletedMissionsAggregateArgs>(args: Subset<T, CompletedMissionsAggregateArgs>): Prisma.PrismaPromise<GetCompletedMissionsAggregateType<T>>
+
+    /**
+     * Group by CompletedMissions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CompletedMissionsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CompletedMissionsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CompletedMissionsGroupByArgs['orderBy'] }
+        : { orderBy?: CompletedMissionsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CompletedMissionsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCompletedMissionsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CompletedMissions model
+   */
+  readonly fields: CompletedMissionsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CompletedMissions.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CompletedMissionsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    missions<T extends MissionsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MissionsDefaultArgs<ExtArgs>>): Prisma__MissionsClient<$Result.GetResult<Prisma.$MissionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    members<T extends MembersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MembersDefaultArgs<ExtArgs>>): Prisma__MembersClient<$Result.GetResult<Prisma.$MembersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CompletedMissions model
+   */
+  interface CompletedMissionsFieldRefs {
+    readonly id: FieldRef<"CompletedMissions", 'Int'>
+    readonly missionId: FieldRef<"CompletedMissions", 'Int'>
+    readonly userId: FieldRef<"CompletedMissions", 'Int'>
+    readonly completedAt: FieldRef<"CompletedMissions", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CompletedMissions findUnique
+   */
+  export type CompletedMissionsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CompletedMissions
+     */
+    select?: CompletedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CompletedMissions
+     */
+    omit?: CompletedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CompletedMissionsInclude<ExtArgs> | null
+    /**
+     * Filter, which CompletedMissions to fetch.
+     */
+    where: CompletedMissionsWhereUniqueInput
+  }
+
+  /**
+   * CompletedMissions findUniqueOrThrow
+   */
+  export type CompletedMissionsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CompletedMissions
+     */
+    select?: CompletedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CompletedMissions
+     */
+    omit?: CompletedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CompletedMissionsInclude<ExtArgs> | null
+    /**
+     * Filter, which CompletedMissions to fetch.
+     */
+    where: CompletedMissionsWhereUniqueInput
+  }
+
+  /**
+   * CompletedMissions findFirst
+   */
+  export type CompletedMissionsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CompletedMissions
+     */
+    select?: CompletedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CompletedMissions
+     */
+    omit?: CompletedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CompletedMissionsInclude<ExtArgs> | null
+    /**
+     * Filter, which CompletedMissions to fetch.
+     */
+    where?: CompletedMissionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CompletedMissions to fetch.
+     */
+    orderBy?: CompletedMissionsOrderByWithRelationInput | CompletedMissionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CompletedMissions.
+     */
+    cursor?: CompletedMissionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CompletedMissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CompletedMissions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CompletedMissions.
+     */
+    distinct?: CompletedMissionsScalarFieldEnum | CompletedMissionsScalarFieldEnum[]
+  }
+
+  /**
+   * CompletedMissions findFirstOrThrow
+   */
+  export type CompletedMissionsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CompletedMissions
+     */
+    select?: CompletedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CompletedMissions
+     */
+    omit?: CompletedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CompletedMissionsInclude<ExtArgs> | null
+    /**
+     * Filter, which CompletedMissions to fetch.
+     */
+    where?: CompletedMissionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CompletedMissions to fetch.
+     */
+    orderBy?: CompletedMissionsOrderByWithRelationInput | CompletedMissionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CompletedMissions.
+     */
+    cursor?: CompletedMissionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CompletedMissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CompletedMissions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CompletedMissions.
+     */
+    distinct?: CompletedMissionsScalarFieldEnum | CompletedMissionsScalarFieldEnum[]
+  }
+
+  /**
+   * CompletedMissions findMany
+   */
+  export type CompletedMissionsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CompletedMissions
+     */
+    select?: CompletedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CompletedMissions
+     */
+    omit?: CompletedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CompletedMissionsInclude<ExtArgs> | null
+    /**
+     * Filter, which CompletedMissions to fetch.
+     */
+    where?: CompletedMissionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CompletedMissions to fetch.
+     */
+    orderBy?: CompletedMissionsOrderByWithRelationInput | CompletedMissionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CompletedMissions.
+     */
+    cursor?: CompletedMissionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CompletedMissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CompletedMissions.
+     */
+    skip?: number
+    distinct?: CompletedMissionsScalarFieldEnum | CompletedMissionsScalarFieldEnum[]
+  }
+
+  /**
+   * CompletedMissions create
+   */
+  export type CompletedMissionsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CompletedMissions
+     */
+    select?: CompletedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CompletedMissions
+     */
+    omit?: CompletedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CompletedMissionsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CompletedMissions.
+     */
+    data: XOR<CompletedMissionsCreateInput, CompletedMissionsUncheckedCreateInput>
+  }
+
+  /**
+   * CompletedMissions createMany
+   */
+  export type CompletedMissionsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CompletedMissions.
+     */
+    data: CompletedMissionsCreateManyInput | CompletedMissionsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CompletedMissions update
+   */
+  export type CompletedMissionsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CompletedMissions
+     */
+    select?: CompletedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CompletedMissions
+     */
+    omit?: CompletedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CompletedMissionsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CompletedMissions.
+     */
+    data: XOR<CompletedMissionsUpdateInput, CompletedMissionsUncheckedUpdateInput>
+    /**
+     * Choose, which CompletedMissions to update.
+     */
+    where: CompletedMissionsWhereUniqueInput
+  }
+
+  /**
+   * CompletedMissions updateMany
+   */
+  export type CompletedMissionsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CompletedMissions.
+     */
+    data: XOR<CompletedMissionsUpdateManyMutationInput, CompletedMissionsUncheckedUpdateManyInput>
+    /**
+     * Filter which CompletedMissions to update
+     */
+    where?: CompletedMissionsWhereInput
+    /**
+     * Limit how many CompletedMissions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CompletedMissions upsert
+   */
+  export type CompletedMissionsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CompletedMissions
+     */
+    select?: CompletedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CompletedMissions
+     */
+    omit?: CompletedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CompletedMissionsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CompletedMissions to update in case it exists.
+     */
+    where: CompletedMissionsWhereUniqueInput
+    /**
+     * In case the CompletedMissions found by the `where` argument doesn't exist, create a new CompletedMissions with this data.
+     */
+    create: XOR<CompletedMissionsCreateInput, CompletedMissionsUncheckedCreateInput>
+    /**
+     * In case the CompletedMissions was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CompletedMissionsUpdateInput, CompletedMissionsUncheckedUpdateInput>
+  }
+
+  /**
+   * CompletedMissions delete
+   */
+  export type CompletedMissionsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CompletedMissions
+     */
+    select?: CompletedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CompletedMissions
+     */
+    omit?: CompletedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CompletedMissionsInclude<ExtArgs> | null
+    /**
+     * Filter which CompletedMissions to delete.
+     */
+    where: CompletedMissionsWhereUniqueInput
+  }
+
+  /**
+   * CompletedMissions deleteMany
+   */
+  export type CompletedMissionsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CompletedMissions to delete
+     */
+    where?: CompletedMissionsWhereInput
+    /**
+     * Limit how many CompletedMissions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CompletedMissions without action
+   */
+  export type CompletedMissionsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CompletedMissions
+     */
+    select?: CompletedMissionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CompletedMissions
+     */
+    omit?: CompletedMissionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CompletedMissionsInclude<ExtArgs> | null
   }
 
 
@@ -6349,6 +11976,57 @@ export namespace Prisma {
   export type StoreScalarFieldEnum = (typeof StoreScalarFieldEnum)[keyof typeof StoreScalarFieldEnum]
 
 
+  export const LocationsScalarFieldEnum: {
+    id: 'id',
+    name: 'name'
+  };
+
+  export type LocationsScalarFieldEnum = (typeof LocationsScalarFieldEnum)[keyof typeof LocationsScalarFieldEnum]
+
+
+  export const StoreStatusScalarFieldEnum: {
+    id: 'id',
+    storeId: 'storeId',
+    reviewsCount: 'reviewsCount',
+    starTotal: 'starTotal'
+  };
+
+  export type StoreStatusScalarFieldEnum = (typeof StoreStatusScalarFieldEnum)[keyof typeof StoreStatusScalarFieldEnum]
+
+
+  export const MissionsScalarFieldEnum: {
+    id: 'id',
+    storeId: 'storeId',
+    goal: 'goal',
+    rewards: 'rewards',
+    expireDate: 'expireDate',
+    locationId: 'locationId'
+  };
+
+  export type MissionsScalarFieldEnum = (typeof MissionsScalarFieldEnum)[keyof typeof MissionsScalarFieldEnum]
+
+
+  export const AcceptedMissionsScalarFieldEnum: {
+    id: 'id',
+    missionId: 'missionId',
+    userId: 'userId',
+    verificationCode: 'verificationCode',
+    completedAt: 'completedAt'
+  };
+
+  export type AcceptedMissionsScalarFieldEnum = (typeof AcceptedMissionsScalarFieldEnum)[keyof typeof AcceptedMissionsScalarFieldEnum]
+
+
+  export const CompletedMissionsScalarFieldEnum: {
+    id: 'id',
+    missionId: 'missionId',
+    userId: 'userId',
+    completedAt: 'completedAt'
+  };
+
+  export type CompletedMissionsScalarFieldEnum = (typeof CompletedMissionsScalarFieldEnum)[keyof typeof CompletedMissionsScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -6390,6 +12068,28 @@ export namespace Prisma {
   };
 
   export type StoreOrderByRelevanceFieldEnum = (typeof StoreOrderByRelevanceFieldEnum)[keyof typeof StoreOrderByRelevanceFieldEnum]
+
+
+  export const LocationsOrderByRelevanceFieldEnum: {
+    name: 'name'
+  };
+
+  export type LocationsOrderByRelevanceFieldEnum = (typeof LocationsOrderByRelevanceFieldEnum)[keyof typeof LocationsOrderByRelevanceFieldEnum]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const AcceptedMissionsOrderByRelevanceFieldEnum: {
+    verificationCode: 'verificationCode'
+  };
+
+  export type AcceptedMissionsOrderByRelevanceFieldEnum = (typeof AcceptedMissionsOrderByRelevanceFieldEnum)[keyof typeof AcceptedMissionsOrderByRelevanceFieldEnum]
 
 
   /**
@@ -6447,6 +12147,8 @@ export namespace Prisma {
     address?: StringFilter<"Members"> | string
     phoneNumber?: StringFilter<"Members"> | string
     membersFoodTypes?: MembersFoodTypeListRelationFilter
+    acceptedMissions?: AcceptedMissionsListRelationFilter
+    completedMissions?: CompletedMissionsListRelationFilter
     review?: ReviewListRelationFilter
   }
 
@@ -6459,6 +12161,8 @@ export namespace Prisma {
     address?: SortOrder
     phoneNumber?: SortOrder
     membersFoodTypes?: MembersFoodTypeOrderByRelationAggregateInput
+    acceptedMissions?: AcceptedMissionsOrderByRelationAggregateInput
+    completedMissions?: CompletedMissionsOrderByRelationAggregateInput
     review?: ReviewOrderByRelationAggregateInput
     _relevance?: MembersOrderByRelevanceInput
   }
@@ -6475,6 +12179,8 @@ export namespace Prisma {
     address?: StringFilter<"Members"> | string
     phoneNumber?: StringFilter<"Members"> | string
     membersFoodTypes?: MembersFoodTypeListRelationFilter
+    acceptedMissions?: AcceptedMissionsListRelationFilter
+    completedMissions?: CompletedMissionsListRelationFilter
     review?: ReviewListRelationFilter
   }, "id" | "email">
 
@@ -6564,6 +12270,7 @@ export namespace Prisma {
     name?: StringFilter<"FoodType"> | string
     storeTypeName?: StringFilter<"FoodType"> | string
     membersFoodTypes?: MembersFoodTypeListRelationFilter
+    store?: StoreListRelationFilter
   }
 
   export type FoodTypeOrderByWithRelationInput = {
@@ -6571,6 +12278,7 @@ export namespace Prisma {
     name?: SortOrder
     storeTypeName?: SortOrder
     membersFoodTypes?: MembersFoodTypeOrderByRelationAggregateInput
+    store?: StoreOrderByRelationAggregateInput
     _relevance?: FoodTypeOrderByRelevanceInput
   }
 
@@ -6582,6 +12290,7 @@ export namespace Prisma {
     name?: StringFilter<"FoodType"> | string
     storeTypeName?: StringFilter<"FoodType"> | string
     membersFoodTypes?: MembersFoodTypeListRelationFilter
+    store?: StoreListRelationFilter
   }, "id">
 
   export type FoodTypeOrderByWithAggregationInput = {
@@ -6682,6 +12391,10 @@ export namespace Prisma {
     closeTime?: StringFilter<"Store"> | string
     locationId?: IntFilter<"Store"> | number
     review?: ReviewListRelationFilter
+    storeStatus?: StoreStatusListRelationFilter
+    missions?: MissionsListRelationFilter
+    foodType?: XOR<FoodTypeScalarRelationFilter, FoodTypeWhereInput>
+    locations?: XOR<LocationsScalarRelationFilter, LocationsWhereInput>
   }
 
   export type StoreOrderByWithRelationInput = {
@@ -6693,6 +12406,10 @@ export namespace Prisma {
     closeTime?: SortOrder
     locationId?: SortOrder
     review?: ReviewOrderByRelationAggregateInput
+    storeStatus?: StoreStatusOrderByRelationAggregateInput
+    missions?: MissionsOrderByRelationAggregateInput
+    foodType?: FoodTypeOrderByWithRelationInput
+    locations?: LocationsOrderByWithRelationInput
     _relevance?: StoreOrderByRelevanceInput
   }
 
@@ -6708,6 +12425,10 @@ export namespace Prisma {
     closeTime?: StringFilter<"Store"> | string
     locationId?: IntFilter<"Store"> | number
     review?: ReviewListRelationFilter
+    storeStatus?: StoreStatusListRelationFilter
+    missions?: MissionsListRelationFilter
+    foodType?: XOR<FoodTypeScalarRelationFilter, FoodTypeWhereInput>
+    locations?: XOR<LocationsScalarRelationFilter, LocationsWhereInput>
   }, "id">
 
   export type StoreOrderByWithAggregationInput = {
@@ -6738,6 +12459,291 @@ export namespace Prisma {
     locationId?: IntWithAggregatesFilter<"Store"> | number
   }
 
+  export type LocationsWhereInput = {
+    AND?: LocationsWhereInput | LocationsWhereInput[]
+    OR?: LocationsWhereInput[]
+    NOT?: LocationsWhereInput | LocationsWhereInput[]
+    id?: IntFilter<"Locations"> | number
+    name?: StringFilter<"Locations"> | string
+    store?: StoreListRelationFilter
+    missions?: MissionsListRelationFilter
+  }
+
+  export type LocationsOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    store?: StoreOrderByRelationAggregateInput
+    missions?: MissionsOrderByRelationAggregateInput
+    _relevance?: LocationsOrderByRelevanceInput
+  }
+
+  export type LocationsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: LocationsWhereInput | LocationsWhereInput[]
+    OR?: LocationsWhereInput[]
+    NOT?: LocationsWhereInput | LocationsWhereInput[]
+    name?: StringFilter<"Locations"> | string
+    store?: StoreListRelationFilter
+    missions?: MissionsListRelationFilter
+  }, "id">
+
+  export type LocationsOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    _count?: LocationsCountOrderByAggregateInput
+    _avg?: LocationsAvgOrderByAggregateInput
+    _max?: LocationsMaxOrderByAggregateInput
+    _min?: LocationsMinOrderByAggregateInput
+    _sum?: LocationsSumOrderByAggregateInput
+  }
+
+  export type LocationsScalarWhereWithAggregatesInput = {
+    AND?: LocationsScalarWhereWithAggregatesInput | LocationsScalarWhereWithAggregatesInput[]
+    OR?: LocationsScalarWhereWithAggregatesInput[]
+    NOT?: LocationsScalarWhereWithAggregatesInput | LocationsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Locations"> | number
+    name?: StringWithAggregatesFilter<"Locations"> | string
+  }
+
+  export type StoreStatusWhereInput = {
+    AND?: StoreStatusWhereInput | StoreStatusWhereInput[]
+    OR?: StoreStatusWhereInput[]
+    NOT?: StoreStatusWhereInput | StoreStatusWhereInput[]
+    id?: IntFilter<"StoreStatus"> | number
+    storeId?: IntFilter<"StoreStatus"> | number
+    reviewsCount?: IntFilter<"StoreStatus"> | number
+    starTotal?: FloatFilter<"StoreStatus"> | number
+    store?: XOR<StoreScalarRelationFilter, StoreWhereInput>
+  }
+
+  export type StoreStatusOrderByWithRelationInput = {
+    id?: SortOrder
+    storeId?: SortOrder
+    reviewsCount?: SortOrder
+    starTotal?: SortOrder
+    store?: StoreOrderByWithRelationInput
+  }
+
+  export type StoreStatusWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: StoreStatusWhereInput | StoreStatusWhereInput[]
+    OR?: StoreStatusWhereInput[]
+    NOT?: StoreStatusWhereInput | StoreStatusWhereInput[]
+    storeId?: IntFilter<"StoreStatus"> | number
+    reviewsCount?: IntFilter<"StoreStatus"> | number
+    starTotal?: FloatFilter<"StoreStatus"> | number
+    store?: XOR<StoreScalarRelationFilter, StoreWhereInput>
+  }, "id">
+
+  export type StoreStatusOrderByWithAggregationInput = {
+    id?: SortOrder
+    storeId?: SortOrder
+    reviewsCount?: SortOrder
+    starTotal?: SortOrder
+    _count?: StoreStatusCountOrderByAggregateInput
+    _avg?: StoreStatusAvgOrderByAggregateInput
+    _max?: StoreStatusMaxOrderByAggregateInput
+    _min?: StoreStatusMinOrderByAggregateInput
+    _sum?: StoreStatusSumOrderByAggregateInput
+  }
+
+  export type StoreStatusScalarWhereWithAggregatesInput = {
+    AND?: StoreStatusScalarWhereWithAggregatesInput | StoreStatusScalarWhereWithAggregatesInput[]
+    OR?: StoreStatusScalarWhereWithAggregatesInput[]
+    NOT?: StoreStatusScalarWhereWithAggregatesInput | StoreStatusScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"StoreStatus"> | number
+    storeId?: IntWithAggregatesFilter<"StoreStatus"> | number
+    reviewsCount?: IntWithAggregatesFilter<"StoreStatus"> | number
+    starTotal?: FloatWithAggregatesFilter<"StoreStatus"> | number
+  }
+
+  export type MissionsWhereInput = {
+    AND?: MissionsWhereInput | MissionsWhereInput[]
+    OR?: MissionsWhereInput[]
+    NOT?: MissionsWhereInput | MissionsWhereInput[]
+    id?: IntFilter<"Missions"> | number
+    storeId?: IntFilter<"Missions"> | number
+    goal?: IntFilter<"Missions"> | number
+    rewards?: IntFilter<"Missions"> | number
+    expireDate?: DateTimeFilter<"Missions"> | Date | string
+    locationId?: IntFilter<"Missions"> | number
+    store?: XOR<StoreScalarRelationFilter, StoreWhereInput>
+    locations?: XOR<LocationsScalarRelationFilter, LocationsWhereInput>
+    acceptedMissions?: AcceptedMissionsListRelationFilter
+    completedMissions?: CompletedMissionsListRelationFilter
+  }
+
+  export type MissionsOrderByWithRelationInput = {
+    id?: SortOrder
+    storeId?: SortOrder
+    goal?: SortOrder
+    rewards?: SortOrder
+    expireDate?: SortOrder
+    locationId?: SortOrder
+    store?: StoreOrderByWithRelationInput
+    locations?: LocationsOrderByWithRelationInput
+    acceptedMissions?: AcceptedMissionsOrderByRelationAggregateInput
+    completedMissions?: CompletedMissionsOrderByRelationAggregateInput
+  }
+
+  export type MissionsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: MissionsWhereInput | MissionsWhereInput[]
+    OR?: MissionsWhereInput[]
+    NOT?: MissionsWhereInput | MissionsWhereInput[]
+    storeId?: IntFilter<"Missions"> | number
+    goal?: IntFilter<"Missions"> | number
+    rewards?: IntFilter<"Missions"> | number
+    expireDate?: DateTimeFilter<"Missions"> | Date | string
+    locationId?: IntFilter<"Missions"> | number
+    store?: XOR<StoreScalarRelationFilter, StoreWhereInput>
+    locations?: XOR<LocationsScalarRelationFilter, LocationsWhereInput>
+    acceptedMissions?: AcceptedMissionsListRelationFilter
+    completedMissions?: CompletedMissionsListRelationFilter
+  }, "id">
+
+  export type MissionsOrderByWithAggregationInput = {
+    id?: SortOrder
+    storeId?: SortOrder
+    goal?: SortOrder
+    rewards?: SortOrder
+    expireDate?: SortOrder
+    locationId?: SortOrder
+    _count?: MissionsCountOrderByAggregateInput
+    _avg?: MissionsAvgOrderByAggregateInput
+    _max?: MissionsMaxOrderByAggregateInput
+    _min?: MissionsMinOrderByAggregateInput
+    _sum?: MissionsSumOrderByAggregateInput
+  }
+
+  export type MissionsScalarWhereWithAggregatesInput = {
+    AND?: MissionsScalarWhereWithAggregatesInput | MissionsScalarWhereWithAggregatesInput[]
+    OR?: MissionsScalarWhereWithAggregatesInput[]
+    NOT?: MissionsScalarWhereWithAggregatesInput | MissionsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Missions"> | number
+    storeId?: IntWithAggregatesFilter<"Missions"> | number
+    goal?: IntWithAggregatesFilter<"Missions"> | number
+    rewards?: IntWithAggregatesFilter<"Missions"> | number
+    expireDate?: DateTimeWithAggregatesFilter<"Missions"> | Date | string
+    locationId?: IntWithAggregatesFilter<"Missions"> | number
+  }
+
+  export type AcceptedMissionsWhereInput = {
+    AND?: AcceptedMissionsWhereInput | AcceptedMissionsWhereInput[]
+    OR?: AcceptedMissionsWhereInput[]
+    NOT?: AcceptedMissionsWhereInput | AcceptedMissionsWhereInput[]
+    id?: IntFilter<"AcceptedMissions"> | number
+    missionId?: IntFilter<"AcceptedMissions"> | number
+    userId?: IntFilter<"AcceptedMissions"> | number
+    verificationCode?: StringFilter<"AcceptedMissions"> | string
+    completedAt?: DateTimeNullableFilter<"AcceptedMissions"> | Date | string | null
+    missions?: XOR<MissionsScalarRelationFilter, MissionsWhereInput>
+    members?: XOR<MembersScalarRelationFilter, MembersWhereInput>
+  }
+
+  export type AcceptedMissionsOrderByWithRelationInput = {
+    id?: SortOrder
+    missionId?: SortOrder
+    userId?: SortOrder
+    verificationCode?: SortOrder
+    completedAt?: SortOrderInput | SortOrder
+    missions?: MissionsOrderByWithRelationInput
+    members?: MembersOrderByWithRelationInput
+    _relevance?: AcceptedMissionsOrderByRelevanceInput
+  }
+
+  export type AcceptedMissionsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: AcceptedMissionsWhereInput | AcceptedMissionsWhereInput[]
+    OR?: AcceptedMissionsWhereInput[]
+    NOT?: AcceptedMissionsWhereInput | AcceptedMissionsWhereInput[]
+    missionId?: IntFilter<"AcceptedMissions"> | number
+    userId?: IntFilter<"AcceptedMissions"> | number
+    verificationCode?: StringFilter<"AcceptedMissions"> | string
+    completedAt?: DateTimeNullableFilter<"AcceptedMissions"> | Date | string | null
+    missions?: XOR<MissionsScalarRelationFilter, MissionsWhereInput>
+    members?: XOR<MembersScalarRelationFilter, MembersWhereInput>
+  }, "id">
+
+  export type AcceptedMissionsOrderByWithAggregationInput = {
+    id?: SortOrder
+    missionId?: SortOrder
+    userId?: SortOrder
+    verificationCode?: SortOrder
+    completedAt?: SortOrderInput | SortOrder
+    _count?: AcceptedMissionsCountOrderByAggregateInput
+    _avg?: AcceptedMissionsAvgOrderByAggregateInput
+    _max?: AcceptedMissionsMaxOrderByAggregateInput
+    _min?: AcceptedMissionsMinOrderByAggregateInput
+    _sum?: AcceptedMissionsSumOrderByAggregateInput
+  }
+
+  export type AcceptedMissionsScalarWhereWithAggregatesInput = {
+    AND?: AcceptedMissionsScalarWhereWithAggregatesInput | AcceptedMissionsScalarWhereWithAggregatesInput[]
+    OR?: AcceptedMissionsScalarWhereWithAggregatesInput[]
+    NOT?: AcceptedMissionsScalarWhereWithAggregatesInput | AcceptedMissionsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"AcceptedMissions"> | number
+    missionId?: IntWithAggregatesFilter<"AcceptedMissions"> | number
+    userId?: IntWithAggregatesFilter<"AcceptedMissions"> | number
+    verificationCode?: StringWithAggregatesFilter<"AcceptedMissions"> | string
+    completedAt?: DateTimeNullableWithAggregatesFilter<"AcceptedMissions"> | Date | string | null
+  }
+
+  export type CompletedMissionsWhereInput = {
+    AND?: CompletedMissionsWhereInput | CompletedMissionsWhereInput[]
+    OR?: CompletedMissionsWhereInput[]
+    NOT?: CompletedMissionsWhereInput | CompletedMissionsWhereInput[]
+    id?: IntFilter<"CompletedMissions"> | number
+    missionId?: IntFilter<"CompletedMissions"> | number
+    userId?: IntFilter<"CompletedMissions"> | number
+    completedAt?: DateTimeFilter<"CompletedMissions"> | Date | string
+    missions?: XOR<MissionsScalarRelationFilter, MissionsWhereInput>
+    members?: XOR<MembersScalarRelationFilter, MembersWhereInput>
+  }
+
+  export type CompletedMissionsOrderByWithRelationInput = {
+    id?: SortOrder
+    missionId?: SortOrder
+    userId?: SortOrder
+    completedAt?: SortOrder
+    missions?: MissionsOrderByWithRelationInput
+    members?: MembersOrderByWithRelationInput
+  }
+
+  export type CompletedMissionsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: CompletedMissionsWhereInput | CompletedMissionsWhereInput[]
+    OR?: CompletedMissionsWhereInput[]
+    NOT?: CompletedMissionsWhereInput | CompletedMissionsWhereInput[]
+    missionId?: IntFilter<"CompletedMissions"> | number
+    userId?: IntFilter<"CompletedMissions"> | number
+    completedAt?: DateTimeFilter<"CompletedMissions"> | Date | string
+    missions?: XOR<MissionsScalarRelationFilter, MissionsWhereInput>
+    members?: XOR<MembersScalarRelationFilter, MembersWhereInput>
+  }, "id">
+
+  export type CompletedMissionsOrderByWithAggregationInput = {
+    id?: SortOrder
+    missionId?: SortOrder
+    userId?: SortOrder
+    completedAt?: SortOrder
+    _count?: CompletedMissionsCountOrderByAggregateInput
+    _avg?: CompletedMissionsAvgOrderByAggregateInput
+    _max?: CompletedMissionsMaxOrderByAggregateInput
+    _min?: CompletedMissionsMinOrderByAggregateInput
+    _sum?: CompletedMissionsSumOrderByAggregateInput
+  }
+
+  export type CompletedMissionsScalarWhereWithAggregatesInput = {
+    AND?: CompletedMissionsScalarWhereWithAggregatesInput | CompletedMissionsScalarWhereWithAggregatesInput[]
+    OR?: CompletedMissionsScalarWhereWithAggregatesInput[]
+    NOT?: CompletedMissionsScalarWhereWithAggregatesInput | CompletedMissionsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"CompletedMissions"> | number
+    missionId?: IntWithAggregatesFilter<"CompletedMissions"> | number
+    userId?: IntWithAggregatesFilter<"CompletedMissions"> | number
+    completedAt?: DateTimeWithAggregatesFilter<"CompletedMissions"> | Date | string
+  }
+
   export type MembersCreateInput = {
     email: string
     name: string
@@ -6746,6 +12752,8 @@ export namespace Prisma {
     address: string
     phoneNumber: string
     membersFoodTypes?: MembersFoodTypeCreateNestedManyWithoutMembersInput
+    acceptedMissions?: AcceptedMissionsCreateNestedManyWithoutMembersInput
+    completedMissions?: CompletedMissionsCreateNestedManyWithoutMembersInput
     review?: ReviewCreateNestedManyWithoutMembersInput
   }
 
@@ -6758,6 +12766,8 @@ export namespace Prisma {
     address: string
     phoneNumber: string
     membersFoodTypes?: MembersFoodTypeUncheckedCreateNestedManyWithoutMembersInput
+    acceptedMissions?: AcceptedMissionsUncheckedCreateNestedManyWithoutMembersInput
+    completedMissions?: CompletedMissionsUncheckedCreateNestedManyWithoutMembersInput
     review?: ReviewUncheckedCreateNestedManyWithoutMembersInput
   }
 
@@ -6769,6 +12779,8 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     membersFoodTypes?: MembersFoodTypeUpdateManyWithoutMembersNestedInput
+    acceptedMissions?: AcceptedMissionsUpdateManyWithoutMembersNestedInput
+    completedMissions?: CompletedMissionsUpdateManyWithoutMembersNestedInput
     review?: ReviewUpdateManyWithoutMembersNestedInput
   }
 
@@ -6781,6 +12793,8 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     membersFoodTypes?: MembersFoodTypeUncheckedUpdateManyWithoutMembersNestedInput
+    acceptedMissions?: AcceptedMissionsUncheckedUpdateManyWithoutMembersNestedInput
+    completedMissions?: CompletedMissionsUncheckedUpdateManyWithoutMembersNestedInput
     review?: ReviewUncheckedUpdateManyWithoutMembersNestedInput
   }
 
@@ -6855,6 +12869,7 @@ export namespace Prisma {
     name: string
     storeTypeName: string
     membersFoodTypes?: MembersFoodTypeCreateNestedManyWithoutFoodTypeInput
+    store?: StoreCreateNestedManyWithoutFoodTypeInput
   }
 
   export type FoodTypeUncheckedCreateInput = {
@@ -6862,12 +12877,14 @@ export namespace Prisma {
     name: string
     storeTypeName: string
     membersFoodTypes?: MembersFoodTypeUncheckedCreateNestedManyWithoutFoodTypeInput
+    store?: StoreUncheckedCreateNestedManyWithoutFoodTypeInput
   }
 
   export type FoodTypeUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     storeTypeName?: StringFieldUpdateOperationsInput | string
     membersFoodTypes?: MembersFoodTypeUpdateManyWithoutFoodTypeNestedInput
+    store?: StoreUpdateManyWithoutFoodTypeNestedInput
   }
 
   export type FoodTypeUncheckedUpdateInput = {
@@ -6875,6 +12892,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     storeTypeName?: StringFieldUpdateOperationsInput | string
     membersFoodTypes?: MembersFoodTypeUncheckedUpdateManyWithoutFoodTypeNestedInput
+    store?: StoreUncheckedUpdateManyWithoutFoodTypeNestedInput
   }
 
   export type FoodTypeCreateManyInput = {
@@ -6954,12 +12972,14 @@ export namespace Prisma {
 
   export type StoreCreateInput = {
     name: string
-    foodTypeId: number
     address: string
     openTime: string
     closeTime: string
-    locationId: number
     review?: ReviewCreateNestedManyWithoutStoreInput
+    storeStatus?: StoreStatusCreateNestedManyWithoutStoreInput
+    missions?: MissionsCreateNestedManyWithoutStoreInput
+    foodType: FoodTypeCreateNestedOneWithoutStoreInput
+    locations: LocationsCreateNestedOneWithoutStoreInput
   }
 
   export type StoreUncheckedCreateInput = {
@@ -6971,16 +12991,20 @@ export namespace Prisma {
     closeTime: string
     locationId: number
     review?: ReviewUncheckedCreateNestedManyWithoutStoreInput
+    storeStatus?: StoreStatusUncheckedCreateNestedManyWithoutStoreInput
+    missions?: MissionsUncheckedCreateNestedManyWithoutStoreInput
   }
 
   export type StoreUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
-    foodTypeId?: IntFieldUpdateOperationsInput | number
     address?: StringFieldUpdateOperationsInput | string
     openTime?: StringFieldUpdateOperationsInput | string
     closeTime?: StringFieldUpdateOperationsInput | string
-    locationId?: IntFieldUpdateOperationsInput | number
     review?: ReviewUpdateManyWithoutStoreNestedInput
+    storeStatus?: StoreStatusUpdateManyWithoutStoreNestedInput
+    missions?: MissionsUpdateManyWithoutStoreNestedInput
+    foodType?: FoodTypeUpdateOneRequiredWithoutStoreNestedInput
+    locations?: LocationsUpdateOneRequiredWithoutStoreNestedInput
   }
 
   export type StoreUncheckedUpdateInput = {
@@ -6992,6 +13016,8 @@ export namespace Prisma {
     closeTime?: StringFieldUpdateOperationsInput | string
     locationId?: IntFieldUpdateOperationsInput | number
     review?: ReviewUncheckedUpdateManyWithoutStoreNestedInput
+    storeStatus?: StoreStatusUncheckedUpdateManyWithoutStoreNestedInput
+    missions?: MissionsUncheckedUpdateManyWithoutStoreNestedInput
   }
 
   export type StoreCreateManyInput = {
@@ -7006,11 +13032,9 @@ export namespace Prisma {
 
   export type StoreUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
-    foodTypeId?: IntFieldUpdateOperationsInput | number
     address?: StringFieldUpdateOperationsInput | string
     openTime?: StringFieldUpdateOperationsInput | string
     closeTime?: StringFieldUpdateOperationsInput | string
-    locationId?: IntFieldUpdateOperationsInput | number
   }
 
   export type StoreUncheckedUpdateManyInput = {
@@ -7021,6 +13045,252 @@ export namespace Prisma {
     openTime?: StringFieldUpdateOperationsInput | string
     closeTime?: StringFieldUpdateOperationsInput | string
     locationId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LocationsCreateInput = {
+    name: string
+    store?: StoreCreateNestedManyWithoutLocationsInput
+    missions?: MissionsCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationsUncheckedCreateInput = {
+    id?: number
+    name: string
+    store?: StoreUncheckedCreateNestedManyWithoutLocationsInput
+    missions?: MissionsUncheckedCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationsUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    store?: StoreUpdateManyWithoutLocationsNestedInput
+    missions?: MissionsUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type LocationsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    store?: StoreUncheckedUpdateManyWithoutLocationsNestedInput
+    missions?: MissionsUncheckedUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type LocationsCreateManyInput = {
+    id?: number
+    name: string
+  }
+
+  export type LocationsUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LocationsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type StoreStatusCreateInput = {
+    reviewsCount: number
+    starTotal: number
+    store: StoreCreateNestedOneWithoutStoreStatusInput
+  }
+
+  export type StoreStatusUncheckedCreateInput = {
+    id?: number
+    storeId: number
+    reviewsCount: number
+    starTotal: number
+  }
+
+  export type StoreStatusUpdateInput = {
+    reviewsCount?: IntFieldUpdateOperationsInput | number
+    starTotal?: FloatFieldUpdateOperationsInput | number
+    store?: StoreUpdateOneRequiredWithoutStoreStatusNestedInput
+  }
+
+  export type StoreStatusUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    storeId?: IntFieldUpdateOperationsInput | number
+    reviewsCount?: IntFieldUpdateOperationsInput | number
+    starTotal?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type StoreStatusCreateManyInput = {
+    id?: number
+    storeId: number
+    reviewsCount: number
+    starTotal: number
+  }
+
+  export type StoreStatusUpdateManyMutationInput = {
+    reviewsCount?: IntFieldUpdateOperationsInput | number
+    starTotal?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type StoreStatusUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    storeId?: IntFieldUpdateOperationsInput | number
+    reviewsCount?: IntFieldUpdateOperationsInput | number
+    starTotal?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type MissionsCreateInput = {
+    goal: number
+    rewards: number
+    expireDate: Date | string
+    store: StoreCreateNestedOneWithoutMissionsInput
+    locations: LocationsCreateNestedOneWithoutMissionsInput
+    acceptedMissions?: AcceptedMissionsCreateNestedManyWithoutMissionsInput
+    completedMissions?: CompletedMissionsCreateNestedManyWithoutMissionsInput
+  }
+
+  export type MissionsUncheckedCreateInput = {
+    id?: number
+    storeId: number
+    goal: number
+    rewards: number
+    expireDate: Date | string
+    locationId: number
+    acceptedMissions?: AcceptedMissionsUncheckedCreateNestedManyWithoutMissionsInput
+    completedMissions?: CompletedMissionsUncheckedCreateNestedManyWithoutMissionsInput
+  }
+
+  export type MissionsUpdateInput = {
+    goal?: IntFieldUpdateOperationsInput | number
+    rewards?: IntFieldUpdateOperationsInput | number
+    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    store?: StoreUpdateOneRequiredWithoutMissionsNestedInput
+    locations?: LocationsUpdateOneRequiredWithoutMissionsNestedInput
+    acceptedMissions?: AcceptedMissionsUpdateManyWithoutMissionsNestedInput
+    completedMissions?: CompletedMissionsUpdateManyWithoutMissionsNestedInput
+  }
+
+  export type MissionsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    storeId?: IntFieldUpdateOperationsInput | number
+    goal?: IntFieldUpdateOperationsInput | number
+    rewards?: IntFieldUpdateOperationsInput | number
+    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    locationId?: IntFieldUpdateOperationsInput | number
+    acceptedMissions?: AcceptedMissionsUncheckedUpdateManyWithoutMissionsNestedInput
+    completedMissions?: CompletedMissionsUncheckedUpdateManyWithoutMissionsNestedInput
+  }
+
+  export type MissionsCreateManyInput = {
+    id?: number
+    storeId: number
+    goal: number
+    rewards: number
+    expireDate: Date | string
+    locationId: number
+  }
+
+  export type MissionsUpdateManyMutationInput = {
+    goal?: IntFieldUpdateOperationsInput | number
+    rewards?: IntFieldUpdateOperationsInput | number
+    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MissionsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    storeId?: IntFieldUpdateOperationsInput | number
+    goal?: IntFieldUpdateOperationsInput | number
+    rewards?: IntFieldUpdateOperationsInput | number
+    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    locationId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type AcceptedMissionsCreateInput = {
+    verificationCode: string
+    completedAt?: Date | string | null
+    missions: MissionsCreateNestedOneWithoutAcceptedMissionsInput
+    members: MembersCreateNestedOneWithoutAcceptedMissionsInput
+  }
+
+  export type AcceptedMissionsUncheckedCreateInput = {
+    id?: number
+    missionId: number
+    userId: number
+    verificationCode: string
+    completedAt?: Date | string | null
+  }
+
+  export type AcceptedMissionsUpdateInput = {
+    verificationCode?: StringFieldUpdateOperationsInput | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    missions?: MissionsUpdateOneRequiredWithoutAcceptedMissionsNestedInput
+    members?: MembersUpdateOneRequiredWithoutAcceptedMissionsNestedInput
+  }
+
+  export type AcceptedMissionsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    missionId?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    verificationCode?: StringFieldUpdateOperationsInput | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type AcceptedMissionsCreateManyInput = {
+    id?: number
+    missionId: number
+    userId: number
+    verificationCode: string
+    completedAt?: Date | string | null
+  }
+
+  export type AcceptedMissionsUpdateManyMutationInput = {
+    verificationCode?: StringFieldUpdateOperationsInput | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type AcceptedMissionsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    missionId?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    verificationCode?: StringFieldUpdateOperationsInput | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type CompletedMissionsCreateInput = {
+    completedAt: Date | string
+    missions: MissionsCreateNestedOneWithoutCompletedMissionsInput
+    members: MembersCreateNestedOneWithoutCompletedMissionsInput
+  }
+
+  export type CompletedMissionsUncheckedCreateInput = {
+    id?: number
+    missionId: number
+    userId: number
+    completedAt: Date | string
+  }
+
+  export type CompletedMissionsUpdateInput = {
+    completedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    missions?: MissionsUpdateOneRequiredWithoutCompletedMissionsNestedInput
+    members?: MembersUpdateOneRequiredWithoutCompletedMissionsNestedInput
+  }
+
+  export type CompletedMissionsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    missionId?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    completedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CompletedMissionsCreateManyInput = {
+    id?: number
+    missionId: number
+    userId: number
+    completedAt: Date | string
+  }
+
+  export type CompletedMissionsUpdateManyMutationInput = {
+    completedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CompletedMissionsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    missionId?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    completedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -7073,6 +13343,18 @@ export namespace Prisma {
     none?: MembersFoodTypeWhereInput
   }
 
+  export type AcceptedMissionsListRelationFilter = {
+    every?: AcceptedMissionsWhereInput
+    some?: AcceptedMissionsWhereInput
+    none?: AcceptedMissionsWhereInput
+  }
+
+  export type CompletedMissionsListRelationFilter = {
+    every?: CompletedMissionsWhereInput
+    some?: CompletedMissionsWhereInput
+    none?: CompletedMissionsWhereInput
+  }
+
   export type ReviewListRelationFilter = {
     every?: ReviewWhereInput
     some?: ReviewWhereInput
@@ -7080,6 +13362,14 @@ export namespace Prisma {
   }
 
   export type MembersFoodTypeOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type AcceptedMissionsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CompletedMissionsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -7229,6 +13519,16 @@ export namespace Prisma {
     foodTypeId?: SortOrder
   }
 
+  export type StoreListRelationFilter = {
+    every?: StoreWhereInput
+    some?: StoreWhereInput
+    none?: StoreWhereInput
+  }
+
+  export type StoreOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type FoodTypeOrderByRelevanceInput = {
     fields: FoodTypeOrderByRelevanceFieldEnum | FoodTypeOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -7340,6 +13640,31 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type StoreStatusListRelationFilter = {
+    every?: StoreStatusWhereInput
+    some?: StoreStatusWhereInput
+    none?: StoreStatusWhereInput
+  }
+
+  export type MissionsListRelationFilter = {
+    every?: MissionsWhereInput
+    some?: MissionsWhereInput
+    none?: MissionsWhereInput
+  }
+
+  export type LocationsScalarRelationFilter = {
+    is?: LocationsWhereInput
+    isNot?: LocationsWhereInput
+  }
+
+  export type StoreStatusOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type MissionsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type StoreOrderByRelevanceInput = {
     fields: StoreOrderByRelevanceFieldEnum | StoreOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -7388,11 +13713,242 @@ export namespace Prisma {
     locationId?: SortOrder
   }
 
+  export type LocationsOrderByRelevanceInput = {
+    fields: LocationsOrderByRelevanceFieldEnum | LocationsOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type LocationsCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type LocationsAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type LocationsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type LocationsMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type LocationsSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type StoreStatusCountOrderByAggregateInput = {
+    id?: SortOrder
+    storeId?: SortOrder
+    reviewsCount?: SortOrder
+    starTotal?: SortOrder
+  }
+
+  export type StoreStatusAvgOrderByAggregateInput = {
+    id?: SortOrder
+    storeId?: SortOrder
+    reviewsCount?: SortOrder
+    starTotal?: SortOrder
+  }
+
+  export type StoreStatusMaxOrderByAggregateInput = {
+    id?: SortOrder
+    storeId?: SortOrder
+    reviewsCount?: SortOrder
+    starTotal?: SortOrder
+  }
+
+  export type StoreStatusMinOrderByAggregateInput = {
+    id?: SortOrder
+    storeId?: SortOrder
+    reviewsCount?: SortOrder
+    starTotal?: SortOrder
+  }
+
+  export type StoreStatusSumOrderByAggregateInput = {
+    id?: SortOrder
+    storeId?: SortOrder
+    reviewsCount?: SortOrder
+    starTotal?: SortOrder
+  }
+
+  export type MissionsCountOrderByAggregateInput = {
+    id?: SortOrder
+    storeId?: SortOrder
+    goal?: SortOrder
+    rewards?: SortOrder
+    expireDate?: SortOrder
+    locationId?: SortOrder
+  }
+
+  export type MissionsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    storeId?: SortOrder
+    goal?: SortOrder
+    rewards?: SortOrder
+    locationId?: SortOrder
+  }
+
+  export type MissionsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    storeId?: SortOrder
+    goal?: SortOrder
+    rewards?: SortOrder
+    expireDate?: SortOrder
+    locationId?: SortOrder
+  }
+
+  export type MissionsMinOrderByAggregateInput = {
+    id?: SortOrder
+    storeId?: SortOrder
+    goal?: SortOrder
+    rewards?: SortOrder
+    expireDate?: SortOrder
+    locationId?: SortOrder
+  }
+
+  export type MissionsSumOrderByAggregateInput = {
+    id?: SortOrder
+    storeId?: SortOrder
+    goal?: SortOrder
+    rewards?: SortOrder
+    locationId?: SortOrder
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type MissionsScalarRelationFilter = {
+    is?: MissionsWhereInput
+    isNot?: MissionsWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type AcceptedMissionsOrderByRelevanceInput = {
+    fields: AcceptedMissionsOrderByRelevanceFieldEnum | AcceptedMissionsOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type AcceptedMissionsCountOrderByAggregateInput = {
+    id?: SortOrder
+    missionId?: SortOrder
+    userId?: SortOrder
+    verificationCode?: SortOrder
+    completedAt?: SortOrder
+  }
+
+  export type AcceptedMissionsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    missionId?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type AcceptedMissionsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    missionId?: SortOrder
+    userId?: SortOrder
+    verificationCode?: SortOrder
+    completedAt?: SortOrder
+  }
+
+  export type AcceptedMissionsMinOrderByAggregateInput = {
+    id?: SortOrder
+    missionId?: SortOrder
+    userId?: SortOrder
+    verificationCode?: SortOrder
+    completedAt?: SortOrder
+  }
+
+  export type AcceptedMissionsSumOrderByAggregateInput = {
+    id?: SortOrder
+    missionId?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type CompletedMissionsCountOrderByAggregateInput = {
+    id?: SortOrder
+    missionId?: SortOrder
+    userId?: SortOrder
+    completedAt?: SortOrder
+  }
+
+  export type CompletedMissionsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    missionId?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type CompletedMissionsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    missionId?: SortOrder
+    userId?: SortOrder
+    completedAt?: SortOrder
+  }
+
+  export type CompletedMissionsMinOrderByAggregateInput = {
+    id?: SortOrder
+    missionId?: SortOrder
+    userId?: SortOrder
+    completedAt?: SortOrder
+  }
+
+  export type CompletedMissionsSumOrderByAggregateInput = {
+    id?: SortOrder
+    missionId?: SortOrder
+    userId?: SortOrder
+  }
+
   export type MembersFoodTypeCreateNestedManyWithoutMembersInput = {
     create?: XOR<MembersFoodTypeCreateWithoutMembersInput, MembersFoodTypeUncheckedCreateWithoutMembersInput> | MembersFoodTypeCreateWithoutMembersInput[] | MembersFoodTypeUncheckedCreateWithoutMembersInput[]
     connectOrCreate?: MembersFoodTypeCreateOrConnectWithoutMembersInput | MembersFoodTypeCreateOrConnectWithoutMembersInput[]
     createMany?: MembersFoodTypeCreateManyMembersInputEnvelope
     connect?: MembersFoodTypeWhereUniqueInput | MembersFoodTypeWhereUniqueInput[]
+  }
+
+  export type AcceptedMissionsCreateNestedManyWithoutMembersInput = {
+    create?: XOR<AcceptedMissionsCreateWithoutMembersInput, AcceptedMissionsUncheckedCreateWithoutMembersInput> | AcceptedMissionsCreateWithoutMembersInput[] | AcceptedMissionsUncheckedCreateWithoutMembersInput[]
+    connectOrCreate?: AcceptedMissionsCreateOrConnectWithoutMembersInput | AcceptedMissionsCreateOrConnectWithoutMembersInput[]
+    createMany?: AcceptedMissionsCreateManyMembersInputEnvelope
+    connect?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+  }
+
+  export type CompletedMissionsCreateNestedManyWithoutMembersInput = {
+    create?: XOR<CompletedMissionsCreateWithoutMembersInput, CompletedMissionsUncheckedCreateWithoutMembersInput> | CompletedMissionsCreateWithoutMembersInput[] | CompletedMissionsUncheckedCreateWithoutMembersInput[]
+    connectOrCreate?: CompletedMissionsCreateOrConnectWithoutMembersInput | CompletedMissionsCreateOrConnectWithoutMembersInput[]
+    createMany?: CompletedMissionsCreateManyMembersInputEnvelope
+    connect?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
   }
 
   export type ReviewCreateNestedManyWithoutMembersInput = {
@@ -7407,6 +13963,20 @@ export namespace Prisma {
     connectOrCreate?: MembersFoodTypeCreateOrConnectWithoutMembersInput | MembersFoodTypeCreateOrConnectWithoutMembersInput[]
     createMany?: MembersFoodTypeCreateManyMembersInputEnvelope
     connect?: MembersFoodTypeWhereUniqueInput | MembersFoodTypeWhereUniqueInput[]
+  }
+
+  export type AcceptedMissionsUncheckedCreateNestedManyWithoutMembersInput = {
+    create?: XOR<AcceptedMissionsCreateWithoutMembersInput, AcceptedMissionsUncheckedCreateWithoutMembersInput> | AcceptedMissionsCreateWithoutMembersInput[] | AcceptedMissionsUncheckedCreateWithoutMembersInput[]
+    connectOrCreate?: AcceptedMissionsCreateOrConnectWithoutMembersInput | AcceptedMissionsCreateOrConnectWithoutMembersInput[]
+    createMany?: AcceptedMissionsCreateManyMembersInputEnvelope
+    connect?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+  }
+
+  export type CompletedMissionsUncheckedCreateNestedManyWithoutMembersInput = {
+    create?: XOR<CompletedMissionsCreateWithoutMembersInput, CompletedMissionsUncheckedCreateWithoutMembersInput> | CompletedMissionsCreateWithoutMembersInput[] | CompletedMissionsUncheckedCreateWithoutMembersInput[]
+    connectOrCreate?: CompletedMissionsCreateOrConnectWithoutMembersInput | CompletedMissionsCreateOrConnectWithoutMembersInput[]
+    createMany?: CompletedMissionsCreateManyMembersInputEnvelope
+    connect?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
   }
 
   export type ReviewUncheckedCreateNestedManyWithoutMembersInput = {
@@ -7440,6 +14010,34 @@ export namespace Prisma {
     update?: MembersFoodTypeUpdateWithWhereUniqueWithoutMembersInput | MembersFoodTypeUpdateWithWhereUniqueWithoutMembersInput[]
     updateMany?: MembersFoodTypeUpdateManyWithWhereWithoutMembersInput | MembersFoodTypeUpdateManyWithWhereWithoutMembersInput[]
     deleteMany?: MembersFoodTypeScalarWhereInput | MembersFoodTypeScalarWhereInput[]
+  }
+
+  export type AcceptedMissionsUpdateManyWithoutMembersNestedInput = {
+    create?: XOR<AcceptedMissionsCreateWithoutMembersInput, AcceptedMissionsUncheckedCreateWithoutMembersInput> | AcceptedMissionsCreateWithoutMembersInput[] | AcceptedMissionsUncheckedCreateWithoutMembersInput[]
+    connectOrCreate?: AcceptedMissionsCreateOrConnectWithoutMembersInput | AcceptedMissionsCreateOrConnectWithoutMembersInput[]
+    upsert?: AcceptedMissionsUpsertWithWhereUniqueWithoutMembersInput | AcceptedMissionsUpsertWithWhereUniqueWithoutMembersInput[]
+    createMany?: AcceptedMissionsCreateManyMembersInputEnvelope
+    set?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+    disconnect?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+    delete?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+    connect?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+    update?: AcceptedMissionsUpdateWithWhereUniqueWithoutMembersInput | AcceptedMissionsUpdateWithWhereUniqueWithoutMembersInput[]
+    updateMany?: AcceptedMissionsUpdateManyWithWhereWithoutMembersInput | AcceptedMissionsUpdateManyWithWhereWithoutMembersInput[]
+    deleteMany?: AcceptedMissionsScalarWhereInput | AcceptedMissionsScalarWhereInput[]
+  }
+
+  export type CompletedMissionsUpdateManyWithoutMembersNestedInput = {
+    create?: XOR<CompletedMissionsCreateWithoutMembersInput, CompletedMissionsUncheckedCreateWithoutMembersInput> | CompletedMissionsCreateWithoutMembersInput[] | CompletedMissionsUncheckedCreateWithoutMembersInput[]
+    connectOrCreate?: CompletedMissionsCreateOrConnectWithoutMembersInput | CompletedMissionsCreateOrConnectWithoutMembersInput[]
+    upsert?: CompletedMissionsUpsertWithWhereUniqueWithoutMembersInput | CompletedMissionsUpsertWithWhereUniqueWithoutMembersInput[]
+    createMany?: CompletedMissionsCreateManyMembersInputEnvelope
+    set?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
+    disconnect?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
+    delete?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
+    connect?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
+    update?: CompletedMissionsUpdateWithWhereUniqueWithoutMembersInput | CompletedMissionsUpdateWithWhereUniqueWithoutMembersInput[]
+    updateMany?: CompletedMissionsUpdateManyWithWhereWithoutMembersInput | CompletedMissionsUpdateManyWithWhereWithoutMembersInput[]
+    deleteMany?: CompletedMissionsScalarWhereInput | CompletedMissionsScalarWhereInput[]
   }
 
   export type ReviewUpdateManyWithoutMembersNestedInput = {
@@ -7476,6 +14074,34 @@ export namespace Prisma {
     update?: MembersFoodTypeUpdateWithWhereUniqueWithoutMembersInput | MembersFoodTypeUpdateWithWhereUniqueWithoutMembersInput[]
     updateMany?: MembersFoodTypeUpdateManyWithWhereWithoutMembersInput | MembersFoodTypeUpdateManyWithWhereWithoutMembersInput[]
     deleteMany?: MembersFoodTypeScalarWhereInput | MembersFoodTypeScalarWhereInput[]
+  }
+
+  export type AcceptedMissionsUncheckedUpdateManyWithoutMembersNestedInput = {
+    create?: XOR<AcceptedMissionsCreateWithoutMembersInput, AcceptedMissionsUncheckedCreateWithoutMembersInput> | AcceptedMissionsCreateWithoutMembersInput[] | AcceptedMissionsUncheckedCreateWithoutMembersInput[]
+    connectOrCreate?: AcceptedMissionsCreateOrConnectWithoutMembersInput | AcceptedMissionsCreateOrConnectWithoutMembersInput[]
+    upsert?: AcceptedMissionsUpsertWithWhereUniqueWithoutMembersInput | AcceptedMissionsUpsertWithWhereUniqueWithoutMembersInput[]
+    createMany?: AcceptedMissionsCreateManyMembersInputEnvelope
+    set?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+    disconnect?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+    delete?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+    connect?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+    update?: AcceptedMissionsUpdateWithWhereUniqueWithoutMembersInput | AcceptedMissionsUpdateWithWhereUniqueWithoutMembersInput[]
+    updateMany?: AcceptedMissionsUpdateManyWithWhereWithoutMembersInput | AcceptedMissionsUpdateManyWithWhereWithoutMembersInput[]
+    deleteMany?: AcceptedMissionsScalarWhereInput | AcceptedMissionsScalarWhereInput[]
+  }
+
+  export type CompletedMissionsUncheckedUpdateManyWithoutMembersNestedInput = {
+    create?: XOR<CompletedMissionsCreateWithoutMembersInput, CompletedMissionsUncheckedCreateWithoutMembersInput> | CompletedMissionsCreateWithoutMembersInput[] | CompletedMissionsUncheckedCreateWithoutMembersInput[]
+    connectOrCreate?: CompletedMissionsCreateOrConnectWithoutMembersInput | CompletedMissionsCreateOrConnectWithoutMembersInput[]
+    upsert?: CompletedMissionsUpsertWithWhereUniqueWithoutMembersInput | CompletedMissionsUpsertWithWhereUniqueWithoutMembersInput[]
+    createMany?: CompletedMissionsCreateManyMembersInputEnvelope
+    set?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
+    disconnect?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
+    delete?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
+    connect?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
+    update?: CompletedMissionsUpdateWithWhereUniqueWithoutMembersInput | CompletedMissionsUpdateWithWhereUniqueWithoutMembersInput[]
+    updateMany?: CompletedMissionsUpdateManyWithWhereWithoutMembersInput | CompletedMissionsUpdateManyWithWhereWithoutMembersInput[]
+    deleteMany?: CompletedMissionsScalarWhereInput | CompletedMissionsScalarWhereInput[]
   }
 
   export type ReviewUncheckedUpdateManyWithoutMembersNestedInput = {
@@ -7527,11 +14153,25 @@ export namespace Prisma {
     connect?: MembersFoodTypeWhereUniqueInput | MembersFoodTypeWhereUniqueInput[]
   }
 
+  export type StoreCreateNestedManyWithoutFoodTypeInput = {
+    create?: XOR<StoreCreateWithoutFoodTypeInput, StoreUncheckedCreateWithoutFoodTypeInput> | StoreCreateWithoutFoodTypeInput[] | StoreUncheckedCreateWithoutFoodTypeInput[]
+    connectOrCreate?: StoreCreateOrConnectWithoutFoodTypeInput | StoreCreateOrConnectWithoutFoodTypeInput[]
+    createMany?: StoreCreateManyFoodTypeInputEnvelope
+    connect?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+  }
+
   export type MembersFoodTypeUncheckedCreateNestedManyWithoutFoodTypeInput = {
     create?: XOR<MembersFoodTypeCreateWithoutFoodTypeInput, MembersFoodTypeUncheckedCreateWithoutFoodTypeInput> | MembersFoodTypeCreateWithoutFoodTypeInput[] | MembersFoodTypeUncheckedCreateWithoutFoodTypeInput[]
     connectOrCreate?: MembersFoodTypeCreateOrConnectWithoutFoodTypeInput | MembersFoodTypeCreateOrConnectWithoutFoodTypeInput[]
     createMany?: MembersFoodTypeCreateManyFoodTypeInputEnvelope
     connect?: MembersFoodTypeWhereUniqueInput | MembersFoodTypeWhereUniqueInput[]
+  }
+
+  export type StoreUncheckedCreateNestedManyWithoutFoodTypeInput = {
+    create?: XOR<StoreCreateWithoutFoodTypeInput, StoreUncheckedCreateWithoutFoodTypeInput> | StoreCreateWithoutFoodTypeInput[] | StoreUncheckedCreateWithoutFoodTypeInput[]
+    connectOrCreate?: StoreCreateOrConnectWithoutFoodTypeInput | StoreCreateOrConnectWithoutFoodTypeInput[]
+    createMany?: StoreCreateManyFoodTypeInputEnvelope
+    connect?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
   }
 
   export type MembersFoodTypeUpdateManyWithoutFoodTypeNestedInput = {
@@ -7548,6 +14188,20 @@ export namespace Prisma {
     deleteMany?: MembersFoodTypeScalarWhereInput | MembersFoodTypeScalarWhereInput[]
   }
 
+  export type StoreUpdateManyWithoutFoodTypeNestedInput = {
+    create?: XOR<StoreCreateWithoutFoodTypeInput, StoreUncheckedCreateWithoutFoodTypeInput> | StoreCreateWithoutFoodTypeInput[] | StoreUncheckedCreateWithoutFoodTypeInput[]
+    connectOrCreate?: StoreCreateOrConnectWithoutFoodTypeInput | StoreCreateOrConnectWithoutFoodTypeInput[]
+    upsert?: StoreUpsertWithWhereUniqueWithoutFoodTypeInput | StoreUpsertWithWhereUniqueWithoutFoodTypeInput[]
+    createMany?: StoreCreateManyFoodTypeInputEnvelope
+    set?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+    disconnect?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+    delete?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+    connect?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+    update?: StoreUpdateWithWhereUniqueWithoutFoodTypeInput | StoreUpdateWithWhereUniqueWithoutFoodTypeInput[]
+    updateMany?: StoreUpdateManyWithWhereWithoutFoodTypeInput | StoreUpdateManyWithWhereWithoutFoodTypeInput[]
+    deleteMany?: StoreScalarWhereInput | StoreScalarWhereInput[]
+  }
+
   export type MembersFoodTypeUncheckedUpdateManyWithoutFoodTypeNestedInput = {
     create?: XOR<MembersFoodTypeCreateWithoutFoodTypeInput, MembersFoodTypeUncheckedCreateWithoutFoodTypeInput> | MembersFoodTypeCreateWithoutFoodTypeInput[] | MembersFoodTypeUncheckedCreateWithoutFoodTypeInput[]
     connectOrCreate?: MembersFoodTypeCreateOrConnectWithoutFoodTypeInput | MembersFoodTypeCreateOrConnectWithoutFoodTypeInput[]
@@ -7560,6 +14214,20 @@ export namespace Prisma {
     update?: MembersFoodTypeUpdateWithWhereUniqueWithoutFoodTypeInput | MembersFoodTypeUpdateWithWhereUniqueWithoutFoodTypeInput[]
     updateMany?: MembersFoodTypeUpdateManyWithWhereWithoutFoodTypeInput | MembersFoodTypeUpdateManyWithWhereWithoutFoodTypeInput[]
     deleteMany?: MembersFoodTypeScalarWhereInput | MembersFoodTypeScalarWhereInput[]
+  }
+
+  export type StoreUncheckedUpdateManyWithoutFoodTypeNestedInput = {
+    create?: XOR<StoreCreateWithoutFoodTypeInput, StoreUncheckedCreateWithoutFoodTypeInput> | StoreCreateWithoutFoodTypeInput[] | StoreUncheckedCreateWithoutFoodTypeInput[]
+    connectOrCreate?: StoreCreateOrConnectWithoutFoodTypeInput | StoreCreateOrConnectWithoutFoodTypeInput[]
+    upsert?: StoreUpsertWithWhereUniqueWithoutFoodTypeInput | StoreUpsertWithWhereUniqueWithoutFoodTypeInput[]
+    createMany?: StoreCreateManyFoodTypeInputEnvelope
+    set?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+    disconnect?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+    delete?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+    connect?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+    update?: StoreUpdateWithWhereUniqueWithoutFoodTypeInput | StoreUpdateWithWhereUniqueWithoutFoodTypeInput[]
+    updateMany?: StoreUpdateManyWithWhereWithoutFoodTypeInput | StoreUpdateManyWithWhereWithoutFoodTypeInput[]
+    deleteMany?: StoreScalarWhereInput | StoreScalarWhereInput[]
   }
 
   export type MembersCreateNestedOneWithoutReviewInput = {
@@ -7605,11 +14273,51 @@ export namespace Prisma {
     connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
   }
 
+  export type StoreStatusCreateNestedManyWithoutStoreInput = {
+    create?: XOR<StoreStatusCreateWithoutStoreInput, StoreStatusUncheckedCreateWithoutStoreInput> | StoreStatusCreateWithoutStoreInput[] | StoreStatusUncheckedCreateWithoutStoreInput[]
+    connectOrCreate?: StoreStatusCreateOrConnectWithoutStoreInput | StoreStatusCreateOrConnectWithoutStoreInput[]
+    createMany?: StoreStatusCreateManyStoreInputEnvelope
+    connect?: StoreStatusWhereUniqueInput | StoreStatusWhereUniqueInput[]
+  }
+
+  export type MissionsCreateNestedManyWithoutStoreInput = {
+    create?: XOR<MissionsCreateWithoutStoreInput, MissionsUncheckedCreateWithoutStoreInput> | MissionsCreateWithoutStoreInput[] | MissionsUncheckedCreateWithoutStoreInput[]
+    connectOrCreate?: MissionsCreateOrConnectWithoutStoreInput | MissionsCreateOrConnectWithoutStoreInput[]
+    createMany?: MissionsCreateManyStoreInputEnvelope
+    connect?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+  }
+
+  export type FoodTypeCreateNestedOneWithoutStoreInput = {
+    create?: XOR<FoodTypeCreateWithoutStoreInput, FoodTypeUncheckedCreateWithoutStoreInput>
+    connectOrCreate?: FoodTypeCreateOrConnectWithoutStoreInput
+    connect?: FoodTypeWhereUniqueInput
+  }
+
+  export type LocationsCreateNestedOneWithoutStoreInput = {
+    create?: XOR<LocationsCreateWithoutStoreInput, LocationsUncheckedCreateWithoutStoreInput>
+    connectOrCreate?: LocationsCreateOrConnectWithoutStoreInput
+    connect?: LocationsWhereUniqueInput
+  }
+
   export type ReviewUncheckedCreateNestedManyWithoutStoreInput = {
     create?: XOR<ReviewCreateWithoutStoreInput, ReviewUncheckedCreateWithoutStoreInput> | ReviewCreateWithoutStoreInput[] | ReviewUncheckedCreateWithoutStoreInput[]
     connectOrCreate?: ReviewCreateOrConnectWithoutStoreInput | ReviewCreateOrConnectWithoutStoreInput[]
     createMany?: ReviewCreateManyStoreInputEnvelope
     connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+  }
+
+  export type StoreStatusUncheckedCreateNestedManyWithoutStoreInput = {
+    create?: XOR<StoreStatusCreateWithoutStoreInput, StoreStatusUncheckedCreateWithoutStoreInput> | StoreStatusCreateWithoutStoreInput[] | StoreStatusUncheckedCreateWithoutStoreInput[]
+    connectOrCreate?: StoreStatusCreateOrConnectWithoutStoreInput | StoreStatusCreateOrConnectWithoutStoreInput[]
+    createMany?: StoreStatusCreateManyStoreInputEnvelope
+    connect?: StoreStatusWhereUniqueInput | StoreStatusWhereUniqueInput[]
+  }
+
+  export type MissionsUncheckedCreateNestedManyWithoutStoreInput = {
+    create?: XOR<MissionsCreateWithoutStoreInput, MissionsUncheckedCreateWithoutStoreInput> | MissionsCreateWithoutStoreInput[] | MissionsUncheckedCreateWithoutStoreInput[]
+    connectOrCreate?: MissionsCreateOrConnectWithoutStoreInput | MissionsCreateOrConnectWithoutStoreInput[]
+    createMany?: MissionsCreateManyStoreInputEnvelope
+    connect?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
   }
 
   export type ReviewUpdateManyWithoutStoreNestedInput = {
@@ -7626,6 +14334,50 @@ export namespace Prisma {
     deleteMany?: ReviewScalarWhereInput | ReviewScalarWhereInput[]
   }
 
+  export type StoreStatusUpdateManyWithoutStoreNestedInput = {
+    create?: XOR<StoreStatusCreateWithoutStoreInput, StoreStatusUncheckedCreateWithoutStoreInput> | StoreStatusCreateWithoutStoreInput[] | StoreStatusUncheckedCreateWithoutStoreInput[]
+    connectOrCreate?: StoreStatusCreateOrConnectWithoutStoreInput | StoreStatusCreateOrConnectWithoutStoreInput[]
+    upsert?: StoreStatusUpsertWithWhereUniqueWithoutStoreInput | StoreStatusUpsertWithWhereUniqueWithoutStoreInput[]
+    createMany?: StoreStatusCreateManyStoreInputEnvelope
+    set?: StoreStatusWhereUniqueInput | StoreStatusWhereUniqueInput[]
+    disconnect?: StoreStatusWhereUniqueInput | StoreStatusWhereUniqueInput[]
+    delete?: StoreStatusWhereUniqueInput | StoreStatusWhereUniqueInput[]
+    connect?: StoreStatusWhereUniqueInput | StoreStatusWhereUniqueInput[]
+    update?: StoreStatusUpdateWithWhereUniqueWithoutStoreInput | StoreStatusUpdateWithWhereUniqueWithoutStoreInput[]
+    updateMany?: StoreStatusUpdateManyWithWhereWithoutStoreInput | StoreStatusUpdateManyWithWhereWithoutStoreInput[]
+    deleteMany?: StoreStatusScalarWhereInput | StoreStatusScalarWhereInput[]
+  }
+
+  export type MissionsUpdateManyWithoutStoreNestedInput = {
+    create?: XOR<MissionsCreateWithoutStoreInput, MissionsUncheckedCreateWithoutStoreInput> | MissionsCreateWithoutStoreInput[] | MissionsUncheckedCreateWithoutStoreInput[]
+    connectOrCreate?: MissionsCreateOrConnectWithoutStoreInput | MissionsCreateOrConnectWithoutStoreInput[]
+    upsert?: MissionsUpsertWithWhereUniqueWithoutStoreInput | MissionsUpsertWithWhereUniqueWithoutStoreInput[]
+    createMany?: MissionsCreateManyStoreInputEnvelope
+    set?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+    disconnect?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+    delete?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+    connect?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+    update?: MissionsUpdateWithWhereUniqueWithoutStoreInput | MissionsUpdateWithWhereUniqueWithoutStoreInput[]
+    updateMany?: MissionsUpdateManyWithWhereWithoutStoreInput | MissionsUpdateManyWithWhereWithoutStoreInput[]
+    deleteMany?: MissionsScalarWhereInput | MissionsScalarWhereInput[]
+  }
+
+  export type FoodTypeUpdateOneRequiredWithoutStoreNestedInput = {
+    create?: XOR<FoodTypeCreateWithoutStoreInput, FoodTypeUncheckedCreateWithoutStoreInput>
+    connectOrCreate?: FoodTypeCreateOrConnectWithoutStoreInput
+    upsert?: FoodTypeUpsertWithoutStoreInput
+    connect?: FoodTypeWhereUniqueInput
+    update?: XOR<XOR<FoodTypeUpdateToOneWithWhereWithoutStoreInput, FoodTypeUpdateWithoutStoreInput>, FoodTypeUncheckedUpdateWithoutStoreInput>
+  }
+
+  export type LocationsUpdateOneRequiredWithoutStoreNestedInput = {
+    create?: XOR<LocationsCreateWithoutStoreInput, LocationsUncheckedCreateWithoutStoreInput>
+    connectOrCreate?: LocationsCreateOrConnectWithoutStoreInput
+    upsert?: LocationsUpsertWithoutStoreInput
+    connect?: LocationsWhereUniqueInput
+    update?: XOR<XOR<LocationsUpdateToOneWithWhereWithoutStoreInput, LocationsUpdateWithoutStoreInput>, LocationsUncheckedUpdateWithoutStoreInput>
+  }
+
   export type ReviewUncheckedUpdateManyWithoutStoreNestedInput = {
     create?: XOR<ReviewCreateWithoutStoreInput, ReviewUncheckedCreateWithoutStoreInput> | ReviewCreateWithoutStoreInput[] | ReviewUncheckedCreateWithoutStoreInput[]
     connectOrCreate?: ReviewCreateOrConnectWithoutStoreInput | ReviewCreateOrConnectWithoutStoreInput[]
@@ -7638,6 +14390,304 @@ export namespace Prisma {
     update?: ReviewUpdateWithWhereUniqueWithoutStoreInput | ReviewUpdateWithWhereUniqueWithoutStoreInput[]
     updateMany?: ReviewUpdateManyWithWhereWithoutStoreInput | ReviewUpdateManyWithWhereWithoutStoreInput[]
     deleteMany?: ReviewScalarWhereInput | ReviewScalarWhereInput[]
+  }
+
+  export type StoreStatusUncheckedUpdateManyWithoutStoreNestedInput = {
+    create?: XOR<StoreStatusCreateWithoutStoreInput, StoreStatusUncheckedCreateWithoutStoreInput> | StoreStatusCreateWithoutStoreInput[] | StoreStatusUncheckedCreateWithoutStoreInput[]
+    connectOrCreate?: StoreStatusCreateOrConnectWithoutStoreInput | StoreStatusCreateOrConnectWithoutStoreInput[]
+    upsert?: StoreStatusUpsertWithWhereUniqueWithoutStoreInput | StoreStatusUpsertWithWhereUniqueWithoutStoreInput[]
+    createMany?: StoreStatusCreateManyStoreInputEnvelope
+    set?: StoreStatusWhereUniqueInput | StoreStatusWhereUniqueInput[]
+    disconnect?: StoreStatusWhereUniqueInput | StoreStatusWhereUniqueInput[]
+    delete?: StoreStatusWhereUniqueInput | StoreStatusWhereUniqueInput[]
+    connect?: StoreStatusWhereUniqueInput | StoreStatusWhereUniqueInput[]
+    update?: StoreStatusUpdateWithWhereUniqueWithoutStoreInput | StoreStatusUpdateWithWhereUniqueWithoutStoreInput[]
+    updateMany?: StoreStatusUpdateManyWithWhereWithoutStoreInput | StoreStatusUpdateManyWithWhereWithoutStoreInput[]
+    deleteMany?: StoreStatusScalarWhereInput | StoreStatusScalarWhereInput[]
+  }
+
+  export type MissionsUncheckedUpdateManyWithoutStoreNestedInput = {
+    create?: XOR<MissionsCreateWithoutStoreInput, MissionsUncheckedCreateWithoutStoreInput> | MissionsCreateWithoutStoreInput[] | MissionsUncheckedCreateWithoutStoreInput[]
+    connectOrCreate?: MissionsCreateOrConnectWithoutStoreInput | MissionsCreateOrConnectWithoutStoreInput[]
+    upsert?: MissionsUpsertWithWhereUniqueWithoutStoreInput | MissionsUpsertWithWhereUniqueWithoutStoreInput[]
+    createMany?: MissionsCreateManyStoreInputEnvelope
+    set?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+    disconnect?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+    delete?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+    connect?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+    update?: MissionsUpdateWithWhereUniqueWithoutStoreInput | MissionsUpdateWithWhereUniqueWithoutStoreInput[]
+    updateMany?: MissionsUpdateManyWithWhereWithoutStoreInput | MissionsUpdateManyWithWhereWithoutStoreInput[]
+    deleteMany?: MissionsScalarWhereInput | MissionsScalarWhereInput[]
+  }
+
+  export type StoreCreateNestedManyWithoutLocationsInput = {
+    create?: XOR<StoreCreateWithoutLocationsInput, StoreUncheckedCreateWithoutLocationsInput> | StoreCreateWithoutLocationsInput[] | StoreUncheckedCreateWithoutLocationsInput[]
+    connectOrCreate?: StoreCreateOrConnectWithoutLocationsInput | StoreCreateOrConnectWithoutLocationsInput[]
+    createMany?: StoreCreateManyLocationsInputEnvelope
+    connect?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+  }
+
+  export type MissionsCreateNestedManyWithoutLocationsInput = {
+    create?: XOR<MissionsCreateWithoutLocationsInput, MissionsUncheckedCreateWithoutLocationsInput> | MissionsCreateWithoutLocationsInput[] | MissionsUncheckedCreateWithoutLocationsInput[]
+    connectOrCreate?: MissionsCreateOrConnectWithoutLocationsInput | MissionsCreateOrConnectWithoutLocationsInput[]
+    createMany?: MissionsCreateManyLocationsInputEnvelope
+    connect?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+  }
+
+  export type StoreUncheckedCreateNestedManyWithoutLocationsInput = {
+    create?: XOR<StoreCreateWithoutLocationsInput, StoreUncheckedCreateWithoutLocationsInput> | StoreCreateWithoutLocationsInput[] | StoreUncheckedCreateWithoutLocationsInput[]
+    connectOrCreate?: StoreCreateOrConnectWithoutLocationsInput | StoreCreateOrConnectWithoutLocationsInput[]
+    createMany?: StoreCreateManyLocationsInputEnvelope
+    connect?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+  }
+
+  export type MissionsUncheckedCreateNestedManyWithoutLocationsInput = {
+    create?: XOR<MissionsCreateWithoutLocationsInput, MissionsUncheckedCreateWithoutLocationsInput> | MissionsCreateWithoutLocationsInput[] | MissionsUncheckedCreateWithoutLocationsInput[]
+    connectOrCreate?: MissionsCreateOrConnectWithoutLocationsInput | MissionsCreateOrConnectWithoutLocationsInput[]
+    createMany?: MissionsCreateManyLocationsInputEnvelope
+    connect?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+  }
+
+  export type StoreUpdateManyWithoutLocationsNestedInput = {
+    create?: XOR<StoreCreateWithoutLocationsInput, StoreUncheckedCreateWithoutLocationsInput> | StoreCreateWithoutLocationsInput[] | StoreUncheckedCreateWithoutLocationsInput[]
+    connectOrCreate?: StoreCreateOrConnectWithoutLocationsInput | StoreCreateOrConnectWithoutLocationsInput[]
+    upsert?: StoreUpsertWithWhereUniqueWithoutLocationsInput | StoreUpsertWithWhereUniqueWithoutLocationsInput[]
+    createMany?: StoreCreateManyLocationsInputEnvelope
+    set?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+    disconnect?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+    delete?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+    connect?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+    update?: StoreUpdateWithWhereUniqueWithoutLocationsInput | StoreUpdateWithWhereUniqueWithoutLocationsInput[]
+    updateMany?: StoreUpdateManyWithWhereWithoutLocationsInput | StoreUpdateManyWithWhereWithoutLocationsInput[]
+    deleteMany?: StoreScalarWhereInput | StoreScalarWhereInput[]
+  }
+
+  export type MissionsUpdateManyWithoutLocationsNestedInput = {
+    create?: XOR<MissionsCreateWithoutLocationsInput, MissionsUncheckedCreateWithoutLocationsInput> | MissionsCreateWithoutLocationsInput[] | MissionsUncheckedCreateWithoutLocationsInput[]
+    connectOrCreate?: MissionsCreateOrConnectWithoutLocationsInput | MissionsCreateOrConnectWithoutLocationsInput[]
+    upsert?: MissionsUpsertWithWhereUniqueWithoutLocationsInput | MissionsUpsertWithWhereUniqueWithoutLocationsInput[]
+    createMany?: MissionsCreateManyLocationsInputEnvelope
+    set?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+    disconnect?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+    delete?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+    connect?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+    update?: MissionsUpdateWithWhereUniqueWithoutLocationsInput | MissionsUpdateWithWhereUniqueWithoutLocationsInput[]
+    updateMany?: MissionsUpdateManyWithWhereWithoutLocationsInput | MissionsUpdateManyWithWhereWithoutLocationsInput[]
+    deleteMany?: MissionsScalarWhereInput | MissionsScalarWhereInput[]
+  }
+
+  export type StoreUncheckedUpdateManyWithoutLocationsNestedInput = {
+    create?: XOR<StoreCreateWithoutLocationsInput, StoreUncheckedCreateWithoutLocationsInput> | StoreCreateWithoutLocationsInput[] | StoreUncheckedCreateWithoutLocationsInput[]
+    connectOrCreate?: StoreCreateOrConnectWithoutLocationsInput | StoreCreateOrConnectWithoutLocationsInput[]
+    upsert?: StoreUpsertWithWhereUniqueWithoutLocationsInput | StoreUpsertWithWhereUniqueWithoutLocationsInput[]
+    createMany?: StoreCreateManyLocationsInputEnvelope
+    set?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+    disconnect?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+    delete?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+    connect?: StoreWhereUniqueInput | StoreWhereUniqueInput[]
+    update?: StoreUpdateWithWhereUniqueWithoutLocationsInput | StoreUpdateWithWhereUniqueWithoutLocationsInput[]
+    updateMany?: StoreUpdateManyWithWhereWithoutLocationsInput | StoreUpdateManyWithWhereWithoutLocationsInput[]
+    deleteMany?: StoreScalarWhereInput | StoreScalarWhereInput[]
+  }
+
+  export type MissionsUncheckedUpdateManyWithoutLocationsNestedInput = {
+    create?: XOR<MissionsCreateWithoutLocationsInput, MissionsUncheckedCreateWithoutLocationsInput> | MissionsCreateWithoutLocationsInput[] | MissionsUncheckedCreateWithoutLocationsInput[]
+    connectOrCreate?: MissionsCreateOrConnectWithoutLocationsInput | MissionsCreateOrConnectWithoutLocationsInput[]
+    upsert?: MissionsUpsertWithWhereUniqueWithoutLocationsInput | MissionsUpsertWithWhereUniqueWithoutLocationsInput[]
+    createMany?: MissionsCreateManyLocationsInputEnvelope
+    set?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+    disconnect?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+    delete?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+    connect?: MissionsWhereUniqueInput | MissionsWhereUniqueInput[]
+    update?: MissionsUpdateWithWhereUniqueWithoutLocationsInput | MissionsUpdateWithWhereUniqueWithoutLocationsInput[]
+    updateMany?: MissionsUpdateManyWithWhereWithoutLocationsInput | MissionsUpdateManyWithWhereWithoutLocationsInput[]
+    deleteMany?: MissionsScalarWhereInput | MissionsScalarWhereInput[]
+  }
+
+  export type StoreCreateNestedOneWithoutStoreStatusInput = {
+    create?: XOR<StoreCreateWithoutStoreStatusInput, StoreUncheckedCreateWithoutStoreStatusInput>
+    connectOrCreate?: StoreCreateOrConnectWithoutStoreStatusInput
+    connect?: StoreWhereUniqueInput
+  }
+
+  export type StoreUpdateOneRequiredWithoutStoreStatusNestedInput = {
+    create?: XOR<StoreCreateWithoutStoreStatusInput, StoreUncheckedCreateWithoutStoreStatusInput>
+    connectOrCreate?: StoreCreateOrConnectWithoutStoreStatusInput
+    upsert?: StoreUpsertWithoutStoreStatusInput
+    connect?: StoreWhereUniqueInput
+    update?: XOR<XOR<StoreUpdateToOneWithWhereWithoutStoreStatusInput, StoreUpdateWithoutStoreStatusInput>, StoreUncheckedUpdateWithoutStoreStatusInput>
+  }
+
+  export type StoreCreateNestedOneWithoutMissionsInput = {
+    create?: XOR<StoreCreateWithoutMissionsInput, StoreUncheckedCreateWithoutMissionsInput>
+    connectOrCreate?: StoreCreateOrConnectWithoutMissionsInput
+    connect?: StoreWhereUniqueInput
+  }
+
+  export type LocationsCreateNestedOneWithoutMissionsInput = {
+    create?: XOR<LocationsCreateWithoutMissionsInput, LocationsUncheckedCreateWithoutMissionsInput>
+    connectOrCreate?: LocationsCreateOrConnectWithoutMissionsInput
+    connect?: LocationsWhereUniqueInput
+  }
+
+  export type AcceptedMissionsCreateNestedManyWithoutMissionsInput = {
+    create?: XOR<AcceptedMissionsCreateWithoutMissionsInput, AcceptedMissionsUncheckedCreateWithoutMissionsInput> | AcceptedMissionsCreateWithoutMissionsInput[] | AcceptedMissionsUncheckedCreateWithoutMissionsInput[]
+    connectOrCreate?: AcceptedMissionsCreateOrConnectWithoutMissionsInput | AcceptedMissionsCreateOrConnectWithoutMissionsInput[]
+    createMany?: AcceptedMissionsCreateManyMissionsInputEnvelope
+    connect?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+  }
+
+  export type CompletedMissionsCreateNestedManyWithoutMissionsInput = {
+    create?: XOR<CompletedMissionsCreateWithoutMissionsInput, CompletedMissionsUncheckedCreateWithoutMissionsInput> | CompletedMissionsCreateWithoutMissionsInput[] | CompletedMissionsUncheckedCreateWithoutMissionsInput[]
+    connectOrCreate?: CompletedMissionsCreateOrConnectWithoutMissionsInput | CompletedMissionsCreateOrConnectWithoutMissionsInput[]
+    createMany?: CompletedMissionsCreateManyMissionsInputEnvelope
+    connect?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
+  }
+
+  export type AcceptedMissionsUncheckedCreateNestedManyWithoutMissionsInput = {
+    create?: XOR<AcceptedMissionsCreateWithoutMissionsInput, AcceptedMissionsUncheckedCreateWithoutMissionsInput> | AcceptedMissionsCreateWithoutMissionsInput[] | AcceptedMissionsUncheckedCreateWithoutMissionsInput[]
+    connectOrCreate?: AcceptedMissionsCreateOrConnectWithoutMissionsInput | AcceptedMissionsCreateOrConnectWithoutMissionsInput[]
+    createMany?: AcceptedMissionsCreateManyMissionsInputEnvelope
+    connect?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+  }
+
+  export type CompletedMissionsUncheckedCreateNestedManyWithoutMissionsInput = {
+    create?: XOR<CompletedMissionsCreateWithoutMissionsInput, CompletedMissionsUncheckedCreateWithoutMissionsInput> | CompletedMissionsCreateWithoutMissionsInput[] | CompletedMissionsUncheckedCreateWithoutMissionsInput[]
+    connectOrCreate?: CompletedMissionsCreateOrConnectWithoutMissionsInput | CompletedMissionsCreateOrConnectWithoutMissionsInput[]
+    createMany?: CompletedMissionsCreateManyMissionsInputEnvelope
+    connect?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
+  }
+
+  export type StoreUpdateOneRequiredWithoutMissionsNestedInput = {
+    create?: XOR<StoreCreateWithoutMissionsInput, StoreUncheckedCreateWithoutMissionsInput>
+    connectOrCreate?: StoreCreateOrConnectWithoutMissionsInput
+    upsert?: StoreUpsertWithoutMissionsInput
+    connect?: StoreWhereUniqueInput
+    update?: XOR<XOR<StoreUpdateToOneWithWhereWithoutMissionsInput, StoreUpdateWithoutMissionsInput>, StoreUncheckedUpdateWithoutMissionsInput>
+  }
+
+  export type LocationsUpdateOneRequiredWithoutMissionsNestedInput = {
+    create?: XOR<LocationsCreateWithoutMissionsInput, LocationsUncheckedCreateWithoutMissionsInput>
+    connectOrCreate?: LocationsCreateOrConnectWithoutMissionsInput
+    upsert?: LocationsUpsertWithoutMissionsInput
+    connect?: LocationsWhereUniqueInput
+    update?: XOR<XOR<LocationsUpdateToOneWithWhereWithoutMissionsInput, LocationsUpdateWithoutMissionsInput>, LocationsUncheckedUpdateWithoutMissionsInput>
+  }
+
+  export type AcceptedMissionsUpdateManyWithoutMissionsNestedInput = {
+    create?: XOR<AcceptedMissionsCreateWithoutMissionsInput, AcceptedMissionsUncheckedCreateWithoutMissionsInput> | AcceptedMissionsCreateWithoutMissionsInput[] | AcceptedMissionsUncheckedCreateWithoutMissionsInput[]
+    connectOrCreate?: AcceptedMissionsCreateOrConnectWithoutMissionsInput | AcceptedMissionsCreateOrConnectWithoutMissionsInput[]
+    upsert?: AcceptedMissionsUpsertWithWhereUniqueWithoutMissionsInput | AcceptedMissionsUpsertWithWhereUniqueWithoutMissionsInput[]
+    createMany?: AcceptedMissionsCreateManyMissionsInputEnvelope
+    set?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+    disconnect?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+    delete?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+    connect?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+    update?: AcceptedMissionsUpdateWithWhereUniqueWithoutMissionsInput | AcceptedMissionsUpdateWithWhereUniqueWithoutMissionsInput[]
+    updateMany?: AcceptedMissionsUpdateManyWithWhereWithoutMissionsInput | AcceptedMissionsUpdateManyWithWhereWithoutMissionsInput[]
+    deleteMany?: AcceptedMissionsScalarWhereInput | AcceptedMissionsScalarWhereInput[]
+  }
+
+  export type CompletedMissionsUpdateManyWithoutMissionsNestedInput = {
+    create?: XOR<CompletedMissionsCreateWithoutMissionsInput, CompletedMissionsUncheckedCreateWithoutMissionsInput> | CompletedMissionsCreateWithoutMissionsInput[] | CompletedMissionsUncheckedCreateWithoutMissionsInput[]
+    connectOrCreate?: CompletedMissionsCreateOrConnectWithoutMissionsInput | CompletedMissionsCreateOrConnectWithoutMissionsInput[]
+    upsert?: CompletedMissionsUpsertWithWhereUniqueWithoutMissionsInput | CompletedMissionsUpsertWithWhereUniqueWithoutMissionsInput[]
+    createMany?: CompletedMissionsCreateManyMissionsInputEnvelope
+    set?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
+    disconnect?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
+    delete?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
+    connect?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
+    update?: CompletedMissionsUpdateWithWhereUniqueWithoutMissionsInput | CompletedMissionsUpdateWithWhereUniqueWithoutMissionsInput[]
+    updateMany?: CompletedMissionsUpdateManyWithWhereWithoutMissionsInput | CompletedMissionsUpdateManyWithWhereWithoutMissionsInput[]
+    deleteMany?: CompletedMissionsScalarWhereInput | CompletedMissionsScalarWhereInput[]
+  }
+
+  export type AcceptedMissionsUncheckedUpdateManyWithoutMissionsNestedInput = {
+    create?: XOR<AcceptedMissionsCreateWithoutMissionsInput, AcceptedMissionsUncheckedCreateWithoutMissionsInput> | AcceptedMissionsCreateWithoutMissionsInput[] | AcceptedMissionsUncheckedCreateWithoutMissionsInput[]
+    connectOrCreate?: AcceptedMissionsCreateOrConnectWithoutMissionsInput | AcceptedMissionsCreateOrConnectWithoutMissionsInput[]
+    upsert?: AcceptedMissionsUpsertWithWhereUniqueWithoutMissionsInput | AcceptedMissionsUpsertWithWhereUniqueWithoutMissionsInput[]
+    createMany?: AcceptedMissionsCreateManyMissionsInputEnvelope
+    set?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+    disconnect?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+    delete?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+    connect?: AcceptedMissionsWhereUniqueInput | AcceptedMissionsWhereUniqueInput[]
+    update?: AcceptedMissionsUpdateWithWhereUniqueWithoutMissionsInput | AcceptedMissionsUpdateWithWhereUniqueWithoutMissionsInput[]
+    updateMany?: AcceptedMissionsUpdateManyWithWhereWithoutMissionsInput | AcceptedMissionsUpdateManyWithWhereWithoutMissionsInput[]
+    deleteMany?: AcceptedMissionsScalarWhereInput | AcceptedMissionsScalarWhereInput[]
+  }
+
+  export type CompletedMissionsUncheckedUpdateManyWithoutMissionsNestedInput = {
+    create?: XOR<CompletedMissionsCreateWithoutMissionsInput, CompletedMissionsUncheckedCreateWithoutMissionsInput> | CompletedMissionsCreateWithoutMissionsInput[] | CompletedMissionsUncheckedCreateWithoutMissionsInput[]
+    connectOrCreate?: CompletedMissionsCreateOrConnectWithoutMissionsInput | CompletedMissionsCreateOrConnectWithoutMissionsInput[]
+    upsert?: CompletedMissionsUpsertWithWhereUniqueWithoutMissionsInput | CompletedMissionsUpsertWithWhereUniqueWithoutMissionsInput[]
+    createMany?: CompletedMissionsCreateManyMissionsInputEnvelope
+    set?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
+    disconnect?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
+    delete?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
+    connect?: CompletedMissionsWhereUniqueInput | CompletedMissionsWhereUniqueInput[]
+    update?: CompletedMissionsUpdateWithWhereUniqueWithoutMissionsInput | CompletedMissionsUpdateWithWhereUniqueWithoutMissionsInput[]
+    updateMany?: CompletedMissionsUpdateManyWithWhereWithoutMissionsInput | CompletedMissionsUpdateManyWithWhereWithoutMissionsInput[]
+    deleteMany?: CompletedMissionsScalarWhereInput | CompletedMissionsScalarWhereInput[]
+  }
+
+  export type MissionsCreateNestedOneWithoutAcceptedMissionsInput = {
+    create?: XOR<MissionsCreateWithoutAcceptedMissionsInput, MissionsUncheckedCreateWithoutAcceptedMissionsInput>
+    connectOrCreate?: MissionsCreateOrConnectWithoutAcceptedMissionsInput
+    connect?: MissionsWhereUniqueInput
+  }
+
+  export type MembersCreateNestedOneWithoutAcceptedMissionsInput = {
+    create?: XOR<MembersCreateWithoutAcceptedMissionsInput, MembersUncheckedCreateWithoutAcceptedMissionsInput>
+    connectOrCreate?: MembersCreateOrConnectWithoutAcceptedMissionsInput
+    connect?: MembersWhereUniqueInput
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type MissionsUpdateOneRequiredWithoutAcceptedMissionsNestedInput = {
+    create?: XOR<MissionsCreateWithoutAcceptedMissionsInput, MissionsUncheckedCreateWithoutAcceptedMissionsInput>
+    connectOrCreate?: MissionsCreateOrConnectWithoutAcceptedMissionsInput
+    upsert?: MissionsUpsertWithoutAcceptedMissionsInput
+    connect?: MissionsWhereUniqueInput
+    update?: XOR<XOR<MissionsUpdateToOneWithWhereWithoutAcceptedMissionsInput, MissionsUpdateWithoutAcceptedMissionsInput>, MissionsUncheckedUpdateWithoutAcceptedMissionsInput>
+  }
+
+  export type MembersUpdateOneRequiredWithoutAcceptedMissionsNestedInput = {
+    create?: XOR<MembersCreateWithoutAcceptedMissionsInput, MembersUncheckedCreateWithoutAcceptedMissionsInput>
+    connectOrCreate?: MembersCreateOrConnectWithoutAcceptedMissionsInput
+    upsert?: MembersUpsertWithoutAcceptedMissionsInput
+    connect?: MembersWhereUniqueInput
+    update?: XOR<XOR<MembersUpdateToOneWithWhereWithoutAcceptedMissionsInput, MembersUpdateWithoutAcceptedMissionsInput>, MembersUncheckedUpdateWithoutAcceptedMissionsInput>
+  }
+
+  export type MissionsCreateNestedOneWithoutCompletedMissionsInput = {
+    create?: XOR<MissionsCreateWithoutCompletedMissionsInput, MissionsUncheckedCreateWithoutCompletedMissionsInput>
+    connectOrCreate?: MissionsCreateOrConnectWithoutCompletedMissionsInput
+    connect?: MissionsWhereUniqueInput
+  }
+
+  export type MembersCreateNestedOneWithoutCompletedMissionsInput = {
+    create?: XOR<MembersCreateWithoutCompletedMissionsInput, MembersUncheckedCreateWithoutCompletedMissionsInput>
+    connectOrCreate?: MembersCreateOrConnectWithoutCompletedMissionsInput
+    connect?: MembersWhereUniqueInput
+  }
+
+  export type MissionsUpdateOneRequiredWithoutCompletedMissionsNestedInput = {
+    create?: XOR<MissionsCreateWithoutCompletedMissionsInput, MissionsUncheckedCreateWithoutCompletedMissionsInput>
+    connectOrCreate?: MissionsCreateOrConnectWithoutCompletedMissionsInput
+    upsert?: MissionsUpsertWithoutCompletedMissionsInput
+    connect?: MissionsWhereUniqueInput
+    update?: XOR<XOR<MissionsUpdateToOneWithWhereWithoutCompletedMissionsInput, MissionsUpdateWithoutCompletedMissionsInput>, MissionsUncheckedUpdateWithoutCompletedMissionsInput>
+  }
+
+  export type MembersUpdateOneRequiredWithoutCompletedMissionsNestedInput = {
+    create?: XOR<MembersCreateWithoutCompletedMissionsInput, MembersUncheckedCreateWithoutCompletedMissionsInput>
+    connectOrCreate?: MembersCreateOrConnectWithoutCompletedMissionsInput
+    upsert?: MembersUpsertWithoutCompletedMissionsInput
+    connect?: MembersWhereUniqueInput
+    update?: XOR<XOR<MembersUpdateToOneWithWhereWithoutCompletedMissionsInput, MembersUpdateWithoutCompletedMissionsInput>, MembersUncheckedUpdateWithoutCompletedMissionsInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -7769,6 +14819,42 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type MembersFoodTypeCreateWithoutMembersInput = {
     foodType: FoodTypeCreateNestedOneWithoutMembersFoodTypesInput
   }
@@ -7785,6 +14871,50 @@ export namespace Prisma {
 
   export type MembersFoodTypeCreateManyMembersInputEnvelope = {
     data: MembersFoodTypeCreateManyMembersInput | MembersFoodTypeCreateManyMembersInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type AcceptedMissionsCreateWithoutMembersInput = {
+    verificationCode: string
+    completedAt?: Date | string | null
+    missions: MissionsCreateNestedOneWithoutAcceptedMissionsInput
+  }
+
+  export type AcceptedMissionsUncheckedCreateWithoutMembersInput = {
+    id?: number
+    missionId: number
+    verificationCode: string
+    completedAt?: Date | string | null
+  }
+
+  export type AcceptedMissionsCreateOrConnectWithoutMembersInput = {
+    where: AcceptedMissionsWhereUniqueInput
+    create: XOR<AcceptedMissionsCreateWithoutMembersInput, AcceptedMissionsUncheckedCreateWithoutMembersInput>
+  }
+
+  export type AcceptedMissionsCreateManyMembersInputEnvelope = {
+    data: AcceptedMissionsCreateManyMembersInput | AcceptedMissionsCreateManyMembersInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CompletedMissionsCreateWithoutMembersInput = {
+    completedAt: Date | string
+    missions: MissionsCreateNestedOneWithoutCompletedMissionsInput
+  }
+
+  export type CompletedMissionsUncheckedCreateWithoutMembersInput = {
+    id?: number
+    missionId: number
+    completedAt: Date | string
+  }
+
+  export type CompletedMissionsCreateOrConnectWithoutMembersInput = {
+    where: CompletedMissionsWhereUniqueInput
+    create: XOR<CompletedMissionsCreateWithoutMembersInput, CompletedMissionsUncheckedCreateWithoutMembersInput>
+  }
+
+  export type CompletedMissionsCreateManyMembersInputEnvelope = {
+    data: CompletedMissionsCreateManyMembersInput | CompletedMissionsCreateManyMembersInput[]
     skipDuplicates?: boolean
   }
 
@@ -7838,6 +14968,59 @@ export namespace Prisma {
     foodTypeId?: IntFilter<"MembersFoodType"> | number
   }
 
+  export type AcceptedMissionsUpsertWithWhereUniqueWithoutMembersInput = {
+    where: AcceptedMissionsWhereUniqueInput
+    update: XOR<AcceptedMissionsUpdateWithoutMembersInput, AcceptedMissionsUncheckedUpdateWithoutMembersInput>
+    create: XOR<AcceptedMissionsCreateWithoutMembersInput, AcceptedMissionsUncheckedCreateWithoutMembersInput>
+  }
+
+  export type AcceptedMissionsUpdateWithWhereUniqueWithoutMembersInput = {
+    where: AcceptedMissionsWhereUniqueInput
+    data: XOR<AcceptedMissionsUpdateWithoutMembersInput, AcceptedMissionsUncheckedUpdateWithoutMembersInput>
+  }
+
+  export type AcceptedMissionsUpdateManyWithWhereWithoutMembersInput = {
+    where: AcceptedMissionsScalarWhereInput
+    data: XOR<AcceptedMissionsUpdateManyMutationInput, AcceptedMissionsUncheckedUpdateManyWithoutMembersInput>
+  }
+
+  export type AcceptedMissionsScalarWhereInput = {
+    AND?: AcceptedMissionsScalarWhereInput | AcceptedMissionsScalarWhereInput[]
+    OR?: AcceptedMissionsScalarWhereInput[]
+    NOT?: AcceptedMissionsScalarWhereInput | AcceptedMissionsScalarWhereInput[]
+    id?: IntFilter<"AcceptedMissions"> | number
+    missionId?: IntFilter<"AcceptedMissions"> | number
+    userId?: IntFilter<"AcceptedMissions"> | number
+    verificationCode?: StringFilter<"AcceptedMissions"> | string
+    completedAt?: DateTimeNullableFilter<"AcceptedMissions"> | Date | string | null
+  }
+
+  export type CompletedMissionsUpsertWithWhereUniqueWithoutMembersInput = {
+    where: CompletedMissionsWhereUniqueInput
+    update: XOR<CompletedMissionsUpdateWithoutMembersInput, CompletedMissionsUncheckedUpdateWithoutMembersInput>
+    create: XOR<CompletedMissionsCreateWithoutMembersInput, CompletedMissionsUncheckedCreateWithoutMembersInput>
+  }
+
+  export type CompletedMissionsUpdateWithWhereUniqueWithoutMembersInput = {
+    where: CompletedMissionsWhereUniqueInput
+    data: XOR<CompletedMissionsUpdateWithoutMembersInput, CompletedMissionsUncheckedUpdateWithoutMembersInput>
+  }
+
+  export type CompletedMissionsUpdateManyWithWhereWithoutMembersInput = {
+    where: CompletedMissionsScalarWhereInput
+    data: XOR<CompletedMissionsUpdateManyMutationInput, CompletedMissionsUncheckedUpdateManyWithoutMembersInput>
+  }
+
+  export type CompletedMissionsScalarWhereInput = {
+    AND?: CompletedMissionsScalarWhereInput | CompletedMissionsScalarWhereInput[]
+    OR?: CompletedMissionsScalarWhereInput[]
+    NOT?: CompletedMissionsScalarWhereInput | CompletedMissionsScalarWhereInput[]
+    id?: IntFilter<"CompletedMissions"> | number
+    missionId?: IntFilter<"CompletedMissions"> | number
+    userId?: IntFilter<"CompletedMissions"> | number
+    completedAt?: DateTimeFilter<"CompletedMissions"> | Date | string
+  }
+
   export type ReviewUpsertWithWhereUniqueWithoutMembersInput = {
     where: ReviewWhereUniqueInput
     update: XOR<ReviewUpdateWithoutMembersInput, ReviewUncheckedUpdateWithoutMembersInput>
@@ -7873,6 +15056,8 @@ export namespace Prisma {
     birth: Date | string
     address: string
     phoneNumber: string
+    acceptedMissions?: AcceptedMissionsCreateNestedManyWithoutMembersInput
+    completedMissions?: CompletedMissionsCreateNestedManyWithoutMembersInput
     review?: ReviewCreateNestedManyWithoutMembersInput
   }
 
@@ -7884,6 +15069,8 @@ export namespace Prisma {
     birth: Date | string
     address: string
     phoneNumber: string
+    acceptedMissions?: AcceptedMissionsUncheckedCreateNestedManyWithoutMembersInput
+    completedMissions?: CompletedMissionsUncheckedCreateNestedManyWithoutMembersInput
     review?: ReviewUncheckedCreateNestedManyWithoutMembersInput
   }
 
@@ -7895,12 +15082,14 @@ export namespace Prisma {
   export type FoodTypeCreateWithoutMembersFoodTypesInput = {
     name: string
     storeTypeName: string
+    store?: StoreCreateNestedManyWithoutFoodTypeInput
   }
 
   export type FoodTypeUncheckedCreateWithoutMembersFoodTypesInput = {
     id?: number
     name: string
     storeTypeName: string
+    store?: StoreUncheckedCreateNestedManyWithoutFoodTypeInput
   }
 
   export type FoodTypeCreateOrConnectWithoutMembersFoodTypesInput = {
@@ -7926,6 +15115,8 @@ export namespace Prisma {
     birth?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
+    acceptedMissions?: AcceptedMissionsUpdateManyWithoutMembersNestedInput
+    completedMissions?: CompletedMissionsUpdateManyWithoutMembersNestedInput
     review?: ReviewUpdateManyWithoutMembersNestedInput
   }
 
@@ -7937,6 +15128,8 @@ export namespace Prisma {
     birth?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
+    acceptedMissions?: AcceptedMissionsUncheckedUpdateManyWithoutMembersNestedInput
+    completedMissions?: CompletedMissionsUncheckedUpdateManyWithoutMembersNestedInput
     review?: ReviewUncheckedUpdateManyWithoutMembersNestedInput
   }
 
@@ -7954,12 +15147,14 @@ export namespace Prisma {
   export type FoodTypeUpdateWithoutMembersFoodTypesInput = {
     name?: StringFieldUpdateOperationsInput | string
     storeTypeName?: StringFieldUpdateOperationsInput | string
+    store?: StoreUpdateManyWithoutFoodTypeNestedInput
   }
 
   export type FoodTypeUncheckedUpdateWithoutMembersFoodTypesInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     storeTypeName?: StringFieldUpdateOperationsInput | string
+    store?: StoreUncheckedUpdateManyWithoutFoodTypeNestedInput
   }
 
   export type MembersFoodTypeCreateWithoutFoodTypeInput = {
@@ -7981,6 +15176,39 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type StoreCreateWithoutFoodTypeInput = {
+    name: string
+    address: string
+    openTime: string
+    closeTime: string
+    review?: ReviewCreateNestedManyWithoutStoreInput
+    storeStatus?: StoreStatusCreateNestedManyWithoutStoreInput
+    missions?: MissionsCreateNestedManyWithoutStoreInput
+    locations: LocationsCreateNestedOneWithoutStoreInput
+  }
+
+  export type StoreUncheckedCreateWithoutFoodTypeInput = {
+    id?: number
+    name: string
+    address: string
+    openTime: string
+    closeTime: string
+    locationId: number
+    review?: ReviewUncheckedCreateNestedManyWithoutStoreInput
+    storeStatus?: StoreStatusUncheckedCreateNestedManyWithoutStoreInput
+    missions?: MissionsUncheckedCreateNestedManyWithoutStoreInput
+  }
+
+  export type StoreCreateOrConnectWithoutFoodTypeInput = {
+    where: StoreWhereUniqueInput
+    create: XOR<StoreCreateWithoutFoodTypeInput, StoreUncheckedCreateWithoutFoodTypeInput>
+  }
+
+  export type StoreCreateManyFoodTypeInputEnvelope = {
+    data: StoreCreateManyFoodTypeInput | StoreCreateManyFoodTypeInput[]
+    skipDuplicates?: boolean
+  }
+
   export type MembersFoodTypeUpsertWithWhereUniqueWithoutFoodTypeInput = {
     where: MembersFoodTypeWhereUniqueInput
     update: XOR<MembersFoodTypeUpdateWithoutFoodTypeInput, MembersFoodTypeUncheckedUpdateWithoutFoodTypeInput>
@@ -7997,6 +15225,35 @@ export namespace Prisma {
     data: XOR<MembersFoodTypeUpdateManyMutationInput, MembersFoodTypeUncheckedUpdateManyWithoutFoodTypeInput>
   }
 
+  export type StoreUpsertWithWhereUniqueWithoutFoodTypeInput = {
+    where: StoreWhereUniqueInput
+    update: XOR<StoreUpdateWithoutFoodTypeInput, StoreUncheckedUpdateWithoutFoodTypeInput>
+    create: XOR<StoreCreateWithoutFoodTypeInput, StoreUncheckedCreateWithoutFoodTypeInput>
+  }
+
+  export type StoreUpdateWithWhereUniqueWithoutFoodTypeInput = {
+    where: StoreWhereUniqueInput
+    data: XOR<StoreUpdateWithoutFoodTypeInput, StoreUncheckedUpdateWithoutFoodTypeInput>
+  }
+
+  export type StoreUpdateManyWithWhereWithoutFoodTypeInput = {
+    where: StoreScalarWhereInput
+    data: XOR<StoreUpdateManyMutationInput, StoreUncheckedUpdateManyWithoutFoodTypeInput>
+  }
+
+  export type StoreScalarWhereInput = {
+    AND?: StoreScalarWhereInput | StoreScalarWhereInput[]
+    OR?: StoreScalarWhereInput[]
+    NOT?: StoreScalarWhereInput | StoreScalarWhereInput[]
+    id?: IntFilter<"Store"> | number
+    name?: StringFilter<"Store"> | string
+    foodTypeId?: IntFilter<"Store"> | number
+    address?: StringFilter<"Store"> | string
+    openTime?: StringFilter<"Store"> | string
+    closeTime?: StringFilter<"Store"> | string
+    locationId?: IntFilter<"Store"> | number
+  }
+
   export type MembersCreateWithoutReviewInput = {
     email: string
     name: string
@@ -8005,6 +15262,8 @@ export namespace Prisma {
     address: string
     phoneNumber: string
     membersFoodTypes?: MembersFoodTypeCreateNestedManyWithoutMembersInput
+    acceptedMissions?: AcceptedMissionsCreateNestedManyWithoutMembersInput
+    completedMissions?: CompletedMissionsCreateNestedManyWithoutMembersInput
   }
 
   export type MembersUncheckedCreateWithoutReviewInput = {
@@ -8016,6 +15275,8 @@ export namespace Prisma {
     address: string
     phoneNumber: string
     membersFoodTypes?: MembersFoodTypeUncheckedCreateNestedManyWithoutMembersInput
+    acceptedMissions?: AcceptedMissionsUncheckedCreateNestedManyWithoutMembersInput
+    completedMissions?: CompletedMissionsUncheckedCreateNestedManyWithoutMembersInput
   }
 
   export type MembersCreateOrConnectWithoutReviewInput = {
@@ -8025,11 +15286,13 @@ export namespace Prisma {
 
   export type StoreCreateWithoutReviewInput = {
     name: string
-    foodTypeId: number
     address: string
     openTime: string
     closeTime: string
-    locationId: number
+    storeStatus?: StoreStatusCreateNestedManyWithoutStoreInput
+    missions?: MissionsCreateNestedManyWithoutStoreInput
+    foodType: FoodTypeCreateNestedOneWithoutStoreInput
+    locations: LocationsCreateNestedOneWithoutStoreInput
   }
 
   export type StoreUncheckedCreateWithoutReviewInput = {
@@ -8040,6 +15303,8 @@ export namespace Prisma {
     openTime: string
     closeTime: string
     locationId: number
+    storeStatus?: StoreStatusUncheckedCreateNestedManyWithoutStoreInput
+    missions?: MissionsUncheckedCreateNestedManyWithoutStoreInput
   }
 
   export type StoreCreateOrConnectWithoutReviewInput = {
@@ -8066,6 +15331,8 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     membersFoodTypes?: MembersFoodTypeUpdateManyWithoutMembersNestedInput
+    acceptedMissions?: AcceptedMissionsUpdateManyWithoutMembersNestedInput
+    completedMissions?: CompletedMissionsUpdateManyWithoutMembersNestedInput
   }
 
   export type MembersUncheckedUpdateWithoutReviewInput = {
@@ -8077,6 +15344,8 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     membersFoodTypes?: MembersFoodTypeUncheckedUpdateManyWithoutMembersNestedInput
+    acceptedMissions?: AcceptedMissionsUncheckedUpdateManyWithoutMembersNestedInput
+    completedMissions?: CompletedMissionsUncheckedUpdateManyWithoutMembersNestedInput
   }
 
   export type StoreUpsertWithoutReviewInput = {
@@ -8092,11 +15361,13 @@ export namespace Prisma {
 
   export type StoreUpdateWithoutReviewInput = {
     name?: StringFieldUpdateOperationsInput | string
-    foodTypeId?: IntFieldUpdateOperationsInput | number
     address?: StringFieldUpdateOperationsInput | string
     openTime?: StringFieldUpdateOperationsInput | string
     closeTime?: StringFieldUpdateOperationsInput | string
-    locationId?: IntFieldUpdateOperationsInput | number
+    storeStatus?: StoreStatusUpdateManyWithoutStoreNestedInput
+    missions?: MissionsUpdateManyWithoutStoreNestedInput
+    foodType?: FoodTypeUpdateOneRequiredWithoutStoreNestedInput
+    locations?: LocationsUpdateOneRequiredWithoutStoreNestedInput
   }
 
   export type StoreUncheckedUpdateWithoutReviewInput = {
@@ -8107,6 +15378,8 @@ export namespace Prisma {
     openTime?: StringFieldUpdateOperationsInput | string
     closeTime?: StringFieldUpdateOperationsInput | string
     locationId?: IntFieldUpdateOperationsInput | number
+    storeStatus?: StoreStatusUncheckedUpdateManyWithoutStoreNestedInput
+    missions?: MissionsUncheckedUpdateManyWithoutStoreNestedInput
   }
 
   export type ReviewCreateWithoutStoreInput = {
@@ -8134,6 +15407,90 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type StoreStatusCreateWithoutStoreInput = {
+    reviewsCount: number
+    starTotal: number
+  }
+
+  export type StoreStatusUncheckedCreateWithoutStoreInput = {
+    id?: number
+    reviewsCount: number
+    starTotal: number
+  }
+
+  export type StoreStatusCreateOrConnectWithoutStoreInput = {
+    where: StoreStatusWhereUniqueInput
+    create: XOR<StoreStatusCreateWithoutStoreInput, StoreStatusUncheckedCreateWithoutStoreInput>
+  }
+
+  export type StoreStatusCreateManyStoreInputEnvelope = {
+    data: StoreStatusCreateManyStoreInput | StoreStatusCreateManyStoreInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type MissionsCreateWithoutStoreInput = {
+    goal: number
+    rewards: number
+    expireDate: Date | string
+    locations: LocationsCreateNestedOneWithoutMissionsInput
+    acceptedMissions?: AcceptedMissionsCreateNestedManyWithoutMissionsInput
+    completedMissions?: CompletedMissionsCreateNestedManyWithoutMissionsInput
+  }
+
+  export type MissionsUncheckedCreateWithoutStoreInput = {
+    id?: number
+    goal: number
+    rewards: number
+    expireDate: Date | string
+    locationId: number
+    acceptedMissions?: AcceptedMissionsUncheckedCreateNestedManyWithoutMissionsInput
+    completedMissions?: CompletedMissionsUncheckedCreateNestedManyWithoutMissionsInput
+  }
+
+  export type MissionsCreateOrConnectWithoutStoreInput = {
+    where: MissionsWhereUniqueInput
+    create: XOR<MissionsCreateWithoutStoreInput, MissionsUncheckedCreateWithoutStoreInput>
+  }
+
+  export type MissionsCreateManyStoreInputEnvelope = {
+    data: MissionsCreateManyStoreInput | MissionsCreateManyStoreInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FoodTypeCreateWithoutStoreInput = {
+    name: string
+    storeTypeName: string
+    membersFoodTypes?: MembersFoodTypeCreateNestedManyWithoutFoodTypeInput
+  }
+
+  export type FoodTypeUncheckedCreateWithoutStoreInput = {
+    id?: number
+    name: string
+    storeTypeName: string
+    membersFoodTypes?: MembersFoodTypeUncheckedCreateNestedManyWithoutFoodTypeInput
+  }
+
+  export type FoodTypeCreateOrConnectWithoutStoreInput = {
+    where: FoodTypeWhereUniqueInput
+    create: XOR<FoodTypeCreateWithoutStoreInput, FoodTypeUncheckedCreateWithoutStoreInput>
+  }
+
+  export type LocationsCreateWithoutStoreInput = {
+    name: string
+    missions?: MissionsCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationsUncheckedCreateWithoutStoreInput = {
+    id?: number
+    name: string
+    missions?: MissionsUncheckedCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationsCreateOrConnectWithoutStoreInput = {
+    where: LocationsWhereUniqueInput
+    create: XOR<LocationsCreateWithoutStoreInput, LocationsUncheckedCreateWithoutStoreInput>
+  }
+
   export type ReviewUpsertWithWhereUniqueWithoutStoreInput = {
     where: ReviewWhereUniqueInput
     update: XOR<ReviewUpdateWithoutStoreInput, ReviewUncheckedUpdateWithoutStoreInput>
@@ -8150,9 +15507,694 @@ export namespace Prisma {
     data: XOR<ReviewUpdateManyMutationInput, ReviewUncheckedUpdateManyWithoutStoreInput>
   }
 
+  export type StoreStatusUpsertWithWhereUniqueWithoutStoreInput = {
+    where: StoreStatusWhereUniqueInput
+    update: XOR<StoreStatusUpdateWithoutStoreInput, StoreStatusUncheckedUpdateWithoutStoreInput>
+    create: XOR<StoreStatusCreateWithoutStoreInput, StoreStatusUncheckedCreateWithoutStoreInput>
+  }
+
+  export type StoreStatusUpdateWithWhereUniqueWithoutStoreInput = {
+    where: StoreStatusWhereUniqueInput
+    data: XOR<StoreStatusUpdateWithoutStoreInput, StoreStatusUncheckedUpdateWithoutStoreInput>
+  }
+
+  export type StoreStatusUpdateManyWithWhereWithoutStoreInput = {
+    where: StoreStatusScalarWhereInput
+    data: XOR<StoreStatusUpdateManyMutationInput, StoreStatusUncheckedUpdateManyWithoutStoreInput>
+  }
+
+  export type StoreStatusScalarWhereInput = {
+    AND?: StoreStatusScalarWhereInput | StoreStatusScalarWhereInput[]
+    OR?: StoreStatusScalarWhereInput[]
+    NOT?: StoreStatusScalarWhereInput | StoreStatusScalarWhereInput[]
+    id?: IntFilter<"StoreStatus"> | number
+    storeId?: IntFilter<"StoreStatus"> | number
+    reviewsCount?: IntFilter<"StoreStatus"> | number
+    starTotal?: FloatFilter<"StoreStatus"> | number
+  }
+
+  export type MissionsUpsertWithWhereUniqueWithoutStoreInput = {
+    where: MissionsWhereUniqueInput
+    update: XOR<MissionsUpdateWithoutStoreInput, MissionsUncheckedUpdateWithoutStoreInput>
+    create: XOR<MissionsCreateWithoutStoreInput, MissionsUncheckedCreateWithoutStoreInput>
+  }
+
+  export type MissionsUpdateWithWhereUniqueWithoutStoreInput = {
+    where: MissionsWhereUniqueInput
+    data: XOR<MissionsUpdateWithoutStoreInput, MissionsUncheckedUpdateWithoutStoreInput>
+  }
+
+  export type MissionsUpdateManyWithWhereWithoutStoreInput = {
+    where: MissionsScalarWhereInput
+    data: XOR<MissionsUpdateManyMutationInput, MissionsUncheckedUpdateManyWithoutStoreInput>
+  }
+
+  export type MissionsScalarWhereInput = {
+    AND?: MissionsScalarWhereInput | MissionsScalarWhereInput[]
+    OR?: MissionsScalarWhereInput[]
+    NOT?: MissionsScalarWhereInput | MissionsScalarWhereInput[]
+    id?: IntFilter<"Missions"> | number
+    storeId?: IntFilter<"Missions"> | number
+    goal?: IntFilter<"Missions"> | number
+    rewards?: IntFilter<"Missions"> | number
+    expireDate?: DateTimeFilter<"Missions"> | Date | string
+    locationId?: IntFilter<"Missions"> | number
+  }
+
+  export type FoodTypeUpsertWithoutStoreInput = {
+    update: XOR<FoodTypeUpdateWithoutStoreInput, FoodTypeUncheckedUpdateWithoutStoreInput>
+    create: XOR<FoodTypeCreateWithoutStoreInput, FoodTypeUncheckedCreateWithoutStoreInput>
+    where?: FoodTypeWhereInput
+  }
+
+  export type FoodTypeUpdateToOneWithWhereWithoutStoreInput = {
+    where?: FoodTypeWhereInput
+    data: XOR<FoodTypeUpdateWithoutStoreInput, FoodTypeUncheckedUpdateWithoutStoreInput>
+  }
+
+  export type FoodTypeUpdateWithoutStoreInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    storeTypeName?: StringFieldUpdateOperationsInput | string
+    membersFoodTypes?: MembersFoodTypeUpdateManyWithoutFoodTypeNestedInput
+  }
+
+  export type FoodTypeUncheckedUpdateWithoutStoreInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    storeTypeName?: StringFieldUpdateOperationsInput | string
+    membersFoodTypes?: MembersFoodTypeUncheckedUpdateManyWithoutFoodTypeNestedInput
+  }
+
+  export type LocationsUpsertWithoutStoreInput = {
+    update: XOR<LocationsUpdateWithoutStoreInput, LocationsUncheckedUpdateWithoutStoreInput>
+    create: XOR<LocationsCreateWithoutStoreInput, LocationsUncheckedCreateWithoutStoreInput>
+    where?: LocationsWhereInput
+  }
+
+  export type LocationsUpdateToOneWithWhereWithoutStoreInput = {
+    where?: LocationsWhereInput
+    data: XOR<LocationsUpdateWithoutStoreInput, LocationsUncheckedUpdateWithoutStoreInput>
+  }
+
+  export type LocationsUpdateWithoutStoreInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    missions?: MissionsUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type LocationsUncheckedUpdateWithoutStoreInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    missions?: MissionsUncheckedUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type StoreCreateWithoutLocationsInput = {
+    name: string
+    address: string
+    openTime: string
+    closeTime: string
+    review?: ReviewCreateNestedManyWithoutStoreInput
+    storeStatus?: StoreStatusCreateNestedManyWithoutStoreInput
+    missions?: MissionsCreateNestedManyWithoutStoreInput
+    foodType: FoodTypeCreateNestedOneWithoutStoreInput
+  }
+
+  export type StoreUncheckedCreateWithoutLocationsInput = {
+    id?: number
+    name: string
+    foodTypeId: number
+    address: string
+    openTime: string
+    closeTime: string
+    review?: ReviewUncheckedCreateNestedManyWithoutStoreInput
+    storeStatus?: StoreStatusUncheckedCreateNestedManyWithoutStoreInput
+    missions?: MissionsUncheckedCreateNestedManyWithoutStoreInput
+  }
+
+  export type StoreCreateOrConnectWithoutLocationsInput = {
+    where: StoreWhereUniqueInput
+    create: XOR<StoreCreateWithoutLocationsInput, StoreUncheckedCreateWithoutLocationsInput>
+  }
+
+  export type StoreCreateManyLocationsInputEnvelope = {
+    data: StoreCreateManyLocationsInput | StoreCreateManyLocationsInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type MissionsCreateWithoutLocationsInput = {
+    goal: number
+    rewards: number
+    expireDate: Date | string
+    store: StoreCreateNestedOneWithoutMissionsInput
+    acceptedMissions?: AcceptedMissionsCreateNestedManyWithoutMissionsInput
+    completedMissions?: CompletedMissionsCreateNestedManyWithoutMissionsInput
+  }
+
+  export type MissionsUncheckedCreateWithoutLocationsInput = {
+    id?: number
+    storeId: number
+    goal: number
+    rewards: number
+    expireDate: Date | string
+    acceptedMissions?: AcceptedMissionsUncheckedCreateNestedManyWithoutMissionsInput
+    completedMissions?: CompletedMissionsUncheckedCreateNestedManyWithoutMissionsInput
+  }
+
+  export type MissionsCreateOrConnectWithoutLocationsInput = {
+    where: MissionsWhereUniqueInput
+    create: XOR<MissionsCreateWithoutLocationsInput, MissionsUncheckedCreateWithoutLocationsInput>
+  }
+
+  export type MissionsCreateManyLocationsInputEnvelope = {
+    data: MissionsCreateManyLocationsInput | MissionsCreateManyLocationsInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type StoreUpsertWithWhereUniqueWithoutLocationsInput = {
+    where: StoreWhereUniqueInput
+    update: XOR<StoreUpdateWithoutLocationsInput, StoreUncheckedUpdateWithoutLocationsInput>
+    create: XOR<StoreCreateWithoutLocationsInput, StoreUncheckedCreateWithoutLocationsInput>
+  }
+
+  export type StoreUpdateWithWhereUniqueWithoutLocationsInput = {
+    where: StoreWhereUniqueInput
+    data: XOR<StoreUpdateWithoutLocationsInput, StoreUncheckedUpdateWithoutLocationsInput>
+  }
+
+  export type StoreUpdateManyWithWhereWithoutLocationsInput = {
+    where: StoreScalarWhereInput
+    data: XOR<StoreUpdateManyMutationInput, StoreUncheckedUpdateManyWithoutLocationsInput>
+  }
+
+  export type MissionsUpsertWithWhereUniqueWithoutLocationsInput = {
+    where: MissionsWhereUniqueInput
+    update: XOR<MissionsUpdateWithoutLocationsInput, MissionsUncheckedUpdateWithoutLocationsInput>
+    create: XOR<MissionsCreateWithoutLocationsInput, MissionsUncheckedCreateWithoutLocationsInput>
+  }
+
+  export type MissionsUpdateWithWhereUniqueWithoutLocationsInput = {
+    where: MissionsWhereUniqueInput
+    data: XOR<MissionsUpdateWithoutLocationsInput, MissionsUncheckedUpdateWithoutLocationsInput>
+  }
+
+  export type MissionsUpdateManyWithWhereWithoutLocationsInput = {
+    where: MissionsScalarWhereInput
+    data: XOR<MissionsUpdateManyMutationInput, MissionsUncheckedUpdateManyWithoutLocationsInput>
+  }
+
+  export type StoreCreateWithoutStoreStatusInput = {
+    name: string
+    address: string
+    openTime: string
+    closeTime: string
+    review?: ReviewCreateNestedManyWithoutStoreInput
+    missions?: MissionsCreateNestedManyWithoutStoreInput
+    foodType: FoodTypeCreateNestedOneWithoutStoreInput
+    locations: LocationsCreateNestedOneWithoutStoreInput
+  }
+
+  export type StoreUncheckedCreateWithoutStoreStatusInput = {
+    id?: number
+    name: string
+    foodTypeId: number
+    address: string
+    openTime: string
+    closeTime: string
+    locationId: number
+    review?: ReviewUncheckedCreateNestedManyWithoutStoreInput
+    missions?: MissionsUncheckedCreateNestedManyWithoutStoreInput
+  }
+
+  export type StoreCreateOrConnectWithoutStoreStatusInput = {
+    where: StoreWhereUniqueInput
+    create: XOR<StoreCreateWithoutStoreStatusInput, StoreUncheckedCreateWithoutStoreStatusInput>
+  }
+
+  export type StoreUpsertWithoutStoreStatusInput = {
+    update: XOR<StoreUpdateWithoutStoreStatusInput, StoreUncheckedUpdateWithoutStoreStatusInput>
+    create: XOR<StoreCreateWithoutStoreStatusInput, StoreUncheckedCreateWithoutStoreStatusInput>
+    where?: StoreWhereInput
+  }
+
+  export type StoreUpdateToOneWithWhereWithoutStoreStatusInput = {
+    where?: StoreWhereInput
+    data: XOR<StoreUpdateWithoutStoreStatusInput, StoreUncheckedUpdateWithoutStoreStatusInput>
+  }
+
+  export type StoreUpdateWithoutStoreStatusInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    openTime?: StringFieldUpdateOperationsInput | string
+    closeTime?: StringFieldUpdateOperationsInput | string
+    review?: ReviewUpdateManyWithoutStoreNestedInput
+    missions?: MissionsUpdateManyWithoutStoreNestedInput
+    foodType?: FoodTypeUpdateOneRequiredWithoutStoreNestedInput
+    locations?: LocationsUpdateOneRequiredWithoutStoreNestedInput
+  }
+
+  export type StoreUncheckedUpdateWithoutStoreStatusInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    foodTypeId?: IntFieldUpdateOperationsInput | number
+    address?: StringFieldUpdateOperationsInput | string
+    openTime?: StringFieldUpdateOperationsInput | string
+    closeTime?: StringFieldUpdateOperationsInput | string
+    locationId?: IntFieldUpdateOperationsInput | number
+    review?: ReviewUncheckedUpdateManyWithoutStoreNestedInput
+    missions?: MissionsUncheckedUpdateManyWithoutStoreNestedInput
+  }
+
+  export type StoreCreateWithoutMissionsInput = {
+    name: string
+    address: string
+    openTime: string
+    closeTime: string
+    review?: ReviewCreateNestedManyWithoutStoreInput
+    storeStatus?: StoreStatusCreateNestedManyWithoutStoreInput
+    foodType: FoodTypeCreateNestedOneWithoutStoreInput
+    locations: LocationsCreateNestedOneWithoutStoreInput
+  }
+
+  export type StoreUncheckedCreateWithoutMissionsInput = {
+    id?: number
+    name: string
+    foodTypeId: number
+    address: string
+    openTime: string
+    closeTime: string
+    locationId: number
+    review?: ReviewUncheckedCreateNestedManyWithoutStoreInput
+    storeStatus?: StoreStatusUncheckedCreateNestedManyWithoutStoreInput
+  }
+
+  export type StoreCreateOrConnectWithoutMissionsInput = {
+    where: StoreWhereUniqueInput
+    create: XOR<StoreCreateWithoutMissionsInput, StoreUncheckedCreateWithoutMissionsInput>
+  }
+
+  export type LocationsCreateWithoutMissionsInput = {
+    name: string
+    store?: StoreCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationsUncheckedCreateWithoutMissionsInput = {
+    id?: number
+    name: string
+    store?: StoreUncheckedCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationsCreateOrConnectWithoutMissionsInput = {
+    where: LocationsWhereUniqueInput
+    create: XOR<LocationsCreateWithoutMissionsInput, LocationsUncheckedCreateWithoutMissionsInput>
+  }
+
+  export type AcceptedMissionsCreateWithoutMissionsInput = {
+    verificationCode: string
+    completedAt?: Date | string | null
+    members: MembersCreateNestedOneWithoutAcceptedMissionsInput
+  }
+
+  export type AcceptedMissionsUncheckedCreateWithoutMissionsInput = {
+    id?: number
+    userId: number
+    verificationCode: string
+    completedAt?: Date | string | null
+  }
+
+  export type AcceptedMissionsCreateOrConnectWithoutMissionsInput = {
+    where: AcceptedMissionsWhereUniqueInput
+    create: XOR<AcceptedMissionsCreateWithoutMissionsInput, AcceptedMissionsUncheckedCreateWithoutMissionsInput>
+  }
+
+  export type AcceptedMissionsCreateManyMissionsInputEnvelope = {
+    data: AcceptedMissionsCreateManyMissionsInput | AcceptedMissionsCreateManyMissionsInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CompletedMissionsCreateWithoutMissionsInput = {
+    completedAt: Date | string
+    members: MembersCreateNestedOneWithoutCompletedMissionsInput
+  }
+
+  export type CompletedMissionsUncheckedCreateWithoutMissionsInput = {
+    id?: number
+    userId: number
+    completedAt: Date | string
+  }
+
+  export type CompletedMissionsCreateOrConnectWithoutMissionsInput = {
+    where: CompletedMissionsWhereUniqueInput
+    create: XOR<CompletedMissionsCreateWithoutMissionsInput, CompletedMissionsUncheckedCreateWithoutMissionsInput>
+  }
+
+  export type CompletedMissionsCreateManyMissionsInputEnvelope = {
+    data: CompletedMissionsCreateManyMissionsInput | CompletedMissionsCreateManyMissionsInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type StoreUpsertWithoutMissionsInput = {
+    update: XOR<StoreUpdateWithoutMissionsInput, StoreUncheckedUpdateWithoutMissionsInput>
+    create: XOR<StoreCreateWithoutMissionsInput, StoreUncheckedCreateWithoutMissionsInput>
+    where?: StoreWhereInput
+  }
+
+  export type StoreUpdateToOneWithWhereWithoutMissionsInput = {
+    where?: StoreWhereInput
+    data: XOR<StoreUpdateWithoutMissionsInput, StoreUncheckedUpdateWithoutMissionsInput>
+  }
+
+  export type StoreUpdateWithoutMissionsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    openTime?: StringFieldUpdateOperationsInput | string
+    closeTime?: StringFieldUpdateOperationsInput | string
+    review?: ReviewUpdateManyWithoutStoreNestedInput
+    storeStatus?: StoreStatusUpdateManyWithoutStoreNestedInput
+    foodType?: FoodTypeUpdateOneRequiredWithoutStoreNestedInput
+    locations?: LocationsUpdateOneRequiredWithoutStoreNestedInput
+  }
+
+  export type StoreUncheckedUpdateWithoutMissionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    foodTypeId?: IntFieldUpdateOperationsInput | number
+    address?: StringFieldUpdateOperationsInput | string
+    openTime?: StringFieldUpdateOperationsInput | string
+    closeTime?: StringFieldUpdateOperationsInput | string
+    locationId?: IntFieldUpdateOperationsInput | number
+    review?: ReviewUncheckedUpdateManyWithoutStoreNestedInput
+    storeStatus?: StoreStatusUncheckedUpdateManyWithoutStoreNestedInput
+  }
+
+  export type LocationsUpsertWithoutMissionsInput = {
+    update: XOR<LocationsUpdateWithoutMissionsInput, LocationsUncheckedUpdateWithoutMissionsInput>
+    create: XOR<LocationsCreateWithoutMissionsInput, LocationsUncheckedCreateWithoutMissionsInput>
+    where?: LocationsWhereInput
+  }
+
+  export type LocationsUpdateToOneWithWhereWithoutMissionsInput = {
+    where?: LocationsWhereInput
+    data: XOR<LocationsUpdateWithoutMissionsInput, LocationsUncheckedUpdateWithoutMissionsInput>
+  }
+
+  export type LocationsUpdateWithoutMissionsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    store?: StoreUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type LocationsUncheckedUpdateWithoutMissionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    store?: StoreUncheckedUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type AcceptedMissionsUpsertWithWhereUniqueWithoutMissionsInput = {
+    where: AcceptedMissionsWhereUniqueInput
+    update: XOR<AcceptedMissionsUpdateWithoutMissionsInput, AcceptedMissionsUncheckedUpdateWithoutMissionsInput>
+    create: XOR<AcceptedMissionsCreateWithoutMissionsInput, AcceptedMissionsUncheckedCreateWithoutMissionsInput>
+  }
+
+  export type AcceptedMissionsUpdateWithWhereUniqueWithoutMissionsInput = {
+    where: AcceptedMissionsWhereUniqueInput
+    data: XOR<AcceptedMissionsUpdateWithoutMissionsInput, AcceptedMissionsUncheckedUpdateWithoutMissionsInput>
+  }
+
+  export type AcceptedMissionsUpdateManyWithWhereWithoutMissionsInput = {
+    where: AcceptedMissionsScalarWhereInput
+    data: XOR<AcceptedMissionsUpdateManyMutationInput, AcceptedMissionsUncheckedUpdateManyWithoutMissionsInput>
+  }
+
+  export type CompletedMissionsUpsertWithWhereUniqueWithoutMissionsInput = {
+    where: CompletedMissionsWhereUniqueInput
+    update: XOR<CompletedMissionsUpdateWithoutMissionsInput, CompletedMissionsUncheckedUpdateWithoutMissionsInput>
+    create: XOR<CompletedMissionsCreateWithoutMissionsInput, CompletedMissionsUncheckedCreateWithoutMissionsInput>
+  }
+
+  export type CompletedMissionsUpdateWithWhereUniqueWithoutMissionsInput = {
+    where: CompletedMissionsWhereUniqueInput
+    data: XOR<CompletedMissionsUpdateWithoutMissionsInput, CompletedMissionsUncheckedUpdateWithoutMissionsInput>
+  }
+
+  export type CompletedMissionsUpdateManyWithWhereWithoutMissionsInput = {
+    where: CompletedMissionsScalarWhereInput
+    data: XOR<CompletedMissionsUpdateManyMutationInput, CompletedMissionsUncheckedUpdateManyWithoutMissionsInput>
+  }
+
+  export type MissionsCreateWithoutAcceptedMissionsInput = {
+    goal: number
+    rewards: number
+    expireDate: Date | string
+    store: StoreCreateNestedOneWithoutMissionsInput
+    locations: LocationsCreateNestedOneWithoutMissionsInput
+    completedMissions?: CompletedMissionsCreateNestedManyWithoutMissionsInput
+  }
+
+  export type MissionsUncheckedCreateWithoutAcceptedMissionsInput = {
+    id?: number
+    storeId: number
+    goal: number
+    rewards: number
+    expireDate: Date | string
+    locationId: number
+    completedMissions?: CompletedMissionsUncheckedCreateNestedManyWithoutMissionsInput
+  }
+
+  export type MissionsCreateOrConnectWithoutAcceptedMissionsInput = {
+    where: MissionsWhereUniqueInput
+    create: XOR<MissionsCreateWithoutAcceptedMissionsInput, MissionsUncheckedCreateWithoutAcceptedMissionsInput>
+  }
+
+  export type MembersCreateWithoutAcceptedMissionsInput = {
+    email: string
+    name: string
+    gender: $Enums.Gender
+    birth: Date | string
+    address: string
+    phoneNumber: string
+    membersFoodTypes?: MembersFoodTypeCreateNestedManyWithoutMembersInput
+    completedMissions?: CompletedMissionsCreateNestedManyWithoutMembersInput
+    review?: ReviewCreateNestedManyWithoutMembersInput
+  }
+
+  export type MembersUncheckedCreateWithoutAcceptedMissionsInput = {
+    id?: number
+    email: string
+    name: string
+    gender: $Enums.Gender
+    birth: Date | string
+    address: string
+    phoneNumber: string
+    membersFoodTypes?: MembersFoodTypeUncheckedCreateNestedManyWithoutMembersInput
+    completedMissions?: CompletedMissionsUncheckedCreateNestedManyWithoutMembersInput
+    review?: ReviewUncheckedCreateNestedManyWithoutMembersInput
+  }
+
+  export type MembersCreateOrConnectWithoutAcceptedMissionsInput = {
+    where: MembersWhereUniqueInput
+    create: XOR<MembersCreateWithoutAcceptedMissionsInput, MembersUncheckedCreateWithoutAcceptedMissionsInput>
+  }
+
+  export type MissionsUpsertWithoutAcceptedMissionsInput = {
+    update: XOR<MissionsUpdateWithoutAcceptedMissionsInput, MissionsUncheckedUpdateWithoutAcceptedMissionsInput>
+    create: XOR<MissionsCreateWithoutAcceptedMissionsInput, MissionsUncheckedCreateWithoutAcceptedMissionsInput>
+    where?: MissionsWhereInput
+  }
+
+  export type MissionsUpdateToOneWithWhereWithoutAcceptedMissionsInput = {
+    where?: MissionsWhereInput
+    data: XOR<MissionsUpdateWithoutAcceptedMissionsInput, MissionsUncheckedUpdateWithoutAcceptedMissionsInput>
+  }
+
+  export type MissionsUpdateWithoutAcceptedMissionsInput = {
+    goal?: IntFieldUpdateOperationsInput | number
+    rewards?: IntFieldUpdateOperationsInput | number
+    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    store?: StoreUpdateOneRequiredWithoutMissionsNestedInput
+    locations?: LocationsUpdateOneRequiredWithoutMissionsNestedInput
+    completedMissions?: CompletedMissionsUpdateManyWithoutMissionsNestedInput
+  }
+
+  export type MissionsUncheckedUpdateWithoutAcceptedMissionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    storeId?: IntFieldUpdateOperationsInput | number
+    goal?: IntFieldUpdateOperationsInput | number
+    rewards?: IntFieldUpdateOperationsInput | number
+    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    locationId?: IntFieldUpdateOperationsInput | number
+    completedMissions?: CompletedMissionsUncheckedUpdateManyWithoutMissionsNestedInput
+  }
+
+  export type MembersUpsertWithoutAcceptedMissionsInput = {
+    update: XOR<MembersUpdateWithoutAcceptedMissionsInput, MembersUncheckedUpdateWithoutAcceptedMissionsInput>
+    create: XOR<MembersCreateWithoutAcceptedMissionsInput, MembersUncheckedCreateWithoutAcceptedMissionsInput>
+    where?: MembersWhereInput
+  }
+
+  export type MembersUpdateToOneWithWhereWithoutAcceptedMissionsInput = {
+    where?: MembersWhereInput
+    data: XOR<MembersUpdateWithoutAcceptedMissionsInput, MembersUncheckedUpdateWithoutAcceptedMissionsInput>
+  }
+
+  export type MembersUpdateWithoutAcceptedMissionsInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+    birth?: DateTimeFieldUpdateOperationsInput | Date | string
+    address?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    membersFoodTypes?: MembersFoodTypeUpdateManyWithoutMembersNestedInput
+    completedMissions?: CompletedMissionsUpdateManyWithoutMembersNestedInput
+    review?: ReviewUpdateManyWithoutMembersNestedInput
+  }
+
+  export type MembersUncheckedUpdateWithoutAcceptedMissionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+    birth?: DateTimeFieldUpdateOperationsInput | Date | string
+    address?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    membersFoodTypes?: MembersFoodTypeUncheckedUpdateManyWithoutMembersNestedInput
+    completedMissions?: CompletedMissionsUncheckedUpdateManyWithoutMembersNestedInput
+    review?: ReviewUncheckedUpdateManyWithoutMembersNestedInput
+  }
+
+  export type MissionsCreateWithoutCompletedMissionsInput = {
+    goal: number
+    rewards: number
+    expireDate: Date | string
+    store: StoreCreateNestedOneWithoutMissionsInput
+    locations: LocationsCreateNestedOneWithoutMissionsInput
+    acceptedMissions?: AcceptedMissionsCreateNestedManyWithoutMissionsInput
+  }
+
+  export type MissionsUncheckedCreateWithoutCompletedMissionsInput = {
+    id?: number
+    storeId: number
+    goal: number
+    rewards: number
+    expireDate: Date | string
+    locationId: number
+    acceptedMissions?: AcceptedMissionsUncheckedCreateNestedManyWithoutMissionsInput
+  }
+
+  export type MissionsCreateOrConnectWithoutCompletedMissionsInput = {
+    where: MissionsWhereUniqueInput
+    create: XOR<MissionsCreateWithoutCompletedMissionsInput, MissionsUncheckedCreateWithoutCompletedMissionsInput>
+  }
+
+  export type MembersCreateWithoutCompletedMissionsInput = {
+    email: string
+    name: string
+    gender: $Enums.Gender
+    birth: Date | string
+    address: string
+    phoneNumber: string
+    membersFoodTypes?: MembersFoodTypeCreateNestedManyWithoutMembersInput
+    acceptedMissions?: AcceptedMissionsCreateNestedManyWithoutMembersInput
+    review?: ReviewCreateNestedManyWithoutMembersInput
+  }
+
+  export type MembersUncheckedCreateWithoutCompletedMissionsInput = {
+    id?: number
+    email: string
+    name: string
+    gender: $Enums.Gender
+    birth: Date | string
+    address: string
+    phoneNumber: string
+    membersFoodTypes?: MembersFoodTypeUncheckedCreateNestedManyWithoutMembersInput
+    acceptedMissions?: AcceptedMissionsUncheckedCreateNestedManyWithoutMembersInput
+    review?: ReviewUncheckedCreateNestedManyWithoutMembersInput
+  }
+
+  export type MembersCreateOrConnectWithoutCompletedMissionsInput = {
+    where: MembersWhereUniqueInput
+    create: XOR<MembersCreateWithoutCompletedMissionsInput, MembersUncheckedCreateWithoutCompletedMissionsInput>
+  }
+
+  export type MissionsUpsertWithoutCompletedMissionsInput = {
+    update: XOR<MissionsUpdateWithoutCompletedMissionsInput, MissionsUncheckedUpdateWithoutCompletedMissionsInput>
+    create: XOR<MissionsCreateWithoutCompletedMissionsInput, MissionsUncheckedCreateWithoutCompletedMissionsInput>
+    where?: MissionsWhereInput
+  }
+
+  export type MissionsUpdateToOneWithWhereWithoutCompletedMissionsInput = {
+    where?: MissionsWhereInput
+    data: XOR<MissionsUpdateWithoutCompletedMissionsInput, MissionsUncheckedUpdateWithoutCompletedMissionsInput>
+  }
+
+  export type MissionsUpdateWithoutCompletedMissionsInput = {
+    goal?: IntFieldUpdateOperationsInput | number
+    rewards?: IntFieldUpdateOperationsInput | number
+    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    store?: StoreUpdateOneRequiredWithoutMissionsNestedInput
+    locations?: LocationsUpdateOneRequiredWithoutMissionsNestedInput
+    acceptedMissions?: AcceptedMissionsUpdateManyWithoutMissionsNestedInput
+  }
+
+  export type MissionsUncheckedUpdateWithoutCompletedMissionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    storeId?: IntFieldUpdateOperationsInput | number
+    goal?: IntFieldUpdateOperationsInput | number
+    rewards?: IntFieldUpdateOperationsInput | number
+    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    locationId?: IntFieldUpdateOperationsInput | number
+    acceptedMissions?: AcceptedMissionsUncheckedUpdateManyWithoutMissionsNestedInput
+  }
+
+  export type MembersUpsertWithoutCompletedMissionsInput = {
+    update: XOR<MembersUpdateWithoutCompletedMissionsInput, MembersUncheckedUpdateWithoutCompletedMissionsInput>
+    create: XOR<MembersCreateWithoutCompletedMissionsInput, MembersUncheckedCreateWithoutCompletedMissionsInput>
+    where?: MembersWhereInput
+  }
+
+  export type MembersUpdateToOneWithWhereWithoutCompletedMissionsInput = {
+    where?: MembersWhereInput
+    data: XOR<MembersUpdateWithoutCompletedMissionsInput, MembersUncheckedUpdateWithoutCompletedMissionsInput>
+  }
+
+  export type MembersUpdateWithoutCompletedMissionsInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+    birth?: DateTimeFieldUpdateOperationsInput | Date | string
+    address?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    membersFoodTypes?: MembersFoodTypeUpdateManyWithoutMembersNestedInput
+    acceptedMissions?: AcceptedMissionsUpdateManyWithoutMembersNestedInput
+    review?: ReviewUpdateManyWithoutMembersNestedInput
+  }
+
+  export type MembersUncheckedUpdateWithoutCompletedMissionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+    birth?: DateTimeFieldUpdateOperationsInput | Date | string
+    address?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    membersFoodTypes?: MembersFoodTypeUncheckedUpdateManyWithoutMembersNestedInput
+    acceptedMissions?: AcceptedMissionsUncheckedUpdateManyWithoutMembersNestedInput
+    review?: ReviewUncheckedUpdateManyWithoutMembersNestedInput
+  }
+
   export type MembersFoodTypeCreateManyMembersInput = {
     id?: number
     foodTypeId: number
+  }
+
+  export type AcceptedMissionsCreateManyMembersInput = {
+    id?: number
+    missionId: number
+    verificationCode: string
+    completedAt?: Date | string | null
+  }
+
+  export type CompletedMissionsCreateManyMembersInput = {
+    id?: number
+    missionId: number
+    completedAt: Date | string
   }
 
   export type ReviewCreateManyMembersInput = {
@@ -8175,6 +16217,43 @@ export namespace Prisma {
   export type MembersFoodTypeUncheckedUpdateManyWithoutMembersInput = {
     id?: IntFieldUpdateOperationsInput | number
     foodTypeId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type AcceptedMissionsUpdateWithoutMembersInput = {
+    verificationCode?: StringFieldUpdateOperationsInput | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    missions?: MissionsUpdateOneRequiredWithoutAcceptedMissionsNestedInput
+  }
+
+  export type AcceptedMissionsUncheckedUpdateWithoutMembersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    missionId?: IntFieldUpdateOperationsInput | number
+    verificationCode?: StringFieldUpdateOperationsInput | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type AcceptedMissionsUncheckedUpdateManyWithoutMembersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    missionId?: IntFieldUpdateOperationsInput | number
+    verificationCode?: StringFieldUpdateOperationsInput | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type CompletedMissionsUpdateWithoutMembersInput = {
+    completedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    missions?: MissionsUpdateOneRequiredWithoutCompletedMissionsNestedInput
+  }
+
+  export type CompletedMissionsUncheckedUpdateWithoutMembersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    missionId?: IntFieldUpdateOperationsInput | number
+    completedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CompletedMissionsUncheckedUpdateManyWithoutMembersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    missionId?: IntFieldUpdateOperationsInput | number
+    completedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ReviewUpdateWithoutMembersInput = {
@@ -8205,6 +16284,15 @@ export namespace Prisma {
     userId: number
   }
 
+  export type StoreCreateManyFoodTypeInput = {
+    id?: number
+    name: string
+    address: string
+    openTime: string
+    closeTime: string
+    locationId: number
+  }
+
   export type MembersFoodTypeUpdateWithoutFoodTypeInput = {
     members?: MembersUpdateOneRequiredWithoutMembersFoodTypesNestedInput
   }
@@ -8219,12 +16307,58 @@ export namespace Prisma {
     userId?: IntFieldUpdateOperationsInput | number
   }
 
+  export type StoreUpdateWithoutFoodTypeInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    openTime?: StringFieldUpdateOperationsInput | string
+    closeTime?: StringFieldUpdateOperationsInput | string
+    review?: ReviewUpdateManyWithoutStoreNestedInput
+    storeStatus?: StoreStatusUpdateManyWithoutStoreNestedInput
+    missions?: MissionsUpdateManyWithoutStoreNestedInput
+    locations?: LocationsUpdateOneRequiredWithoutStoreNestedInput
+  }
+
+  export type StoreUncheckedUpdateWithoutFoodTypeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    openTime?: StringFieldUpdateOperationsInput | string
+    closeTime?: StringFieldUpdateOperationsInput | string
+    locationId?: IntFieldUpdateOperationsInput | number
+    review?: ReviewUncheckedUpdateManyWithoutStoreNestedInput
+    storeStatus?: StoreStatusUncheckedUpdateManyWithoutStoreNestedInput
+    missions?: MissionsUncheckedUpdateManyWithoutStoreNestedInput
+  }
+
+  export type StoreUncheckedUpdateManyWithoutFoodTypeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    openTime?: StringFieldUpdateOperationsInput | string
+    closeTime?: StringFieldUpdateOperationsInput | string
+    locationId?: IntFieldUpdateOperationsInput | number
+  }
+
   export type ReviewCreateManyStoreInput = {
     id?: number
     userId: number
     uploadedAt: Date | string
     star: number
     contents: string
+  }
+
+  export type StoreStatusCreateManyStoreInput = {
+    id?: number
+    reviewsCount: number
+    starTotal: number
+  }
+
+  export type MissionsCreateManyStoreInput = {
+    id?: number
+    goal: number
+    rewards: number
+    expireDate: Date | string
+    locationId: number
   }
 
   export type ReviewUpdateWithoutStoreInput = {
@@ -8248,6 +16382,176 @@ export namespace Prisma {
     uploadedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     star?: FloatFieldUpdateOperationsInput | number
     contents?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type StoreStatusUpdateWithoutStoreInput = {
+    reviewsCount?: IntFieldUpdateOperationsInput | number
+    starTotal?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type StoreStatusUncheckedUpdateWithoutStoreInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    reviewsCount?: IntFieldUpdateOperationsInput | number
+    starTotal?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type StoreStatusUncheckedUpdateManyWithoutStoreInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    reviewsCount?: IntFieldUpdateOperationsInput | number
+    starTotal?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type MissionsUpdateWithoutStoreInput = {
+    goal?: IntFieldUpdateOperationsInput | number
+    rewards?: IntFieldUpdateOperationsInput | number
+    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    locations?: LocationsUpdateOneRequiredWithoutMissionsNestedInput
+    acceptedMissions?: AcceptedMissionsUpdateManyWithoutMissionsNestedInput
+    completedMissions?: CompletedMissionsUpdateManyWithoutMissionsNestedInput
+  }
+
+  export type MissionsUncheckedUpdateWithoutStoreInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    goal?: IntFieldUpdateOperationsInput | number
+    rewards?: IntFieldUpdateOperationsInput | number
+    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    locationId?: IntFieldUpdateOperationsInput | number
+    acceptedMissions?: AcceptedMissionsUncheckedUpdateManyWithoutMissionsNestedInput
+    completedMissions?: CompletedMissionsUncheckedUpdateManyWithoutMissionsNestedInput
+  }
+
+  export type MissionsUncheckedUpdateManyWithoutStoreInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    goal?: IntFieldUpdateOperationsInput | number
+    rewards?: IntFieldUpdateOperationsInput | number
+    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    locationId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type StoreCreateManyLocationsInput = {
+    id?: number
+    name: string
+    foodTypeId: number
+    address: string
+    openTime: string
+    closeTime: string
+  }
+
+  export type MissionsCreateManyLocationsInput = {
+    id?: number
+    storeId: number
+    goal: number
+    rewards: number
+    expireDate: Date | string
+  }
+
+  export type StoreUpdateWithoutLocationsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    openTime?: StringFieldUpdateOperationsInput | string
+    closeTime?: StringFieldUpdateOperationsInput | string
+    review?: ReviewUpdateManyWithoutStoreNestedInput
+    storeStatus?: StoreStatusUpdateManyWithoutStoreNestedInput
+    missions?: MissionsUpdateManyWithoutStoreNestedInput
+    foodType?: FoodTypeUpdateOneRequiredWithoutStoreNestedInput
+  }
+
+  export type StoreUncheckedUpdateWithoutLocationsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    foodTypeId?: IntFieldUpdateOperationsInput | number
+    address?: StringFieldUpdateOperationsInput | string
+    openTime?: StringFieldUpdateOperationsInput | string
+    closeTime?: StringFieldUpdateOperationsInput | string
+    review?: ReviewUncheckedUpdateManyWithoutStoreNestedInput
+    storeStatus?: StoreStatusUncheckedUpdateManyWithoutStoreNestedInput
+    missions?: MissionsUncheckedUpdateManyWithoutStoreNestedInput
+  }
+
+  export type StoreUncheckedUpdateManyWithoutLocationsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    foodTypeId?: IntFieldUpdateOperationsInput | number
+    address?: StringFieldUpdateOperationsInput | string
+    openTime?: StringFieldUpdateOperationsInput | string
+    closeTime?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MissionsUpdateWithoutLocationsInput = {
+    goal?: IntFieldUpdateOperationsInput | number
+    rewards?: IntFieldUpdateOperationsInput | number
+    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    store?: StoreUpdateOneRequiredWithoutMissionsNestedInput
+    acceptedMissions?: AcceptedMissionsUpdateManyWithoutMissionsNestedInput
+    completedMissions?: CompletedMissionsUpdateManyWithoutMissionsNestedInput
+  }
+
+  export type MissionsUncheckedUpdateWithoutLocationsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    storeId?: IntFieldUpdateOperationsInput | number
+    goal?: IntFieldUpdateOperationsInput | number
+    rewards?: IntFieldUpdateOperationsInput | number
+    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    acceptedMissions?: AcceptedMissionsUncheckedUpdateManyWithoutMissionsNestedInput
+    completedMissions?: CompletedMissionsUncheckedUpdateManyWithoutMissionsNestedInput
+  }
+
+  export type MissionsUncheckedUpdateManyWithoutLocationsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    storeId?: IntFieldUpdateOperationsInput | number
+    goal?: IntFieldUpdateOperationsInput | number
+    rewards?: IntFieldUpdateOperationsInput | number
+    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AcceptedMissionsCreateManyMissionsInput = {
+    id?: number
+    userId: number
+    verificationCode: string
+    completedAt?: Date | string | null
+  }
+
+  export type CompletedMissionsCreateManyMissionsInput = {
+    id?: number
+    userId: number
+    completedAt: Date | string
+  }
+
+  export type AcceptedMissionsUpdateWithoutMissionsInput = {
+    verificationCode?: StringFieldUpdateOperationsInput | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    members?: MembersUpdateOneRequiredWithoutAcceptedMissionsNestedInput
+  }
+
+  export type AcceptedMissionsUncheckedUpdateWithoutMissionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    verificationCode?: StringFieldUpdateOperationsInput | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type AcceptedMissionsUncheckedUpdateManyWithoutMissionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    verificationCode?: StringFieldUpdateOperationsInput | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type CompletedMissionsUpdateWithoutMissionsInput = {
+    completedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    members?: MembersUpdateOneRequiredWithoutCompletedMissionsNestedInput
+  }
+
+  export type CompletedMissionsUncheckedUpdateWithoutMissionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    completedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CompletedMissionsUncheckedUpdateManyWithoutMissionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    completedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

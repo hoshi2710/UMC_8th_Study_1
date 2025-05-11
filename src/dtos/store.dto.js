@@ -1,4 +1,5 @@
 export const bodyToStore = (body) => {
+  console.log(body.openTime);
   return {
     storeName: body.storeName,
     foodTypeId: body.foodTypeId,
@@ -10,11 +11,11 @@ export const bodyToStore = (body) => {
 };
 export const responseFromStore = (body) => {
   return {
-    storeName: body.store[0].storeName,
-    address: body.store[0].address,
-    openTime: body.store[0].open_time,
-    closeTime: body.store[0].close_time,
-    storeType: body.store[0].storeType,
-    location: body.store[0].location,
+    storeName: body.store.name,
+    address: body.store.address,
+    openTime: body.store.openTime,
+    closeTime: body.store.closeTime,
+    storeType: body.store.foodType.storeTypeName,
+    location: body.store.locations.name,
   };
 };

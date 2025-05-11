@@ -20,15 +20,17 @@ enum Gender {
 }
 
 model Members {
-  id               Int               @id @default(autoincrement())
-  email            String            @unique(map: "email") @db.VarChar(30)
-  name             String            @db.VarChar(10)
-  gender           Gender
-  birth            DateTime          @map("birthday") @db.Date
-  address          String            @db.VarChar(30)
-  phoneNumber      String            @map("phone_no") @db.VarChar(10)
-  membersFoodTypes MembersFoodType[]
-  review           Review[]
+  id                Int                 @id @default(autoincrement())
+  email             String              @unique(map: "email") @db.VarChar(30)
+  name              String              @db.VarChar(10)
+  gender            Gender
+  birth             DateTime            @map("birthday") @db.Date
+  address           String              @db.VarChar(30)
+  phoneNumber       String              @map("phone_no") @db.VarChar(10)
+  membersFoodTypes  MembersFoodType[]
+  acceptedMissions  AcceptedMissions[]
+  completedMissions CompletedMissions[]
+  review            Review[]
 
   @@map("members")
 }
@@ -51,6 +53,7 @@ model FoodType {
   name             String            @db.VarChar(10)
   storeTypeName    String            @map("store_type_name") @db.VarChar(10)
   membersFoodTypes MembersFoodType[]
+  store            Store[]
 
   @@map("food_type")
 }
@@ -74,11 +77,75 @@ model Store {
   name       String @db.VarChar(30)
   foodTypeId Int    @map("food_type_id")
   address    String @db.VarChar(30)
-  openTime   String @map("open_time")
-  closeTime  String @map("close_time")
+  openTime   String @map("open_time") @db.VarChar(8)
+  closeTime  String @map("close_time") @db.VarChar(8)
   locationId Int    @map("location_id")
 
-  review Review[]
+  review      Review[]
+  storeStatus StoreStatus[]
+  missions    Missions[]
+  foodType    FoodType      @relation(fields: [foodTypeId], references: [id])
+  locations   Locations     @relation(fields: [locationId], references: [id])
 
   @@map("store")
+}
+
+model Locations {
+  id       Int        @id @default(autoincrement())
+  name     String     @db.VarChar(10)
+  store    Store[]
+  missions Missions[]
+
+  @@map("locations")
+}
+
+model StoreStatus {
+  id           Int   @id @default(autoincrement())
+  storeId      Int   @map("store_id")
+  reviewsCount Int   @map("reviews_count")
+  starTotal    Float @map("star_total")
+  store        Store @relation(fields: [storeId], references: [id])
+
+  @@map("store_status")
+}
+
+model Missions {
+  id         Int       @id @default(autoincrement())
+  storeId    Int       @map("store_id")
+  goal       Int
+  rewards    Int
+  expireDate DateTime  @map("expire_date")
+  locationId Int       @map("location_id")
+  store      Store     @relation(fields: [storeId], references: [id])
+  locations  Locations @relation(fields: [locationId], references: [id])
+
+  acceptedMissions  AcceptedMissions[]
+  completedMissions CompletedMissions[]
+
+  @@map("missions")
+}
+
+model AcceptedMissions {
+  id               Int       @id @default(autoincrement())
+  missionId        Int       @map("mission_id")
+  userId           Int       @map("user_id")
+  verificationCode String    @map("verification_code") @db.VarChar(9)
+  completedAt      DateTime? @map("completed_at")
+
+  missions Missions @relation(fields: [missionId], references: [id])
+  members  Members  @relation(fields: [userId], references: [id])
+
+  @@map("accepted_missions")
+}
+
+model CompletedMissions {
+  id          Int      @id @default(autoincrement())
+  missionId   Int      @map("mission_id")
+  userId      Int      @map("user_id")
+  completedAt DateTime @map("completed_at")
+
+  missions Missions @relation(fields: [missionId], references: [id])
+  members  Members  @relation(fields: [userId], references: [id])
+
+  @@map("completed_missions")
 }
