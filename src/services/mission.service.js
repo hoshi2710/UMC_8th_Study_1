@@ -24,7 +24,7 @@ export const createMission = async (data) => {
     expireDate: data.expireDate,
   });
   if (addedMissionId == null) {
-    throw new StoreNotFoundError("존재하지 않는 스토어 입니다.",data);
+    throw new StoreNotFoundError("존재하지 않는 스토어 입니다.", data);
   }
   const mission = await getMission(addedMissionId);
   return responseFromMission({ mission });
@@ -44,7 +44,7 @@ export const doMissionAction = async (data) => {
       completedAt: null,
     });
     if (startedMissionId == null) {
-      throw new MissionNotFoundError("존재하지 않는 미션 입니다.",data);
+      throw new MissionNotFoundError("존재하지 않는 미션 입니다.", data);
     }
     const mission = await getOnGoingMission(startedMissionId);
     console.log(mission);
@@ -53,13 +53,13 @@ export const doMissionAction = async (data) => {
   if (data.action == "complete") {
     const completedId = await completeMission(data);
     if (completedId == -1) {
-      throw new MissionNotFoundError("존재하지 않는 미션 입니다.",data);
+      throw new MissionNotFoundError("존재하지 않는 미션 입니다.", data);
     }
     if (completedId == -2) {
-      throw new WrongVerificationCodeError("잘못된 인증 번호 입니다.",data);
+      throw new WrongVerificationCodeError("잘못된 인증 번호 입니다.", data);
     }
     if (completedId == -3) {
-      throw new MissionAlreadyCompletedError("이미 완료처리된 미션 입니다.",data);
+      throw new MissionAlreadyCompletedError("이미 완료처리된 미션 입니다.", data);
     }
     const mission = await getCompletedMission(completedId);
     return responseFromMissionRequest({ mission });
@@ -69,7 +69,7 @@ export const doMissionAction = async (data) => {
 export const getMissionsOfStore = async (data) => {
   const missions = await getMissionsByStoreId(data);
   if (missions == null) {
-    throw new StoreNotFoundError("존재하지 않는 스토어 입니다.",data);
+    throw new StoreNotFoundError("존재하지 않는 스토어 입니다.", data);
   }
   return responseFromStoreMissionsRequest({ missions });
 };
@@ -77,7 +77,7 @@ export const getMissionsOfStore = async (data) => {
 export const getOngoingMissionsOfUser = async (data) => {
   const missions = await getOngoingMissionsByUserId(data);
   if (missions == null) {
-    throw new UserNotFoundError("존재하지 않는 사용자 입니다.",data);
+    throw new UserNotFoundError("존재하지 않는 사용자 입니다.", data);
   }
   return responseFromOngoingMissionsRequest({ missions });
 };

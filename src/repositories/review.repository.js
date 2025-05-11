@@ -60,6 +60,14 @@ export const getReview = async (reviewId) => {
 };
 
 export const getAllReviews = async (data) => {
+  const isStoreExists = await prisma.store.findFirst({
+    select: {
+      id: true,
+    }, where: {
+      id: data.storeId,
+    }
+  })
+  if (isStoreExists == null) return null;
   const review = await prisma.review.findMany({
     select: {
       id: true,
@@ -101,6 +109,14 @@ export const getAllReviews = async (data) => {
 };
 
 export const getAllMyReviews = async (data) => {
+  const isUserExists = await prisma.members.findFirst({
+    select: {
+      id: true,
+    }, where: {
+      id: data.userId,
+    }
+  });
+  if (isUserExists == null) return null;
   const review = await prisma.review.findMany({
     select: {
       id: true,

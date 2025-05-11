@@ -241,7 +241,7 @@ export const getMissionsByStoreId = async (data) => {
 
 export const getOngoingMissionsByUserId = async (data) => {
   try {
-    const isUserExists = prisma.members.findFirst({
+    const isUserExists = await prisma.members.findFirst({
       select: {
         id: true,
       },
