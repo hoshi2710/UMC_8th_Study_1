@@ -2,6 +2,7 @@ import {
   responseFromReview,
   responseFromReviewList,
 } from "../dtos/review.dto.js";
+import { StoreNotFoundError } from "../error.js";
 import {
   addReview,
   getAllReviews,
@@ -19,7 +20,7 @@ export const uploadReview = async (data) => {
     uploadedAt: data.uploadedAt,
   });
   if (addedReviewId == null) {
-    throw new Error("존재하지 않은 매장 ID 입니다.");
+    throw new StoreNotFoundError("존재하지 않는 스토어 입니다.",data);
   }
   const review = await getReview(addedReviewId);
   return responseFromReview({ review });
