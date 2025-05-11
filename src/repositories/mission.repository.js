@@ -1,4 +1,4 @@
-import { pool, prisma } from "../db.config.js";
+import { prisma } from "../db.config.js";
 
 export const addMission = async (data) => {
   try {

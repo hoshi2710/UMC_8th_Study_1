@@ -1,12 +1,6 @@
-import { pool, prisma } from "../db.config.js";
+import { prisma } from "../db.config.js";
 export const addReview = async (data) => {
-  const conn = await pool.getConnection();
-
   try {
-    // const [confirm] = await pool.query(
-    //   `SELECT EXISTS(SELECT 1 FROM store WHERE id = ?) as isExistStore;`,
-    //   data.storeId
-    // );
     const confirm = await prisma.store.findFirst({
       select: {
         id: true,
@@ -18,10 +12,6 @@ export const addReview = async (data) => {
     if (confirm == null) {
       return null;
     }
-    // const [review] = await pool.query(
-    //   `INSERT INTO review (user_id,store_id,uploaded_at,star,contents) VALUES (?, ?, ?, ?, ?);`,
-    //   [data.userId, data.storeId, data.uploadedAt, data.star, data.contents]
-    // );
     const review = await prisma.review.create({ data: data });
     const storeStatus = await prisma.storeStatus.update({
       where: {
@@ -36,27 +26,16 @@ export const addReview = async (data) => {
         },
       },
     });
-    // const [storeStatus] = await pool.query(
-    //   `update store_status set reviews_count = reviews_count + 1, star_total = star_total + ? where id = ?`,
-    //   [data.star, data.storeId]
-    // );
     return review.id;
   } catch (err) {
     throw new Error(
       `오류가 발생했어요. 요청 파라미터를 확인해주세요. (${err})`
     );
-  } finally {
-    conn.release();
   }
 };
 
 export const getReview = async (reviewId) => {
-  const conn = await pool.getConnection();
   try {
-    // const [review] = await pool.query(
-    //   `select name,star,contents,uploaded_at from UMC1.store join UMC1.review on review.store_id = store.id where review.id = ?`,
-    //   reviewId
-    // );
     const review = await prisma.review.findFirst({
       select: {
         store: {
@@ -77,8 +56,6 @@ export const getReview = async (reviewId) => {
     throw new Error(
       `오류가 발생했어요. 요청 파라미터를 확인해주세요. (${err})`
     );
-  } finally {
-    conn.release();
   }
 };
 
