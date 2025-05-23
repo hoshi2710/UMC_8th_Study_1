@@ -48,6 +48,7 @@ export const responseFromReviewList = (body) => {
         phoneNumber: element.members.phoneNumber,
         email: element.members.email,
       },
+      contents: element.contents
     });
   });
   return {

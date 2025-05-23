@@ -44,8 +44,8 @@ export const handleUserSignUp = async (req, res, next) => {
       }
     }
   };
-  #swagger.responses[400] = {
-    description: "회원 가입 실패 응답",
+  #swagger.responses[409] = {
+    description: "회원 가입 실패 응답 (이미 존재하는 이메일)",
     content: {
       "application/json": {
         schema: {
@@ -56,8 +56,24 @@ export const handleUserSignUp = async (req, res, next) => {
               type: "object",
               properties: {
                 errorCode: { type: "string", example: "U001" },
-                reason: { type: "string" },
-                data: { type: "object" }
+                reason: { type: "string", example: "이미 존재하는 이메일입니다." },
+                data: { 
+                  type: "object",
+                  properties: {
+                    email:{type:"string"},
+                    name:{type:"string"},
+                    gender:{type:"string", example:"M"},
+                    birth:{type:"string", example:"2025-03-08T00:00:00.000Z"},
+                    address:{type:"string"},
+                    phoneNumber:{type:"string", example:"01012345678"},
+                    preferences:{
+                      type:"array",
+                      items: {
+                        type:"number"
+                      }
+                    }
+                  }
+                }
               }
             },
             success: { type: "object", nullable: true, example: null }
