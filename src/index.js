@@ -1,14 +1,14 @@
-import { PrismaSessionStore } from "@quixo3/prisma-session-store";
-import { prisma } from "./db.config.js";
+import {PrismaSessionStore} from "@quixo3/prisma-session-store";
+import {prisma} from "./db.config.js";
 import session from "express-session";
 import passport from "passport";
-import { googleStrategy } from "./auth.config.js";
+import {googleStrategy, naverStrategy} from "./auth.config.js";
 import dotenv from "dotenv";
 import express from "express";
 import swaggerAutogen from "swagger-autogen";
 import swaggerUiExpress from "swagger-ui-express";
 import cors from "cors";
-import { handleUserSignUp } from "./controllers/user.controller.js";
+import {handleUserInfoModify, handleUserSignUp} from "./controllers/user.controller.js";
 import {
   handleListStoreReviews,
   handleUploadReview,
@@ -20,10 +20,12 @@ import {
   handleListStoreMissions,
   handleListMyOngoingMissions,
 } from "./controllers/mission.controller.js";
-import { handleCreateStore } from "./controllers/store.controller.js";
+import {handleCreateStore} from "./controllers/store.controller.js";
+
 dotenv.config();
 
 passport.use(googleStrategy);
+passport.use(naverStrategy);
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
 
@@ -35,13 +37,13 @@ const port = process.env.PORT;
  */
 app.use((req, res, next) => {
   res.success = (success) => {
-    return res.json({ resultType: "SUCCESS", error: null, success });
+    return res.json({resultType: "SUCCESS", error: null, success});
   };
 
-  res.error = ({ errorCode = "unknown", reason = null, data = null }) => {
+  res.error = ({errorCode = "unknown", reason = null, data = null}) => {
     return res.json({
       resultType: "FAIL",
-      error: { errorCode, reason, data },
+      error: {errorCode, reason, data},
       success: null,
     });
   };
@@ -99,7 +101,7 @@ app.use(passport.session());
 app.use(cors()); // cors 방식 허용
 app.use(express.static("public")); // 정적 파일 접근
 app.use(express.json()); // request의 본문을 json으로 해석할 수 있도록 함 (JSON 형태의 요청 body를 파싱하기 위함)
-app.use(express.urlencoded({ extended: false })); // 단순 객체 문자열 형태로 본문 데이터 해석
+app.use(express.urlencoded({extended: false})); // 단순 객체 문자열 형태로 본문 데이터 해석
 
 app.get("/", (req, res) => {
   // #swagger.ignore = true
@@ -108,6 +110,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/users", handleUserSignUp);
+app.put("/users", handleUserInfoModify);
 app.post("/stores/:storeId/reviews", handleUploadReview);
 app.post("/stores/:storeId/missions", handleCreateMission);
 app.get("/stores/:storeId/missions", handleListStoreMissions);
@@ -141,6 +144,14 @@ app.get(
   }),
   (req, res) => res.redirect("/")
 );
+app.get("/oauth2/login/naver", passport.authenticate("naver", {authType: 'reprompt'}));
+app.get(
+  '/oauth2/callback/naver',
+  passport.authenticate('naver', {failureRedirect: '/'}),
+  (req, res) => {
+    res.redirect('/');
+  }
+)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

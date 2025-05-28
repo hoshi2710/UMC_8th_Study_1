@@ -1,9 +1,10 @@
-import { Gender } from "../generated/prisma/client.js";
+import {Gender} from "../generated/prisma/client.js";
 
 export const bodyToUser = (body) => {
   const birth = new Date(body.birth);
   const genderEnum = ["M", "F"];
   return {
+    id: body.id,
     email: body.email,
     name: body.name,
     gender: Gender[genderEnum[body.gender]],

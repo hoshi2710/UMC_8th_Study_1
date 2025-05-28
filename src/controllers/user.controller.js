@@ -1,6 +1,6 @@
-import { StatusCodes } from "http-status-codes";
-import { bodyToUser } from "../dtos/user.dto.js";
-import { userSignUp } from "../services/user.service.js";
+import {StatusCodes} from "http-status-codes";
+import {bodyToUser} from "../dtos/user.dto.js";
+import {userSignUp, userInfoModify} from "../services/user.service.js";
 
 export const handleUserSignUp = async (req, res, next) => {
   /*
@@ -90,3 +90,11 @@ export const handleUserSignUp = async (req, res, next) => {
   // res.status(StatusCodes.OK).json({ result: user });
   res.status(StatusCodes.OK).success(user);
 };
+
+export const handleUserInfoModify = async (req, res, next) => {
+
+  console.log("회원정보 수정을 요청했습니다!");
+  console.log("body:", req.body);
+  const user = await userInfoModify(bodyToUser(req.body));
+  res.status(StatusCodes.OK).success(user);
+}

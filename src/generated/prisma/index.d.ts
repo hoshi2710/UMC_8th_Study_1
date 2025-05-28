@@ -3057,18 +3057,21 @@ export namespace Prisma {
     id: number | null
     userId: number | null
     foodTypeId: number | null
+    deletedAt: string | null
   }
 
   export type MembersFoodTypeMaxAggregateOutputType = {
     id: number | null
     userId: number | null
     foodTypeId: number | null
+    deletedAt: string | null
   }
 
   export type MembersFoodTypeCountAggregateOutputType = {
     id: number
     userId: number
     foodTypeId: number
+    deletedAt: number
     _all: number
   }
 
@@ -3089,18 +3092,21 @@ export namespace Prisma {
     id?: true
     userId?: true
     foodTypeId?: true
+    deletedAt?: true
   }
 
   export type MembersFoodTypeMaxAggregateInputType = {
     id?: true
     userId?: true
     foodTypeId?: true
+    deletedAt?: true
   }
 
   export type MembersFoodTypeCountAggregateInputType = {
     id?: true
     userId?: true
     foodTypeId?: true
+    deletedAt?: true
     _all?: true
   }
 
@@ -3194,6 +3200,7 @@ export namespace Prisma {
     id: number
     userId: number
     foodTypeId: number
+    deletedAt: string | null
     _count: MembersFoodTypeCountAggregateOutputType | null
     _avg: MembersFoodTypeAvgAggregateOutputType | null
     _sum: MembersFoodTypeSumAggregateOutputType | null
@@ -3219,6 +3226,7 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     foodTypeId?: boolean
+    deletedAt?: boolean
     members?: boolean | MembersDefaultArgs<ExtArgs>
     foodType?: boolean | FoodTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["membersFoodType"]>
@@ -3229,9 +3237,10 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     foodTypeId?: boolean
+    deletedAt?: boolean
   }
 
-  export type MembersFoodTypeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "foodTypeId", ExtArgs["result"]["membersFoodType"]>
+  export type MembersFoodTypeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "foodTypeId" | "deletedAt", ExtArgs["result"]["membersFoodType"]>
   export type MembersFoodTypeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     members?: boolean | MembersDefaultArgs<ExtArgs>
     foodType?: boolean | FoodTypeDefaultArgs<ExtArgs>
@@ -3247,6 +3256,7 @@ export namespace Prisma {
       id: number
       userId: number
       foodTypeId: number
+      deletedAt: string | null
     }, ExtArgs["result"]["membersFoodType"]>
     composites: {}
   }
@@ -3621,6 +3631,7 @@ export namespace Prisma {
     readonly id: FieldRef<"MembersFoodType", 'Int'>
     readonly userId: FieldRef<"MembersFoodType", 'Int'>
     readonly foodTypeId: FieldRef<"MembersFoodType", 'Int'>
+    readonly deletedAt: FieldRef<"MembersFoodType", 'String'>
   }
     
 
@@ -12890,7 +12901,8 @@ export namespace Prisma {
   export const MembersFoodTypeScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
-    foodTypeId: 'foodTypeId'
+    foodTypeId: 'foodTypeId',
+    deletedAt: 'deletedAt'
   };
 
   export type MembersFoodTypeScalarFieldEnum = (typeof MembersFoodTypeScalarFieldEnum)[keyof typeof MembersFoodTypeScalarFieldEnum]
@@ -13009,6 +13021,21 @@ export namespace Prisma {
   export type MembersOrderByRelevanceFieldEnum = (typeof MembersOrderByRelevanceFieldEnum)[keyof typeof MembersOrderByRelevanceFieldEnum]
 
 
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const MembersFoodTypeOrderByRelevanceFieldEnum: {
+    deletedAt: 'deletedAt'
+  };
+
+  export type MembersFoodTypeOrderByRelevanceFieldEnum = (typeof MembersFoodTypeOrderByRelevanceFieldEnum)[keyof typeof MembersFoodTypeOrderByRelevanceFieldEnum]
+
+
   export const FoodTypeOrderByRelevanceFieldEnum: {
     name: 'name',
     storeTypeName: 'storeTypeName'
@@ -13039,14 +13066,6 @@ export namespace Prisma {
   };
 
   export type LocationsOrderByRelevanceFieldEnum = (typeof LocationsOrderByRelevanceFieldEnum)[keyof typeof LocationsOrderByRelevanceFieldEnum]
-
-
-  export const NullsOrder: {
-    first: 'first',
-    last: 'last'
-  };
-
-  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   export const AcceptedMissionsOrderByRelevanceFieldEnum: {
@@ -13192,6 +13211,7 @@ export namespace Prisma {
     id?: IntFilter<"MembersFoodType"> | number
     userId?: IntFilter<"MembersFoodType"> | number
     foodTypeId?: IntFilter<"MembersFoodType"> | number
+    deletedAt?: StringNullableFilter<"MembersFoodType"> | string | null
     members?: XOR<MembersScalarRelationFilter, MembersWhereInput>
     foodType?: XOR<FoodTypeScalarRelationFilter, FoodTypeWhereInput>
   }
@@ -13200,8 +13220,10 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     foodTypeId?: SortOrder
+    deletedAt?: SortOrderInput | SortOrder
     members?: MembersOrderByWithRelationInput
     foodType?: FoodTypeOrderByWithRelationInput
+    _relevance?: MembersFoodTypeOrderByRelevanceInput
   }
 
   export type MembersFoodTypeWhereUniqueInput = Prisma.AtLeast<{
@@ -13211,6 +13233,7 @@ export namespace Prisma {
     NOT?: MembersFoodTypeWhereInput | MembersFoodTypeWhereInput[]
     userId?: IntFilter<"MembersFoodType"> | number
     foodTypeId?: IntFilter<"MembersFoodType"> | number
+    deletedAt?: StringNullableFilter<"MembersFoodType"> | string | null
     members?: XOR<MembersScalarRelationFilter, MembersWhereInput>
     foodType?: XOR<FoodTypeScalarRelationFilter, FoodTypeWhereInput>
   }, "id">
@@ -13219,6 +13242,7 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     foodTypeId?: SortOrder
+    deletedAt?: SortOrderInput | SortOrder
     _count?: MembersFoodTypeCountOrderByAggregateInput
     _avg?: MembersFoodTypeAvgOrderByAggregateInput
     _max?: MembersFoodTypeMaxOrderByAggregateInput
@@ -13233,6 +13257,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"MembersFoodType"> | number
     userId?: IntWithAggregatesFilter<"MembersFoodType"> | number
     foodTypeId?: IntWithAggregatesFilter<"MembersFoodType"> | number
+    deletedAt?: StringNullableWithAggregatesFilter<"MembersFoodType"> | string | null
   }
 
   export type FoodTypeWhereInput = {
@@ -13849,6 +13874,7 @@ export namespace Prisma {
   }
 
   export type MembersFoodTypeCreateInput = {
+    deletedAt?: string | null
     members: MembersCreateNestedOneWithoutMembersFoodTypesInput
     foodType: FoodTypeCreateNestedOneWithoutMembersFoodTypesInput
   }
@@ -13857,9 +13883,11 @@ export namespace Prisma {
     id?: number
     userId: number
     foodTypeId: number
+    deletedAt?: string | null
   }
 
   export type MembersFoodTypeUpdateInput = {
+    deletedAt?: NullableStringFieldUpdateOperationsInput | string | null
     members?: MembersUpdateOneRequiredWithoutMembersFoodTypesNestedInput
     foodType?: FoodTypeUpdateOneRequiredWithoutMembersFoodTypesNestedInput
   }
@@ -13868,22 +13896,25 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
     foodTypeId?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type MembersFoodTypeCreateManyInput = {
     id?: number
     userId: number
     foodTypeId: number
+    deletedAt?: string | null
   }
 
   export type MembersFoodTypeUpdateManyMutationInput = {
-
+    deletedAt?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type MembersFoodTypeUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
     foodTypeId?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type FoodTypeCreateInput = {
@@ -14549,6 +14580,21 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type MembersScalarRelationFilter = {
     is?: MembersWhereInput
     isNot?: MembersWhereInput
@@ -14559,10 +14605,22 @@ export namespace Prisma {
     isNot?: FoodTypeWhereInput
   }
 
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type MembersFoodTypeOrderByRelevanceInput = {
+    fields: MembersFoodTypeOrderByRelevanceFieldEnum | MembersFoodTypeOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
   export type MembersFoodTypeCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
     foodTypeId?: SortOrder
+    deletedAt?: SortOrder
   }
 
   export type MembersFoodTypeAvgOrderByAggregateInput = {
@@ -14575,18 +14633,38 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     foodTypeId?: SortOrder
+    deletedAt?: SortOrder
   }
 
   export type MembersFoodTypeMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
     foodTypeId?: SortOrder
+    deletedAt?: SortOrder
   }
 
   export type MembersFoodTypeSumOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
     foodTypeId?: SortOrder
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type StoreListRelationFilter = {
@@ -14906,11 +14984,6 @@ export namespace Prisma {
     isNot?: MissionsWhereInput
   }
 
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
-  }
-
   export type AcceptedMissionsOrderByRelevanceInput = {
     fields: AcceptedMissionsOrderByRelevanceFieldEnum | AcceptedMissionsOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -15225,6 +15298,10 @@ export namespace Prisma {
     create?: XOR<FoodTypeCreateWithoutMembersFoodTypesInput, FoodTypeUncheckedCreateWithoutMembersFoodTypesInput>
     connectOrCreate?: FoodTypeCreateOrConnectWithoutMembersFoodTypesInput
     connect?: FoodTypeWhereUniqueInput
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type MembersUpdateOneRequiredWithoutMembersFoodTypesNestedInput = {
@@ -15900,6 +15977,50 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[]
@@ -15941,24 +16062,15 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type MembersFoodTypeCreateWithoutMembersInput = {
+    deletedAt?: string | null
     foodType: FoodTypeCreateNestedOneWithoutMembersFoodTypesInput
   }
 
   export type MembersFoodTypeUncheckedCreateWithoutMembersInput = {
     id?: number
     foodTypeId: number
+    deletedAt?: string | null
   }
 
   export type MembersFoodTypeCreateOrConnectWithoutMembersInput = {
@@ -16063,6 +16175,7 @@ export namespace Prisma {
     id?: IntFilter<"MembersFoodType"> | number
     userId?: IntFilter<"MembersFoodType"> | number
     foodTypeId?: IntFilter<"MembersFoodType"> | number
+    deletedAt?: StringNullableFilter<"MembersFoodType"> | string | null
   }
 
   export type AcceptedMissionsUpsertWithWhereUniqueWithoutMembersInput = {
@@ -16255,12 +16368,14 @@ export namespace Prisma {
   }
 
   export type MembersFoodTypeCreateWithoutFoodTypeInput = {
+    deletedAt?: string | null
     members: MembersCreateNestedOneWithoutMembersFoodTypesInput
   }
 
   export type MembersFoodTypeUncheckedCreateWithoutFoodTypeInput = {
     id?: number
     userId: number
+    deletedAt?: string | null
   }
 
   export type MembersFoodTypeCreateOrConnectWithoutFoodTypeInput = {
@@ -17279,6 +17394,7 @@ export namespace Prisma {
   export type MembersFoodTypeCreateManyMembersInput = {
     id?: number
     foodTypeId: number
+    deletedAt?: string | null
   }
 
   export type AcceptedMissionsCreateManyMembersInput = {
@@ -17303,17 +17419,20 @@ export namespace Prisma {
   }
 
   export type MembersFoodTypeUpdateWithoutMembersInput = {
+    deletedAt?: NullableStringFieldUpdateOperationsInput | string | null
     foodType?: FoodTypeUpdateOneRequiredWithoutMembersFoodTypesNestedInput
   }
 
   export type MembersFoodTypeUncheckedUpdateWithoutMembersInput = {
     id?: IntFieldUpdateOperationsInput | number
     foodTypeId?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type MembersFoodTypeUncheckedUpdateManyWithoutMembersInput = {
     id?: IntFieldUpdateOperationsInput | number
     foodTypeId?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AcceptedMissionsUpdateWithoutMembersInput = {
@@ -17379,6 +17498,7 @@ export namespace Prisma {
   export type MembersFoodTypeCreateManyFoodTypeInput = {
     id?: number
     userId: number
+    deletedAt?: string | null
   }
 
   export type StoreCreateManyFoodTypeInput = {
@@ -17391,17 +17511,20 @@ export namespace Prisma {
   }
 
   export type MembersFoodTypeUpdateWithoutFoodTypeInput = {
+    deletedAt?: NullableStringFieldUpdateOperationsInput | string | null
     members?: MembersUpdateOneRequiredWithoutMembersFoodTypesNestedInput
   }
 
   export type MembersFoodTypeUncheckedUpdateWithoutFoodTypeInput = {
     id?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type MembersFoodTypeUncheckedUpdateManyWithoutFoodTypeInput = {
     id?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type StoreUpdateWithoutFoodTypeInput = {

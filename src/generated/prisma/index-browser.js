@@ -133,7 +133,8 @@ exports.Prisma.MembersScalarFieldEnum = {
 exports.Prisma.MembersFoodTypeScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  foodTypeId: 'foodTypeId'
+  foodTypeId: 'foodTypeId',
+  deletedAt: 'deletedAt'
 };
 
 exports.Prisma.FoodTypeScalarFieldEnum = {
@@ -216,6 +217,15 @@ exports.Prisma.MembersOrderByRelevanceFieldEnum = {
   phoneNumber: 'phoneNumber'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
+exports.Prisma.MembersFoodTypeOrderByRelevanceFieldEnum = {
+  deletedAt: 'deletedAt'
+};
+
 exports.Prisma.FoodTypeOrderByRelevanceFieldEnum = {
   name: 'name',
   storeTypeName: 'storeTypeName'
@@ -234,11 +244,6 @@ exports.Prisma.StoreOrderByRelevanceFieldEnum = {
 
 exports.Prisma.LocationsOrderByRelevanceFieldEnum = {
   name: 'name'
-};
-
-exports.Prisma.NullsOrder = {
-  first: 'first',
-  last: 'last'
 };
 
 exports.Prisma.AcceptedMissionsOrderByRelevanceFieldEnum = {

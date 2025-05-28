@@ -38,6 +38,7 @@ model MembersFoodType {
   id Int @id @default(autoincrement())
   userId Int @map("user_id")
   foodTypeId Int @map("food_type_id")
+  deletedAt String? @map("deleted_at")
 
   members Members @relation(fields: [userId], references: [id])
   foodType FoodType @relation(fields: [foodTypeId], references: [id])
