@@ -13,6 +13,7 @@ import {
 } from "../services/mission.service.js";
 
 export const handleCreateMission = async (req, res, next) => {
+  // #review Swagger: 미션 추가 API
   /*
     #swagger.summary = '새로운 미션 추가 API'
     #swagger.parameters['storeId'] = {
@@ -90,6 +91,7 @@ export const handleCreateMission = async (req, res, next) => {
     }
   }
   */
+  // #endregion
   console.log("새로운 미션이 추가되었습니다!");
   console.log("body:", req.body); // 값이 잘 들어오나 확인하기 위한 테스트용
 

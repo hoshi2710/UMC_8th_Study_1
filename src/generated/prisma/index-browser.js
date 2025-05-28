@@ -197,6 +197,13 @@ exports.Prisma.CompletedMissionsScalarFieldEnum = {
   completedAt: 'completedAt'
 };
 
+exports.Prisma.SessionScalarFieldEnum = {
+  id: 'id',
+  sid: 'sid',
+  data: 'data',
+  expiresAt: 'expiresAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -237,6 +244,12 @@ exports.Prisma.NullsOrder = {
 exports.Prisma.AcceptedMissionsOrderByRelevanceFieldEnum = {
   verificationCode: 'verificationCode'
 };
+
+exports.Prisma.SessionOrderByRelevanceFieldEnum = {
+  id: 'id',
+  sid: 'sid',
+  data: 'data'
+};
 exports.Gender = exports.$Enums.Gender = {
   M: 'M',
   F: 'F'
@@ -252,7 +265,8 @@ exports.Prisma.ModelName = {
   StoreStatus: 'StoreStatus',
   Missions: 'Missions',
   AcceptedMissions: 'AcceptedMissions',
-  CompletedMissions: 'CompletedMissions'
+  CompletedMissions: 'CompletedMissions',
+  Session: 'Session'
 };
 
 /**
